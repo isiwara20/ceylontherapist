@@ -1,0 +1,11 @@
+# Ceylon Therapist Apache Rewrite & Directory Protection
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /ceylontherapist/
+
+    # Prevent direct HTTP access to configuration, views, and storage logs
+    RewriteRule ^(config|bll|dal|views|storage/logs)/ - [F,L]
+</IfModule>

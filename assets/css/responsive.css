@@ -1,0 +1,14 @@
+/* Responsive CSS Breakpoints */
+
+@media (max-width: 992px) {
+    .hero-title { font-size: 2.6rem; }
+    .grid-2-col { grid-template-columns: 1fr; }
+    .footer-container { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; gap: 15px; }
+    .public-nav .nav-list { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .hero-title { font-size: 2.1rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+}

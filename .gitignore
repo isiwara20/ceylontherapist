@@ -1,0 +1,7 @@
+/storage/logs/*.log
+/storage/uploads/services/*
+!/storage/uploads/services/.gitkeep
+/storage/uploads/packages/*
+!/storage/uploads/packages/.gitkeep
+.DS_Store
+Thumbs.db

@@ -66,8 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         '.experience-card, .feature-card, .step-card, .testimonial-card, ' +
         '.sanctuary-grid, .for-her-grid, .couples-grid, ' +
         '.fh-card, .fh-benefit-item, .fh-testimonial-grid, .fh-booking-grid, ' +
-        '.treatment-card, .fh-trust-strip'
+        '.treatment-card, .fh-trust-strip, ' +
+        '.cp-card, .cp-moment-item, .cp-sanctuary-grid, .cp-trust-card, .cp-booking-panel'
     );
+
 
     
     if ('IntersectionObserver' in window) {

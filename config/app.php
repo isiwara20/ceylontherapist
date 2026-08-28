@@ -9,14 +9,25 @@ declare(strict_types=1);
 define('APP_NAME', env('APP_NAME', 'Ceylon Therapist'));
 define('APP_TAGLINE', 'Premium Therapist & Wellness Services in Sri Lanka');
 
-// Base URL configuration for XAMPP environment
-// Auto-detect base URL or set fixed default for localhost
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
-$baseDir = rtrim($scriptDir, '/');
+// Base URL configuration for XAMPP / Production environment
+$envAppUrl = function_exists('env') ? env('APP_URL') : null;
+if (!empty($envAppUrl) && $envAppUrl !== 'http://localhost') {
+    define('BASE_URL', rtrim((string)$envAppUrl, '/'));
+} else {
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+    
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    $scriptDir = str_replace('\\', '/', dirname($scriptName));
+    
+    if ($scriptDir === '.' || $scriptDir === '/' || $scriptDir === '\\') {
+        $baseDir = '';
+    } else {
+        $baseDir = '/' . trim($scriptDir, '/');
+    }
 
-define('BASE_URL', $protocol . '://' . $host . ($baseDir ? $baseDir : ''));
+    define('BASE_URL', rtrim($protocol . '://' . $host . $baseDir, '/'));
+}
 
 if (!defined('BASE_PATH')) {
     define('BASE_PATH', dirname(__DIR__));

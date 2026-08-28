@@ -8,9 +8,8 @@
             </a>
             <p class="footer-brand-desc">Private wellness experiences designed around relaxation, comfort and personal well-being in Sri Lanka.</p>
             <div class="footer-socials">
-                <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.me/94771234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:<?= DEFAULT_BUSINESS_EMAIL ?>" aria-label="Email" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
         
@@ -29,14 +28,14 @@
         <div class="footer-col contact-col">
             <h4 class="footer-title">Contact & Location</h4>
             <p class="contact-item"><i class="fa-solid fa-location-dot gold-icon"></i> Sri Lanka</p>
-            <p class="contact-item"><i class="fa-solid fa-phone gold-icon"></i> +94 77 123 4567</p>
-            <p class="contact-item"><i class="fa-solid fa-envelope gold-icon"></i> hello@ceylontherapist.lk</p>
+            <p class="contact-item"><i class="fa-solid fa-phone gold-icon"></i> <a href="tel:+<?= DEFAULT_WHATSAPP_NUMBER ?>">+<?= DEFAULT_WHATSAPP_NUMBER ?></a></p>
+            <p class="contact-item"><i class="fa-solid fa-envelope gold-icon"></i> <a href="mailto:<?= DEFAULT_BUSINESS_EMAIL ?>"><?= DEFAULT_BUSINESS_EMAIL ?></a></p>
         </div>
 
         <div class="footer-col booking-col">
             <h4 class="footer-title">Private Reservations</h4>
             <p class="booking-text">Contact us directly via WhatsApp for quick, discreet communication.</p>
-            <a href="https://wa.me/94771234567?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-footer-whatsapp">
+            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-footer-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i> Reserve Privately via WhatsApp
             </a>
         </div>

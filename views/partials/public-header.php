@@ -38,7 +38,7 @@
         </nav>
         
         <div class="header-actions">
-            <a href="https://wa.me/94771234567?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-reserve-gold">
+            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-reserve-gold">
                 <i class="fa-brands fa-whatsapp"></i> <span>RESERVE PRIVATELY</span>
             </a>
             <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">

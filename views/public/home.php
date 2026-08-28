@@ -19,7 +19,7 @@
         </p>
         <div class="hero-actions">
             <a href="<?= baseUrl('treatments.php') ?>" class="btn-hero-primary">EXPLORE TREATMENTS</a>
-            <a href="https://wa.me/94771234567?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
                 <i class="fa-brands fa-whatsapp"></i> RESERVE PRIVATELY
             </a>
         </div>
@@ -381,7 +381,7 @@
         <p class="final-cta-sub">Choose your preferred experience and contact us privately through WhatsApp.</p>
         
         <div class="final-cta-buttons">
-            <a href="https://wa.me/94771234567?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
                 <i class="fa-brands fa-whatsapp"></i> RESERVE PRIVATELY
             </a>
             <a href="<?= baseUrl('contact.php') ?>" class="btn-hero-primary">CONTACT US</a>

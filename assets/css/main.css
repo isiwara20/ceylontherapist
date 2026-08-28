@@ -1291,3 +1291,345 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.78rem;
     text-transform: uppercase;
 }
+
+/* ==========================================================================
+   12. INNER PAGE SHARED BANNER
+   ========================================================================== */
+
+/* Generic inner-page banner used by about, contact etc. */
+.page-banner {
+    padding: 140px 0 70px 0;
+    background: linear-gradient(135deg, #070707 0%, #0D0D0D 60%, #120508 100%);
+    border-bottom: 1px solid var(--color-border-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(213, 166, 83, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.page-banner h1 {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-cream);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.page-banner p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   13. TREATMENTS PAGE
+   ========================================================================== */
+
+/* ----- Page Banner ----- */
+.page-banner-treatments {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        135deg,
+        #070707 0%,
+        #0D0D0D 40%,
+        #120508 70%,
+        #070707 100%
+    );
+    border-bottom: 1px solid var(--color-border-gold);
+    padding-top: 150px;
+    padding-bottom: 90px;
+    overflow: hidden;
+}
+
+.page-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 50%, rgba(213, 166, 83, 0.07) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(66, 16, 24, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.page-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.page-banner-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+.page-banner-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ----- Treatments Section ----- */
+.treatments-section {
+    background-color: var(--color-main-black);
+}
+
+/* ----- Treatments Grid ----- */
+.treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* ----- Treatment Card ----- */
+.treatment-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.treatment-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), var(--shadow-gold-glow);
+}
+
+.treatment-card-img-box {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.treatment-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+.treatment-card:hover .treatment-card-img {
+    transform: scale(1.08);
+}
+
+.treatment-card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(7, 7, 7, 0.92) 100%);
+}
+
+.treatment-duration-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(7, 7, 7, 0.8);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-soft-gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ----- Treatment Badges ----- */
+.treatment-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 3px;
+    border: 1px solid var(--color-border-gold);
+    background: rgba(213, 166, 83, 0.1);
+    color: var(--color-champagne-gold);
+    margin-bottom: 14px;
+}
+
+.treatment-badge.badge-rose {
+    border-color: rgba(232, 155, 167, 0.4);
+    background: rgba(66, 16, 24, 0.4);
+    color: #E89BA7;
+}
+
+.treatment-badge.badge-couples {
+    border-color: var(--color-champagne-gold);
+    background: rgba(213, 166, 83, 0.12);
+    color: var(--color-champagne-gold);
+}
+
+/* ----- Card Body ----- */
+.treatment-card-body {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.treatment-card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-cream);
+    margin-bottom: 12px;
+    line-height: 1.3;
+    font-family: var(--font-heading);
+}
+
+.treatment-card-desc {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+/* ----- Book Treatment Button ----- */
+.btn-book-treatment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 14px 24px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.2);
+    margin-top: auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-book-treatment:hover {
+    background: linear-gradient(135deg, #2BF076 0%, #128C7E 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    color: #FFFFFF;
+}
+
+/* ----- Empty State ----- */
+.treatments-empty {
+    padding: 100px 40px;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.empty-icon-box {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.08);
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-champagne-gold);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px auto;
+}
+
+.treatments-empty h3 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    color: var(--color-cream);
+}
+
+.treatments-empty p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 36px;
+}
+
+/* ----- Treatments CTA Section ----- */
+.treatments-cta-section {
+    background: linear-gradient(
+        135deg,
+        #0A0606 0%,
+        #1A0A0E 30%,
+        #421018 60%,
+        #1A0A0E 80%,
+        #070707 100%
+    );
+    border-top: 1px solid rgba(104, 26, 38, 0.4);
+    border-bottom: 1px solid rgba(213, 166, 83, 0.1);
+    padding: 90px 0;
+}
+
+.treatments-cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.treatments-cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 16px 0;
+    line-height: 1.2;
+}
+
+.treatments-cta-sub {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: 36px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.treatments-cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.treatments-cta-meta {
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+    opacity: 0.75;
+}
+
+/* Utility */
+.mt-15 { margin-top: 15px; }
+.mt-30 { margin-top: 30px; }
+

@@ -26,23 +26,30 @@ class Database
     public static function getConnection(): PDO
     {
         if (self::$instance === null) {
+            $host = (string)env('DB_HOST', 'localhost');
+            $port = (int)env('DB_PORT', 3306);
+            $dbName = (string)env('DB_DATABASE', 'ceylon_therapist');
+            $username = (string)env('DB_USERNAME', 'root');
+            $password = (string)env('DB_PASSWORD', '');
+            $charset = (string)env('DB_CHARSET', 'utf8mb4');
+
             $dsn = sprintf(
                 "mysql:host=%s;port=%d;dbname=%s;charset=%s",
-                self::$host,
-                self::$port,
-                self::$dbName,
-                self::$charset
+                $host,
+                $port,
+                $dbName,
+                $charset
             );
 
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 PDO::ATTR_EMULATE_PREPARES => false,
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES " . self::$charset
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES " . $charset
             ];
 
             try {
-                self::$instance = new PDO($dsn, self::$username, self::$password, $options);
+                self::$instance = new PDO($dsn, $username, $password, $options);
             } catch (PDOException $e) {
                 // Log error safely in production
                 if (defined('ENVIRONMENT') && ENVIRONMENT === 'development') {

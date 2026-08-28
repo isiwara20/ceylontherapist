@@ -6,7 +6,15 @@ declare(strict_types=1);
  * Ceylon Therapist N-Tier Architecture
  */
 
-// Load Application & Database Configurations
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', dirname(__DIR__));
+}
+
+// Load Environment Loader & Parse .env File
+require_once BASE_PATH . '/helpers/env_helper.php';
+loadEnv(BASE_PATH . '/.env');
+
+// Load Application, Database & Mail Configurations
 require_once __DIR__ . '/app.php';
 require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/mail.php';

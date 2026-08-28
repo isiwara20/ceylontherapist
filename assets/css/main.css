@@ -4177,4 +4177,784 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* ==========================================================================
+   17. CONTACT & RESERVATIONS PAGE — LUXURY BOOKING LAYOUT
+   ========================================================================== */
+
+/* ----- Section 17A: Contact Hero ----- */
+.ct-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    padding-top: 140px;
+    padding-bottom: 70px;
+    overflow: hidden;
+}
+
+.ct-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.ct-hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transform: scale(1.03);
+    transition: transform 10s ease;
+}
+
+.ct-hero:hover .ct-hero-bg-img {
+    transform: scale(1.0);
+}
+
+.ct-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        rgba(7, 7, 7, 0.96) 0%,
+        rgba(13, 13, 13, 0.88) 35%,
+        rgba(7, 7, 7, 0.72) 60%,
+        rgba(7, 7, 7, 0.35) 100%
+    );
+}
+
+.ct-hero-gold-glow {
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(213, 166, 83, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ct-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 700px;
+}
+
+.ct-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+    margin-bottom: 20px;
+}
+
+.ct-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    color: var(--color-cream);
+}
+
+.ct-hero-body {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: rgba(243, 235, 221, 0.85);
+    margin-bottom: 40px;
+    max-width: 560px;
+}
+
+.ct-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+.ct-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    text-decoration: none;
+}
+
+.ct-btn-primary:hover {
+    background: linear-gradient(135deg, #2BF076 0%, #128C7E 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    color: #FFFFFF;
+}
+
+.ct-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 32px;
+    border: 1px solid var(--color-champagne-gold);
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    background: rgba(7, 7, 7, 0.4);
+    backdrop-filter: blur(4px);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+}
+
+.ct-btn-secondary:hover {
+    background: var(--color-champagne-gold);
+    color: #070707;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold-glow);
+}
+
+.ct-hero-accent-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border-gold);
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ----- Section 17B: 4-Step Booking Journey ----- */
+.ct-journey-section {
+    background-color: var(--color-soft-black);
+    border-top: 1px solid rgba(213, 166, 83, 0.15);
+    border-bottom: 1px solid rgba(213, 166, 83, 0.15);
+}
+
+.ct-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.ct-step-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 10px;
+    padding: 36px 24px;
+    text-align: center;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.ct-step-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), var(--shadow-gold-glow);
+}
+
+.ct-step-num {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: rgba(213, 166, 83, 0.25);
+}
+
+.ct-step-icon-wrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.1);
+    border: 1px solid var(--color-border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    font-size: 1.35rem;
+    color: var(--color-champagne-gold);
+    transition: var(--transition-smooth);
+}
+
+.ct-step-card:hover .ct-step-icon-wrap {
+    background: rgba(213, 166, 83, 0.22);
+    border-color: var(--color-champagne-gold);
+}
+
+.ct-step-title {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--color-cream);
+    margin-bottom: 8px;
+}
+
+.ct-step-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+}
+
+/* ----- Section 17C: Main Booking Area (60/40 Split) ----- */
+.ct-booking-section {
+    background-color: var(--color-main-black);
+}
+
+.ct-main-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+/* Booking Form Card */
+.ct-form-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 12px;
+    padding: 48px 42px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.ct-card-header {
+    margin-bottom: 32px;
+}
+
+.ct-form-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 8px 0 6px 0;
+}
+
+.ct-form-sub {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+}
+
+/* Form Controls */
+.ct-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ct-label {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+}
+
+.ct-label .required {
+    color: #E89BA7;
+}
+
+.ct-input,
+.ct-select,
+.ct-textarea {
+    width: 100%;
+    min-height: 52px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(213, 166, 83, 0.28);
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-cream);
+    outline: none;
+    transition: var(--transition-smooth);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ct-select {
+    cursor: pointer;
+    background-color: #0D0D0D;
+}
+
+.ct-select option {
+    background-color: #121212;
+    color: var(--color-cream);
+    padding: 10px;
+}
+
+.ct-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.ct-input:focus,
+.ct-select:focus,
+.ct-textarea:focus {
+    border-color: var(--color-champagne-gold);
+    box-shadow: 0 0 15px rgba(213, 166, 83, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.ct-input::placeholder,
+.ct-textarea::placeholder {
+    color: rgba(170, 162, 154, 0.5);
+}
+
+.ct-error-msg {
+    font-size: 0.78rem;
+    color: #E89BA7;
+    margin-top: 2px;
+}
+
+.ct-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.ct-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.ct-privacy-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    padding: 12px 16px;
+    background: rgba(213, 166, 83, 0.04);
+    border: 1px solid rgba(213, 166, 83, 0.15);
+    border-radius: 6px;
+}
+
+.ct-form-actions {
+    margin-top: 8px;
+}
+
+.ct-btn-submit {
+    width: 100%;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 16px 28px;
+}
+
+.ct-alt-option {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 12px;
+}
+
+.ct-link-gold {
+    color: var(--color-champagne-gold);
+    font-weight: 600;
+    margin-left: 6px;
+    border-bottom: 1px solid rgba(213, 166, 83, 0.3);
+    padding-bottom: 2px;
+}
+
+.ct-link-gold:hover {
+    color: var(--color-soft-gold);
+    border-bottom-color: var(--color-soft-gold);
+}
+
+/* Right Column: Contact Info Card */
+.ct-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.ct-info-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 12px;
+    padding: 42px 36px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.ct-info-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-cream);
+    margin: 8px 0 6px 0;
+}
+
+.ct-info-sub {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin-bottom: 28px;
+}
+
+.ct-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.ct-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(213, 166, 83, 0.12);
+}
+
+.ct-info-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.ct-info-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.1);
+    border: 1px solid var(--color-border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-champagne-gold);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.ct-info-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+    margin-bottom: 4px;
+}
+
+.ct-info-val {
+    font-size: 0.95rem;
+    color: var(--color-cream);
+    line-height: 1.4;
+}
+
+.ct-info-val a {
+    color: var(--color-cream);
+    transition: var(--transition-smooth);
+}
+
+.ct-info-val a:hover {
+    color: var(--color-soft-gold);
+}
+
+/* Map Card */
+.ct-map-card {
+    background: linear-gradient(135deg, rgba(20, 15, 12, 0.95) 0%, rgba(13, 13, 13, 0.98) 100%);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.ct-map-pin {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.12);
+    border: 1px solid var(--color-champagne-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+    color: var(--color-champagne-gold);
+    font-size: 1.4rem;
+}
+
+.ct-map-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-cream);
+    margin-bottom: 6px;
+}
+
+.ct-map-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.ct-btn-map {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+    border: 1px solid var(--color-champagne-gold);
+    padding: 10px 22px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+}
+
+.ct-btn-map:hover {
+    background: var(--color-champagne-gold);
+    color: #070707;
+    box-shadow: var(--shadow-gold-glow);
+}
+
+/* ----- Section 17D: Email Contact Form Section ----- */
+.ct-email-section {
+    background: linear-gradient(
+        160deg,
+        #070707 0%,
+        #0D0D0D 40%,
+        #140E0A 70%,
+        #070707 100%
+    );
+    border-top: 1px solid var(--color-border-gold);
+    border-bottom: 1px solid var(--color-border-gold);
+}
+
+.ct-email-container {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.ct-email-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 12px;
+    padding: 44px 38px;
+    margin-top: 48px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.ct-btn-email-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border: 1px solid var(--color-champagne-gold);
+}
+
+/* ----- Section 17E: Trust Strip (4 Items) ----- */
+.ct-trust-strip {
+    background: rgba(7, 7, 7, 0.95);
+    border-bottom: 1px solid var(--color-border-gold);
+    padding: 48px 0;
+}
+
+.ct-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.ct-trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 12px;
+    border-right: 1px solid rgba(213, 166, 83, 0.12);
+    transition: var(--transition-smooth);
+}
+
+.ct-trust-item:last-child {
+    border-right: none;
+}
+
+.ct-trust-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.1);
+    border: 1px solid var(--color-champagne-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--color-champagne-gold);
+    font-size: 1.25rem;
+    transition: var(--transition-smooth);
+}
+
+.ct-trust-item:hover .ct-trust-icon-box {
+    background: rgba(213, 166, 83, 0.22);
+    transform: translateY(-3px);
+}
+
+.ct-trust-title {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-cream);
+    margin-bottom: 8px;
+}
+
+.ct-trust-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+}
+
+/* ----- Section 17F: Closing Strip ----- */
+.ct-closing-strip {
+    background-color: var(--color-main-black);
+    padding: 50px 0;
+    border-bottom: 1px solid rgba(213, 166, 83, 0.15);
+}
+
+.ct-closing-text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    color: var(--color-cream);
+    margin-bottom: 14px;
+}
+
+.ct-closing-icon {
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   17G. CONTACT RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    .ct-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .ct-trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .ct-trust-item:nth-child(2) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ct-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .ct-form-card {
+        padding: 38px 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ct-hero {
+        min-height: 100svh;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .ct-hero-title {
+        font-size: clamp(2.4rem, 8vw, 3.2rem);
+    }
+
+    .ct-hero-body {
+        font-size: 1.05rem;
+    }
+
+    .ct-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .ct-btn-primary,
+    .ct-btn-secondary {
+        width: 100%;
+        justify-content: center;
+        max-width: 340px;
+    }
+
+    .ct-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .ct-grid-2,
+    .ct-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .ct-trust-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .ct-trust-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(213, 166, 83, 0.12);
+        padding: 20px;
+    }
+
+    .ct-trust-item:last-child {
+        border-bottom: none;
+    }
+
+    .ct-email-card {
+        padding: 32px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ct-hero-accent-badge {
+        display: none;
+    }
+
+    .ct-form-card {
+        padding: 28px 18px;
+    }
+
+    .ct-info-card {
+        padding: 28px 18px;
+    }
+}
+
+
 

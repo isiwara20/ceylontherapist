@@ -51,5 +51,6 @@
 </footer>
 
 <script src="<?= assetUrl('js/main.js') ?>"></script>
+<script src="<?= assetUrl('js/booking.js') ?>"></script>
 </body>
 </html>

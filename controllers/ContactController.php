@@ -22,10 +22,13 @@ class ContactController
     public function index(): void
     {
         $contactInfo = $this->settingsBLL->getContactSettings();
-        $pageTitle = "Contact & Reservations | " . APP_NAME;
+        $serviceBLL = new ServiceBLL();
+        $services = $serviceBLL->getPublicServices();
+        $pageTitle = "Reserve Privately & Contact | " . APP_NAME;
 
         require BASE_PATH . '/views/public/contact.php';
     }
+
 
     /**
      * Handle WhatsApp Booking Submission

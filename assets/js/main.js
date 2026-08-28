@@ -68,8 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
         '.fh-card, .fh-benefit-item, .fh-testimonial-grid, .fh-booking-grid, ' +
         '.treatment-card, .fh-trust-strip, ' +
         '.cp-card, .cp-moment-item, .cp-sanctuary-grid, .cp-trust-card, .cp-booking-panel, ' +
-        '.ab-story-grid, .ab-pillar-card, .ab-gallery-item, .ab-trust-item, .ab-promise-inner, .ab-final-cta-grid'
+        '.ab-story-grid, .ab-pillar-card, .ab-gallery-item, .ab-trust-item, .ab-promise-inner, .ab-final-cta-grid, ' +
+        '.ct-step-card, .ct-form-card, .ct-info-card, .ct-map-card, .ct-email-card, .ct-trust-item, .ct-closing-strip'
     );
+
 
 
 

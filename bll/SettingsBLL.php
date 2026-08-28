@@ -34,7 +34,7 @@ class SettingsBLL
         $contact = $this->settingsDAL->getContactSettings();
         if (!$contact) {
             return [
-                'phone' => '0771234567',
+                'phone' => '0762244114',
                 'whatsapp' => DEFAULT_WHATSAPP_NUMBER,
                 'email' => DEFAULT_BUSINESS_EMAIL,
                 'address' => 'Colombo, Sri Lanka',

@@ -315,7 +315,7 @@
         </div>
 
         <div class="text-center journey-cta-wrapper mt-50">
-            <a href="https://wa.me/94771234567?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-large">
+            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-large">
                 <i class="fa-brands fa-whatsapp"></i> RESERVE PRIVATELY NOW
             </a>
         </div>

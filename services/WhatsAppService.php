@@ -12,7 +12,7 @@ class WhatsAppService
 
     public function __construct(?string $phoneNumber = null)
     {
-        $this->phoneNumber = $phoneNumber ?? (defined('DEFAULT_WHATSAPP_NUMBER') ? DEFAULT_WHATSAPP_NUMBER : '94771234567');
+        $this->phoneNumber = $phoneNumber ?? (defined('DEFAULT_WHATSAPP_NUMBER') ? DEFAULT_WHATSAPP_NUMBER : '94762244114');
     }
 
     /**

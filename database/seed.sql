@@ -47,5 +47,5 @@ ON DUPLICATE KEY UPDATE `title` = VALUES(`title`);
 -- 5. Contact Settings Seed
 -- ---------------------------------------------------
 INSERT INTO `contact_settings` (`id`, `phone`, `whatsapp`, `email`, `address`, `working_hours`) VALUES
-(1, '0771234567', '94771234567', 'info@ceylontherapist.lk', 'Colombo 03, Sri Lanka', 'Mon - Sun: 9:00 AM - 9:00 PM')
-ON DUPLICATE KEY UPDATE `phone` = VALUES(`phone`);
+(1, '0762244114', '94762244114', 'info@ceylontherapist.lk', 'Colombo 03, Sri Lanka', 'Mon - Sun: 9:00 AM - 9:00 PM')
+ON DUPLICATE KEY UPDATE `phone` = VALUES(`phone`), `whatsapp` = VALUES(`whatsapp`);

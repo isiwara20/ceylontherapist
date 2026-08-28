@@ -36,7 +36,7 @@ if (!defined('BASE_PATH')) {
 define('ENVIRONMENT', env('APP_ENV', 'development')); // 'development' or 'production'
 
 // Default Business Contact Configuration
-define('DEFAULT_WHATSAPP_NUMBER', env('DEFAULT_WHATSAPP_NUMBER', '94771234567'));
+define('DEFAULT_WHATSAPP_NUMBER', env('DEFAULT_WHATSAPP_NUMBER', '94762244114'));
 define('DEFAULT_BUSINESS_EMAIL', env('DEFAULT_BUSINESS_EMAIL', 'info@ceylontherapist.lk'));
 define('DEFAULT_CURRENCY', env('DEFAULT_CURRENCY', 'LKR'));
 

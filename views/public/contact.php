@@ -262,7 +262,7 @@
                         <div class="ct-info-content">
                             <h4 class="ct-info-label">CALL US</h4>
                             <p class="ct-info-val">
-                                <a href="tel:<?= e($contactInfo['phone'] ?? '+94771234567') ?>"><?= e($contactInfo['phone'] ?? '+94 77 123 4567') ?></a>
+                                <a href="tel:+<?= e(DEFAULT_WHATSAPP_NUMBER) ?>">+<?= e(DEFAULT_WHATSAPP_NUMBER) ?></a>
                             </p>
                         </div>
                     </div>

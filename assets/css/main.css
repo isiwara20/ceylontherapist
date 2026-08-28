@@ -1633,3 +1633,991 @@ h1, h2, h3, h4, h5, h6 {
 .mt-15 { margin-top: 15px; }
 .mt-30 { margin-top: 30px; }
 
+/* ==========================================================================
+   14. FOR HER PAGE — FULL LUXURY LAYOUT
+   ========================================================================== */
+
+/* ----- Eyebrow variants ----- */
+.fh-eyebrow-rose {
+    color: #E89BA7;
+}
+
+.fh-eyebrow-icon {
+    font-size: 0.75rem;
+    margin-right: 6px;
+    color: #E89BA7;
+}
+
+.fh-section-header {
+    margin-bottom: 64px;
+}
+
+/* ==========================================================================
+   14A. HERO
+   ========================================================================== */
+.fh-hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    padding-top: 130px;
+    padding-bottom: 70px;
+    overflow: hidden;
+}
+
+/* Background image layer */
+.fh-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.fh-hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transform: scale(1.04);
+    transition: transform 9s ease;
+}
+
+.fh-hero:hover .fh-hero-bg-img {
+    transform: scale(1.0);
+}
+
+/* Main directional overlay: heavy left, reveals image right */
+.fh-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        rgba(7, 7, 7, 0.97) 0%,
+        rgba(66, 16, 24, 0.87) 30%,
+        rgba(7, 7, 7, 0.72) 55%,
+        rgba(7, 7, 7, 0.28) 100%
+    );
+}
+
+/* Warm burgundy ambient glow bottom-left */
+.fh-hero-burgundy-glow {
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(104, 26, 38, 0.35) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Content area */
+.fh-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 680px;
+}
+
+.fh-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #E89BA7;
+    margin-bottom: 20px;
+}
+
+.fh-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    color: var(--color-cream);
+}
+
+.fh-hero-body {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: rgba(243, 235, 221, 0.82);
+    margin-bottom: 40px;
+    max-width: 560px;
+}
+
+.fh-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+/* Outline gold button */
+.fh-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 32px;
+    border: 1px solid var(--color-champagne-gold);
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    background: rgba(7, 7, 7, 0.4);
+    backdrop-filter: blur(4px);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+}
+
+.fh-btn-primary:hover {
+    background: var(--color-champagne-gold);
+    color: #070707;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold-glow);
+}
+
+/* Burgundy-gold filled button */
+.fh-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: linear-gradient(135deg, #681A26 0%, #421018 100%);
+    border: 1px solid #E89BA7;
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 18px rgba(104, 26, 38, 0.45);
+    text-decoration: none;
+}
+
+.fh-btn-secondary:hover {
+    background: linear-gradient(135deg, #822232 0%, #681A26 100%);
+    border-color: var(--color-soft-gold);
+    color: var(--color-soft-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(104, 26, 38, 0.65);
+}
+
+/* Floating accent badge */
+.fh-hero-accent-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border-gold);
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   14B. TREATMENT CARDS SECTION
+   ========================================================================== */
+.fh-treatment-section {
+    background-color: var(--color-soft-black);
+    border-top: 1px solid rgba(104, 26, 38, 0.3);
+}
+
+.fh-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 64px;
+}
+
+/* Individual Card */
+.fh-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.fh-card:hover {
+    border-color: rgba(232, 155, 167, 0.55);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 25px rgba(232, 155, 167, 0.12);
+}
+
+/* Card image */
+.fh-card-img-box {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+}
+
+.fh-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+.fh-card:hover .fh-card-img {
+    transform: scale(1.08);
+}
+
+.fh-card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(66, 16, 24, 0.15) 0%,
+        transparent 35%,
+        rgba(7, 7, 7, 0.92) 100%
+    );
+}
+
+/* Duration tag floating top-right */
+.fh-card-duration-tag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(7, 7, 7, 0.8);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-soft-gold);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Card body */
+.fh-card-body {
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Line icon wrapper */
+.fh-card-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(232, 155, 167, 0.08);
+    border: 1px solid rgba(232, 155, 167, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: #E89BA7;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.fh-card:hover .fh-card-icon-wrap {
+    background: rgba(232, 155, 167, 0.18);
+    border-color: #E89BA7;
+}
+
+.fh-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-cream);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.fh-card-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    flex-grow: 1;
+    margin-bottom: 24px;
+}
+
+/* Learn More arrow link */
+.fh-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+    border-bottom: 1px solid rgba(213, 166, 83, 0.3);
+    padding-bottom: 4px;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    width: fit-content;
+}
+
+.fh-card-btn:hover {
+    color: var(--color-soft-gold);
+    border-bottom-color: var(--color-soft-gold);
+    gap: 14px;
+}
+
+/* ==========================================================================
+   14C. DB SERVICES LIST
+   ========================================================================== */
+.fh-db-section {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid var(--color-border-gold);
+}
+
+.fh-db-heading {
+    font-size: 2rem;
+}
+
+.fh-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--color-border-gold);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.fh-service-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 28px;
+    background: var(--color-card-bg);
+    border-bottom: 1px solid var(--color-border-gold);
+    transition: var(--transition-smooth);
+}
+
+.fh-service-row:last-child {
+    border-bottom: none;
+}
+
+.fh-service-row:hover {
+    background: rgba(66, 16, 24, 0.25);
+}
+
+.fh-service-info {
+    flex: 1;
+}
+
+.fh-service-name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--color-cream);
+    margin-bottom: 4px;
+}
+
+.fh-service-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.fh-service-meta {
+    flex-shrink: 0;
+}
+
+.fh-service-duration {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ==========================================================================
+   14D. BENEFITS / WHY WOMEN CHOOSE
+   ========================================================================== */
+.fh-benefits-section {
+    background: linear-gradient(
+        160deg,
+        #070707 0%,
+        #0D0D0D 40%,
+        #120508 70%,
+        #070707 100%
+    );
+    border-top: 1px solid var(--color-border-gold);
+    border-bottom: 1px solid var(--color-border-gold);
+}
+
+.fh-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.fh-benefit-item {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 10px;
+    padding: 36px 22px;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.fh-benefit-item:hover {
+    border-color: rgba(232, 155, 167, 0.45);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 0 0 18px rgba(232, 155, 167, 0.1);
+}
+
+.fh-benefit-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(66, 16, 24, 0.35);
+    border: 1px solid rgba(232, 155, 167, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px auto;
+    font-size: 1.4rem;
+    color: #E89BA7;
+    transition: var(--transition-smooth);
+}
+
+.fh-benefit-item:hover .fh-benefit-icon-box {
+    background: rgba(66, 16, 24, 0.6);
+    border-color: #E89BA7;
+}
+
+.fh-benefit-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-cream);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.fh-benefit-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   14E. TESTIMONIAL SECTION
+   ========================================================================== */
+.fh-testimonial-section {
+    background-color: var(--color-main-black);
+    border-top: 1px solid rgba(104, 26, 38, 0.25);
+}
+
+.fh-testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left image */
+.fh-testimonial-img-box {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(232, 155, 167, 0.25);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.fh-testimonial-img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.fh-testimonial-img-box:hover .fh-testimonial-img {
+    transform: scale(1.04);
+}
+
+.fh-testimonial-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(66, 16, 24, 0.15) 0%, transparent 30%, rgba(7, 7, 7, 0.65) 100%);
+}
+
+.fh-testimonial-img-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(7, 7, 7, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border-gold);
+    padding: 10px 18px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* Right content */
+.fh-testimonial-content {
+    padding: 10px 0;
+}
+
+.fh-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 28px;
+    margin-top: 12px;
+}
+
+.fh-stars .fa-star {
+    color: var(--color-champagne-gold);
+    font-size: 1.1rem;
+}
+
+.fh-stars-sm .fa-star {
+    font-size: 0.85rem;
+}
+
+.fh-testimonial-quote {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-cream);
+    line-height: 1.55;
+    margin-bottom: 32px;
+    border-left: 3px solid rgba(232, 155, 167, 0.4);
+    padding-left: 24px;
+}
+
+.fh-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--color-border-gold);
+}
+
+.fh-author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(66, 16, 24, 0.4);
+    border: 1px solid rgba(232, 155, 167, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #E89BA7;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.fh-author-label {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-cream);
+    margin-bottom: 3px;
+}
+
+.fh-author-tag {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* Mini testimonials */
+.fh-mini-testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fh-mini-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 8px;
+    padding: 18px 20px;
+    transition: var(--transition-smooth);
+}
+
+.fh-mini-card:hover {
+    border-color: rgba(232, 155, 167, 0.4);
+}
+
+.fh-stars-sm {
+    margin-bottom: 10px;
+}
+
+.fh-mini-quote {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    line-height: 1.55;
+    margin-bottom: 8px;
+}
+
+.fh-mini-author {
+    font-size: 0.78rem;
+    color: var(--color-champagne-gold);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   14F. BOOKING CTA SECTION
+   ========================================================================== */
+.fh-booking-section {
+    border: 1px solid rgba(213, 166, 83, 0.2);
+    border-left: none;
+    border-right: none;
+    overflow: hidden;
+}
+
+.fh-booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+}
+
+/* Left text column */
+.fh-booking-text-col {
+    background: linear-gradient(
+        135deg,
+        #0A0606 0%,
+        #1A0A0E 30%,
+        #421018 65%,
+        #1A0A0E 85%,
+        #070707 100%
+    );
+    display: flex;
+    align-items: center;
+    padding: 80px 64px;
+}
+
+.fh-booking-text-inner {
+    max-width: 460px;
+}
+
+.fh-booking-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-cream);
+    margin: 16px 0 20px 0;
+}
+
+.fh-booking-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+}
+
+.fh-booking-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 16px 36px;
+    border-radius: 4px;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.fh-booking-btn:hover {
+    background: linear-gradient(135deg, #2BF076 0%, #128C7E 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+    color: #FFFFFF;
+}
+
+.fh-booking-meta {
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(213, 166, 83, 0.65);
+}
+
+/* Right image column */
+.fh-booking-image-col {
+    position: relative;
+    overflow: hidden;
+}
+
+.fh-booking-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.fh-booking-section:hover .fh-booking-img {
+    transform: scale(1.03);
+}
+
+.fh-booking-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(66, 16, 24, 0.3) 0%, transparent 60%);
+}
+
+/* ==========================================================================
+   14G. TRUST STRIP
+   ========================================================================== */
+.fh-trust-strip {
+    background: rgba(7, 7, 7, 0.95);
+    border-top: 1px solid var(--color-border-gold);
+    border-bottom: 1px solid var(--color-border-gold);
+    padding: 28px 0;
+}
+
+.fh-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    align-items: center;
+}
+
+.fh-trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 12px 8px;
+    border-right: 1px solid rgba(213, 166, 83, 0.12);
+    transition: var(--transition-smooth);
+}
+
+.fh-trust-item:last-child {
+    border-right: none;
+}
+
+.fh-trust-item:hover {
+    color: var(--color-soft-gold);
+}
+
+.fh-trust-icon {
+    font-size: 1.4rem;
+    color: var(--color-champagne-gold);
+    transition: var(--transition-smooth);
+}
+
+.fh-trust-item:hover .fh-trust-icon {
+    color: var(--color-soft-gold);
+    transform: translateY(-3px);
+}
+
+.fh-trust-item span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   14H. FOR HER — RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Large tablet: 3 treatment cards, 3 benefits */
+@media (max-width: 1200px) {
+    .fh-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .fh-benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fh-booking-text-col {
+        padding: 60px 48px;
+    }
+}
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+    .fh-hero-title {
+        font-size: 3.8rem;
+    }
+
+    .fh-testimonial-grid {
+        gap: 40px;
+    }
+
+    .fh-trust-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .fh-trust-item:nth-child(3) {
+        border-right: none;
+    }
+}
+
+/* Tablet portrait: stack everything */
+@media (max-width: 768px) {
+    .fh-hero {
+        min-height: 100svh;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .fh-hero-overlay {
+        background: linear-gradient(
+            170deg,
+            rgba(7, 7, 7, 0.97) 0%,
+            rgba(66, 16, 24, 0.88) 40%,
+            rgba(7, 7, 7, 0.82) 100%
+        );
+    }
+
+    .fh-hero-title {
+        font-size: clamp(2.4rem, 8vw, 3.2rem);
+    }
+
+    .fh-hero-body {
+        font-size: 1.05rem;
+    }
+
+    .fh-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .fh-btn-primary,
+    .fh-btn-secondary {
+        width: 100%;
+        justify-content: center;
+        max-width: 340px;
+    }
+
+    .fh-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .fh-card-img-box {
+        height: 220px;
+    }
+
+    .fh-benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .fh-testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .fh-testimonial-img {
+        height: 340px;
+    }
+
+    .fh-booking-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .fh-booking-image-col {
+        height: 300px;
+    }
+
+    .fh-booking-text-col {
+        padding: 60px 28px;
+    }
+
+    .fh-booking-text-inner {
+        max-width: 100%;
+    }
+
+    .fh-trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .fh-trust-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(213, 166, 83, 0.12);
+        padding: 16px;
+    }
+
+    .fh-trust-item:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+
+    .fh-service-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .fh-hero-accent-badge {
+        display: none;
+    }
+
+    .fh-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fh-mini-testimonials {
+        gap: 14px;
+    }
+
+    .fh-trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fh-trust-item {
+        flex-direction: row;
+        justify-content: center;
+        border-bottom: 1px solid rgba(213, 166, 83, 0.1);
+    }
+
+    .fh-booking-text-col {
+        padding: 48px 20px;
+    }
+
+    .fh-booking-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

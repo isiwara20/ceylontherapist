@@ -62,7 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. Subtle Scroll Reveal Observer
-    const revealElements = document.querySelectorAll('.experience-card, .feature-card, .step-card, .testimonial-card, .sanctuary-grid, .for-her-grid, .couples-grid');
+    const revealElements = document.querySelectorAll(
+        '.experience-card, .feature-card, .step-card, .testimonial-card, ' +
+        '.sanctuary-grid, .for-her-grid, .couples-grid, ' +
+        '.fh-card, .fh-benefit-item, .fh-testimonial-grid, .fh-booking-grid, ' +
+        '.treatment-card, .fh-trust-strip'
+    );
+
     
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {

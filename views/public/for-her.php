@@ -59,124 +59,112 @@
         </div>
 
         <div class="fh-cards-grid">
-
-            <!-- Card 1 — Relax & Reset -->
-            <article class="fh-card" id="fh-card-relax">
-                <div class="fh-card-img-box">
-                    <img src="<?= assetUrl('images/treatment_essential.jpg') ?>" alt="Relax and Reset massage treatment" class="fh-card-img">
-                    <div class="fh-card-img-overlay"></div>
-                    <div class="fh-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 60 Min
-                    </div>
-                </div>
-                <div class="fh-card-body">
-                    <div class="fh-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-wind"></i>
-                    </div>
-                    <h3 class="fh-card-title">Relax &amp; Reset</h3>
-                    <p class="fh-card-desc">A tension-relieving massage designed to melt away stress and help you unwind deeply.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Relax%20and%20Reset%20treatment%20(60%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                        LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Card 2 — Aromatherapy Escape -->
-            <article class="fh-card" id="fh-card-aroma">
-                <div class="fh-card-img-box">
-                    <img src="<?= assetUrl('images/for_her_banner.jpg') ?>" alt="Aromatherapy escape with essential oils" class="fh-card-img">
-                    <div class="fh-card-img-overlay"></div>
-                    <div class="fh-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 90 Min
-                    </div>
-                </div>
-                <div class="fh-card-body">
-                    <div class="fh-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-droplet"></i>
-                    </div>
-                    <h3 class="fh-card-title">Aromatherapy Escape</h3>
-                    <p class="fh-card-desc">Calming essential oils combined with flowing massage techniques to soothe your body and mind.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Aromatherapy%20Escape%20treatment%20(90%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                        LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Card 3 — Glow & Restore -->
-            <article class="fh-card" id="fh-card-glow">
-                <div class="fh-card-img-box">
-                    <img src="<?= assetUrl('images/treatment_signature.jpg') ?>" alt="Glow and restore revitalizing treatment" class="fh-card-img">
-                    <div class="fh-card-img-overlay"></div>
-                    <div class="fh-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 90 Min
-                    </div>
-                </div>
-                <div class="fh-card-body">
-                    <div class="fh-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-gem"></i>
-                    </div>
-                    <h3 class="fh-card-title">Glow &amp; Restore</h3>
-                    <p class="fh-card-desc">Revitalizing care that nourishes your skin, relaxes your muscles and brings back your natural glow.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Glow%20and%20Restore%20treatment%20(90%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                        LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Card 4 — Mindful Calm Session -->
-            <article class="fh-card" id="fh-card-mindful">
-                <div class="fh-card-img-box">
-                    <img src="<?= assetUrl('images/sanctuary_interior.jpg') ?>" alt="Mindful calm full body session" class="fh-card-img">
-                    <div class="fh-card-img-overlay"></div>
-                    <div class="fh-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 120 Min
-                    </div>
-                </div>
-                <div class="fh-card-body">
-                    <div class="fh-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-moon"></i>
-                    </div>
-                    <h3 class="fh-card-title">Mindful Calm Session</h3>
-                    <p class="fh-card-desc">A gentle full-body experience focused on mental clarity, emotional balance and deep rest.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Mindful%20Calm%20Session%20(120%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                        LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-        </div><!-- /fh-cards-grid -->
-
-        <!-- Dynamic DB-driven services (shown if admin has added For Her services) -->
-        <?php if (!empty($services)): ?>
-        <div class="fh-db-section">
-            <div class="section-header text-center" style="margin-bottom:40px;">
-                <span class="section-eyebrow fh-eyebrow-rose">CURRENTLY AVAILABLE</span>
-                <h2 class="section-title fh-db-heading">Book a Session Now</h2>
-                <div class="gold-line-divider"></div>
-            </div>
-            <div class="fh-services-list" role="list">
-                <?php foreach ($services as $service):
+            <?php if (!empty($services)): ?>
+                <?php 
+                $icons = ['fa-wind', 'fa-droplet', 'fa-gem', 'fa-moon', 'fa-spa', 'fa-heart'];
+                $i = 0;
+                foreach ($services as $service): 
+                    $icon = $icons[$i % count($icons)];
+                    $img = mediaUrl($service['image'], 'assets/images/for_her_banner.jpg');
                     $waMsg = urlencode('Hello Ceylon Therapist, I would like to book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) For Her session.');
                     $waLink = 'https://wa.me/' . DEFAULT_WHATSAPP_NUMBER . '?text=' . $waMsg;
+                    $i++;
                 ?>
-                <div class="fh-service-row" role="listitem">
-                    <div class="fh-service-info">
-                        <h4 class="fh-service-name"><?= e($service['name']) ?></h4>
-                        <p class="fh-service-desc"><?= e($service['short_description'] ?? $service['description'] ?? '') ?></p>
-                    </div>
-                    <div class="fh-service-meta">
-                        <span class="fh-service-duration">
-                            <i class="fa-regular fa-clock gold-icon"></i> <?= e($service['duration_minutes']) ?> Min
-                        </span>
-                    </div>
-                    <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="btn-burgundy-gold">
-                        <i class="fa-brands fa-whatsapp"></i> Book
-                    </a>
-                </div>
+                    <article class="fh-card" id="fh-card-<?= (int)$service['id'] ?>">
+                        <div class="fh-card-img-box">
+                            <img src="<?= $img ?>" alt="<?= e($service['name']) ?>" class="fh-card-img">
+                            <div class="fh-card-img-overlay"></div>
+                            <div class="fh-card-duration-tag">
+                                <i class="fa-regular fa-clock"></i> <?= (int)$service['duration_minutes'] ?> Min
+                            </div>
+                        </div>
+                        <div class="fh-card-body">
+                            <div class="fh-card-icon-wrap" aria-hidden="true">
+                                <i class="fa-solid <?= $icon ?>"></i>
+                            </div>
+                            <h3 class="fh-card-title"><?= e($service['name']) ?></h3>
+                            <p class="fh-card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A gentle and restorative experience designed for your total privacy and comfort.') ?></p>
+                            <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="fh-card-btn">
+                                RESERVE PRIVATELY <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                        </div>
+                    </article>
                 <?php endforeach; ?>
-            </div>
-        </div>
-        <?php endif; ?>
+            <?php else: ?>
+                <!-- Default Cards -->
+                <article class="fh-card" id="fh-card-relax">
+                    <div class="fh-card-img-box">
+                        <img src="<?= assetUrl('images/treatment_essential.jpg') ?>" alt="Relax and Reset massage treatment" class="fh-card-img">
+                        <div class="fh-card-img-overlay"></div>
+                        <div class="fh-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 60 Min
+                        </div>
+                    </div>
+                    <div class="fh-card-body">
+                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-wind"></i></div>
+                        <h3 class="fh-card-title">Relax &amp; Reset</h3>
+                        <p class="fh-card-desc">A tension-relieving massage designed to melt away stress and help you unwind deeply.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Relax%20and%20Reset%20treatment%20(60%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
+                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fh-card" id="fh-card-aroma">
+                    <div class="fh-card-img-box">
+                        <img src="<?= assetUrl('images/for_her_banner.jpg') ?>" alt="Aromatherapy escape with essential oils" class="fh-card-img">
+                        <div class="fh-card-img-overlay"></div>
+                        <div class="fh-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 90 Min
+                        </div>
+                    </div>
+                    <div class="fh-card-body">
+                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-droplet"></i></div>
+                        <h3 class="fh-card-title">Aromatherapy Escape</h3>
+                        <p class="fh-card-desc">Calming essential oils combined with flowing massage techniques to soothe your body and mind.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Aromatherapy%20Escape%20treatment%20(90%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
+                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fh-card" id="fh-card-glow">
+                    <div class="fh-card-img-box">
+                        <img src="<?= assetUrl('images/treatment_signature.jpg') ?>" alt="Glow and restore revitalizing treatment" class="fh-card-img">
+                        <div class="fh-card-img-overlay"></div>
+                        <div class="fh-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 90 Min
+                        </div>
+                    </div>
+                    <div class="fh-card-body">
+                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-gem"></i></div>
+                        <h3 class="fh-card-title">Glow &amp; Restore</h3>
+                        <p class="fh-card-desc">Revitalizing care that nourishes your skin, relaxes your muscles and brings back your natural glow.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Glow%20and%20Restore%20treatment%20(90%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
+                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="fh-card" id="fh-card-mindful">
+                    <div class="fh-card-img-box">
+                        <img src="<?= assetUrl('images/sanctuary_interior.jpg') ?>" alt="Mindful calm full body session" class="fh-card-img">
+                        <div class="fh-card-img-overlay"></div>
+                        <div class="fh-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 120 Min
+                        </div>
+                    </div>
+                    <div class="fh-card-body">
+                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-moon"></i></div>
+                        <h3 class="fh-card-title">Mindful Calm Session</h3>
+                        <p class="fh-card-desc">A gentle full-body experience focused on mental clarity, emotional balance and deep rest.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Mindful%20Calm%20Session%20(120%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
+                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+            <?php endif; ?>
+        </div><!-- /fh-cards-grid -->
 
     </div>
 </section>

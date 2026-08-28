@@ -35,9 +35,9 @@
                 foreach ($services as $service):
                     $categoryCode = strtoupper($service['category_code'] ?? 'GENERAL');
 
-                    // Image selection logic
-                    if (!empty($service['image']) && file_exists(BASE_PATH . '/storage/' . $service['image'])) {
-                        $imgSrc = baseUrl('storage/' . $service['image']);
+                    // Dynamic image resolution using mediaUrl helper
+                    if (!empty($service['image'])) {
+                        $imgSrc = mediaUrl($service['image']);
                     } elseif ($categoryCode === 'FOR_HER') {
                         $imgSrc = assetUrl('images/for_her_banner.jpg');
                     } elseif ($categoryCode === 'COUPLES') {

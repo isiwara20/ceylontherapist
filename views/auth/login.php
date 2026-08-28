@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($pageTitle ?? 'Administrator Login | Ceylon Therapist') ?></title>
     
+    <!-- Favicon / Title Logo -->
+    <link rel="icon" type="image/png" href="<?= assetUrl('images/logo.png') ?>">
+    <link rel="shortcut icon" type="image/png" href="<?= assetUrl('images/logo.png') ?>">
+    <link rel="apple-touch-icon" href="<?= assetUrl('images/logo.png') ?>">
+
     <!-- Google Fonts: Inter & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

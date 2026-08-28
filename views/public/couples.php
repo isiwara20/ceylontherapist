@@ -59,124 +59,112 @@
         </div>
 
         <div class="cp-cards-grid">
-
-            <!-- Card 1 — Side-by-Side Massage -->
-            <article class="cp-card" id="cp-card-side-by-side">
-                <div class="cp-card-img-box">
-                    <img src="<?= assetUrl('images/couples_banner.jpg') ?>" alt="Side-by-side synchronized massage for couples" class="cp-card-img">
-                    <div class="cp-card-img-overlay"></div>
-                    <div class="cp-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 60 MINUTES
-                    </div>
-                </div>
-                <div class="cp-card-body">
-                    <div class="cp-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-spa"></i>
-                    </div>
-                    <h3 class="cp-card-title">Side-by-Side Massage</h3>
-                    <p class="cp-card-desc">Relax together with synchronized massage techniques designed to melt away stress and restore balance for both of you.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Side-by-Side%20Massage%20(60%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
-                        VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Card 2 — Romantic Reset -->
-            <article class="cp-card" id="cp-card-romantic-reset">
-                <div class="cp-card-img-box">
-                    <img src="<?= assetUrl('images/sanctuary_interior.jpg') ?>" alt="Romantic reset shared wellness therapy" class="cp-card-img">
-                    <div class="cp-card-img-overlay"></div>
-                    <div class="cp-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 90 MINUTES
-                    </div>
-                </div>
-                <div class="cp-card-body">
-                    <div class="cp-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <h3 class="cp-card-title">Romantic Reset</h3>
-                    <p class="cp-card-desc">A calming full-body experience followed by a soothing shared ritual designed to help you slow down, reconnect and enjoy the moment.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Romantic%20Reset%20(90%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
-                        VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Card 3 — Celebration Ritual -->
-            <article class="cp-card" id="cp-card-celebration-ritual">
-                <div class="cp-card-img-box">
-                    <img src="<?= assetUrl('images/treatment_signature.jpg') ?>" alt="Celebration ritual for couples special moments" class="cp-card-img">
-                    <div class="cp-card-img-overlay"></div>
-                    <div class="cp-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 120 MINUTES
-                    </div>
-                </div>
-                <div class="cp-card-body">
-                    <div class="cp-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-champagne-glasses"></i>
-                    </div>
-                    <h3 class="cp-card-title">Celebration Ritual</h3>
-                    <p class="cp-card-desc">Celebrate meaningful moments with a luxurious therapy experience and carefully prepared touches for two.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Celebration%20Ritual%20(120%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
-                        VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Card 4 — Weekend Escape -->
-            <article class="cp-card" id="cp-card-weekend-escape">
-                <div class="cp-card-img-box">
-                    <img src="<?= assetUrl('images/hero_bg.jpg') ?>" alt="Weekend escape luxury couples wellness sanctuary" class="cp-card-img">
-                    <div class="cp-card-img-overlay"></div>
-                    <div class="cp-card-duration-tag">
-                        <i class="fa-regular fa-clock"></i> 150 MINUTES
-                    </div>
-                </div>
-                <div class="cp-card-body">
-                    <div class="cp-card-icon-wrap" aria-hidden="true">
-                        <i class="fa-solid fa-moon"></i>
-                    </div>
-                    <h3 class="cp-card-title">Weekend Escape</h3>
-                    <p class="cp-card-desc">A deeply restorative experience created for couples who want to unwind, slow down and reconnect away from everyday distractions.</p>
-                    <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Weekend%20Escape%20(150%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
-                        VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </article>
-
-        </div><!-- /cp-cards-grid -->
-
-        <!-- Dynamic DB-driven services (if admin has added specific couples records) -->
-        <?php if (!empty($services)): ?>
-        <div class="cp-db-section">
-            <div class="section-header text-center" style="margin-bottom:40px;">
-                <span class="section-eyebrow">ADDITIONAL PACKAGES</span>
-                <h2 class="section-title cp-db-heading">More Shared Experiences</h2>
-                <div class="gold-line-divider"></div>
-            </div>
-            <div class="cp-services-list" role="list">
-                <?php foreach ($services as $service):
-                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) Couples experience.');
+            <?php if (!empty($services)): ?>
+                <?php 
+                $icons = ['fa-spa', 'fa-heart', 'fa-champagne-glasses', 'fa-moon', 'fa-hands-holding-circle'];
+                $i = 0;
+                foreach ($services as $service): 
+                    $icon = $icons[$i % count($icons)];
+                    $img = mediaUrl($service['image'], 'assets/images/couples_banner.jpg');
+                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to view details and book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) Couples experience.');
                     $waLink = 'https://wa.me/' . DEFAULT_WHATSAPP_NUMBER . '?text=' . $waMsg;
+                    $i++;
                 ?>
-                <div class="cp-service-row" role="listitem">
-                    <div class="cp-service-info">
-                        <h4 class="cp-service-name"><?= e($service['name']) ?></h4>
-                        <p class="cp-service-desc"><?= e($service['short_description'] ?? $service['description'] ?? '') ?></p>
-                    </div>
-                    <div class="cp-service-meta">
-                        <span class="cp-service-duration">
-                            <i class="fa-regular fa-clock gold-icon"></i> <?= e($service['duration_minutes']) ?> Min
-                        </span>
-                    </div>
-                    <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
-                        <i class="fa-brands fa-whatsapp"></i> Reserve
-                    </a>
-                </div>
+                    <article class="cp-card" id="cp-card-<?= (int)$service['id'] ?>">
+                        <div class="cp-card-img-box">
+                            <img src="<?= $img ?>" alt="<?= e($service['name']) ?>" class="cp-card-img">
+                            <div class="cp-card-img-overlay"></div>
+                            <div class="cp-card-duration-tag">
+                                <i class="fa-regular fa-clock"></i> <?= (int)$service['duration_minutes'] ?> MINUTES
+                            </div>
+                        </div>
+                        <div class="cp-card-body">
+                            <div class="cp-card-icon-wrap" aria-hidden="true">
+                                <i class="fa-solid <?= $icon ?>"></i>
+                            </div>
+                            <h3 class="cp-card-title"><?= e($service['name']) ?></h3>
+                            <p class="cp-card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A calm private experience designed for couples to relax, reconnect and unwind together.') ?></p>
+                            <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="cp-card-btn">
+                                RESERVE PRIVATELY <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                        </div>
+                    </article>
                 <?php endforeach; ?>
-            </div>
-        </div>
-        <?php endif; ?>
+            <?php else: ?>
+                <!-- Default Cards -->
+                <article class="cp-card" id="cp-card-side-by-side">
+                    <div class="cp-card-img-box">
+                        <img src="<?= assetUrl('images/couples_banner.jpg') ?>" alt="Side-by-side synchronized massage for couples" class="cp-card-img">
+                        <div class="cp-card-img-overlay"></div>
+                        <div class="cp-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 60 MINUTES
+                        </div>
+                    </div>
+                    <div class="cp-card-body">
+                        <div class="cp-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-spa"></i></div>
+                        <h3 class="cp-card-title">Side-by-Side Massage</h3>
+                        <p class="cp-card-desc">Relax together with synchronized massage techniques designed to melt away stress and restore balance for both of you.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Side-by-Side%20Massage%20(60%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
+                            VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="cp-card" id="cp-card-romantic-reset">
+                    <div class="cp-card-img-box">
+                        <img src="<?= assetUrl('images/sanctuary_interior.jpg') ?>" alt="Romantic reset shared wellness therapy" class="cp-card-img">
+                        <div class="cp-card-img-overlay"></div>
+                        <div class="cp-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 90 MINUTES
+                        </div>
+                    </div>
+                    <div class="cp-card-body">
+                        <div class="cp-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-heart"></i></div>
+                        <h3 class="cp-card-title">Romantic Reset</h3>
+                        <p class="cp-card-desc">A calming full-body experience followed by a soothing shared ritual designed to help you slow down, reconnect and enjoy the moment.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Romantic%20Reset%20(90%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
+                            VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="cp-card" id="cp-card-celebration-ritual">
+                    <div class="cp-card-img-box">
+                        <img src="<?= assetUrl('images/treatment_signature.jpg') ?>" alt="Celebration ritual for couples special moments" class="cp-card-img">
+                        <div class="cp-card-img-overlay"></div>
+                        <div class="cp-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 120 MINUTES
+                        </div>
+                    </div>
+                    <div class="cp-card-body">
+                        <div class="cp-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-champagne-glasses"></i></div>
+                        <h3 class="cp-card-title">Celebration Ritual</h3>
+                        <p class="cp-card-desc">Celebrate meaningful moments with a luxurious therapy experience and carefully prepared touches for two.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Celebration%20Ritual%20(120%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
+                            VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="cp-card" id="cp-card-weekend-escape">
+                    <div class="cp-card-img-box">
+                        <img src="<?= assetUrl('images/hero_bg.jpg') ?>" alt="Weekend escape luxury couples wellness sanctuary" class="cp-card-img">
+                        <div class="cp-card-img-overlay"></div>
+                        <div class="cp-card-duration-tag">
+                            <i class="fa-regular fa-clock"></i> 150 MINUTES
+                        </div>
+                    </div>
+                    <div class="cp-card-body">
+                        <div class="cp-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-moon"></i></div>
+                        <h3 class="cp-card-title">Weekend Escape</h3>
+                        <p class="cp-card-desc">A deeply restorative experience created for couples who want to unwind, slow down and reconnect away from everyday distractions.</p>
+                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20view%20details%20and%20book%20the%20Weekend%20Escape%20(150%20min)%20Couples%20experience." target="_blank" rel="noopener noreferrer" class="cp-card-btn">
+                            VIEW DETAILS <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </article>
+            <?php endif; ?>
+        </div><!-- /cp-cards-grid -->
 
     </div>
 </section>

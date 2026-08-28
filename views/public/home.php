@@ -71,69 +71,98 @@
         </div>
 
         <div class="experiences-grid">
-            <!-- Card 1 -->
-            <div class="experience-card">
-                <div class="card-image-box">
-                    <img src="<?= assetUrl('images/treatment_essential.jpg') ?>" alt="The Essential Escape" class="card-img">
-                    <div class="card-tag">60 Minutes</div>
-                    <div class="card-img-overlay"></div>
+            <?php if (!empty($featuredServices)): ?>
+                <?php 
+                $fallbackImgs = ['treatment_essential.jpg', 'treatment_signature.jpg', 'for_her_banner.jpg', 'couples_banner.jpg'];
+                $idx = 0;
+                foreach ($featuredServices as $service): 
+                    $catCode = strtoupper($service['category_code'] ?? 'GENERAL');
+                    $fallback = $fallbackImgs[$idx % count($fallbackImgs)];
+                    $img = mediaUrl($service['image'], 'assets/images/' . $fallback);
+                    $targetUrl = baseUrl('treatments.php');
+                    if ($catCode === 'FOR_HER') $targetUrl = baseUrl('for-her.php');
+                    elseif ($catCode === 'COUPLES') $targetUrl = baseUrl('couples.php');
+                    $idx++;
+                ?>
+                    <div class="experience-card">
+                        <div class="card-image-box">
+                            <img src="<?= $img ?>" alt="<?= e($service['name']) ?>" class="card-img">
+                            <div class="card-tag <?= $catCode === 'FOR_HER' ? 'tag-burgundy' : ($catCode === 'COUPLES' ? 'tag-gold' : '') ?>">
+                                <?= (int)$service['duration_minutes'] ?> Minutes
+                            </div>
+                            <div class="card-img-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title"><?= e($service['name']) ?></h3>
+                            <p class="card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A focused therapeutic experience designed for deep restorative comfort.') ?></p>
+                            <a href="<?= $targetUrl ?>" class="card-cta-btn">
+                                VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <!-- Default Experiences -->
+                <div class="experience-card">
+                    <div class="card-image-box">
+                        <img src="<?= assetUrl('images/treatment_essential.jpg') ?>" alt="The Essential Escape" class="card-img">
+                        <div class="card-tag">60 Minutes</div>
+                        <div class="card-img-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">The Essential Escape</h3>
+                        <p class="card-desc">A focused relaxation experience designed to refresh your body and calm your mind.</p>
+                        <a href="<?= baseUrl('treatments.php') ?>" class="card-cta-btn">
+                            VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">The Essential Escape</h3>
-                    <p class="card-desc">A focused relaxation experience designed to refresh your body and calm your mind.</p>
-                    <a href="<?= baseUrl('treatments.php') ?>" class="card-cta-btn">
-                        VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="experience-card">
-                <div class="card-image-box">
-                    <img src="<?= assetUrl('images/treatment_signature.jpg') ?>" alt="The Signature Experience" class="card-img">
-                    <div class="card-tag">120 Minutes</div>
-                    <div class="card-img-overlay"></div>
+                <div class="experience-card">
+                    <div class="card-image-box">
+                        <img src="<?= assetUrl('images/treatment_signature.jpg') ?>" alt="The Signature Experience" class="card-img">
+                        <div class="card-tag">120 Minutes</div>
+                        <div class="card-img-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">The Signature Experience</h3>
+                        <p class="card-desc">An extended private session designed for complete relaxation and deeper restoration.</p>
+                        <a href="<?= baseUrl('treatments.php') ?>" class="card-cta-btn">
+                            VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">The Signature Experience</h3>
-                    <p class="card-desc">An extended private session designed for complete relaxation and deeper restoration.</p>
-                    <a href="<?= baseUrl('treatments.php') ?>" class="card-cta-btn">
-                        VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Card 3 -->
-            <div class="experience-card">
-                <div class="card-image-box">
-                    <img src="<?= assetUrl('images/for_her_banner.jpg') ?>" alt="Private Wellness Experience for Her" class="card-img">
-                    <div class="card-tag tag-burgundy">For Her</div>
-                    <div class="card-img-overlay"></div>
+                <div class="experience-card">
+                    <div class="card-image-box">
+                        <img src="<?= assetUrl('images/for_her_banner.jpg') ?>" alt="Private Wellness Experience for Her" class="card-img">
+                        <div class="card-tag tag-burgundy">For Her</div>
+                        <div class="card-img-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Private Wellness Experience</h3>
+                        <p class="card-desc">A thoughtfully designed experience centred around comfort, relaxation and total privacy.</p>
+                        <a href="<?= baseUrl('for-her.php') ?>" class="card-cta-btn">
+                            VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">Private Wellness Experience</h3>
-                    <p class="card-desc">A thoughtfully designed experience centred around comfort, relaxation and total privacy.</p>
-                    <a href="<?= baseUrl('for-her.php') ?>" class="card-cta-btn">
-                        VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Card 4 -->
-            <div class="experience-card">
-                <div class="card-image-box">
-                    <img src="<?= assetUrl('images/couples_banner.jpg') ?>" alt="A Shared Escape for Couples" class="card-img">
-                    <div class="card-tag tag-gold">For Couples</div>
-                    <div class="card-img-overlay"></div>
+                <div class="experience-card">
+                    <div class="card-image-box">
+                        <img src="<?= assetUrl('images/couples_banner.jpg') ?>" alt="A Shared Escape for Couples" class="card-img">
+                        <div class="card-tag tag-gold">For Couples</div>
+                        <div class="card-img-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">A Shared Escape</h3>
+                        <p class="card-desc">A calm private experience designed for couples to relax, reconnect and unwind together.</p>
+                        <a href="<?= baseUrl('couples.php') ?>" class="card-cta-btn">
+                            VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">A Shared Escape</h3>
-                    <p class="card-desc">A calm private experience designed for couples to relax, reconnect and unwind together.</p>
-                    <a href="<?= baseUrl('couples.php') ?>" class="card-cta-btn">
-                        VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>

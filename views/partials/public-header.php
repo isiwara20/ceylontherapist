@@ -6,6 +6,11 @@
     <title><?= e($pageTitle ?? 'Ceylon Therapist | Private Luxury Wellness & Therapy') ?></title>
     <meta name="description" content="Thoughtfully designed private therapeutic experiences created to help you slow down, release tension and return to a state of balance in Sri Lanka.">
     
+    <!-- Favicon / Title Logo -->
+    <link rel="icon" type="image/png" href="<?= assetUrl('images/logo.png') ?>">
+    <link rel="shortcut icon" type="image/png" href="<?= assetUrl('images/logo.png') ?>">
+    <link rel="apple-touch-icon" href="<?= assetUrl('images/logo.png') ?>">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

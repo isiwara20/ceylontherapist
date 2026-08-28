@@ -4,7 +4,7 @@
     <div class="footer-container container">
         <div class="footer-col brand-col">
             <a href="<?= baseUrl('index.php') ?>" class="footer-logo-link">
-                <img src="<?= assetUrl('images/logo.png') ?>" alt="Ceylon Therapist Logo" class="footer-logo-img">
+                <img src="<?= assetUrl('images/logo.png') ?>" alt="Ceylon Therapist Logo" class="footer-logo-img" style="height:48px;max-height:48px;width:auto;max-width:200px;object-fit:contain;display:block;margin-bottom:16px;">
             </a>
             <p class="footer-brand-desc">Private wellness experiences designed around relaxation, comfort and personal well-being in Sri Lanka.</p>
             <div class="footer-socials">

@@ -14,6 +14,16 @@ declare(strict_types=1);
 function baseUrl(string $path = ''): string
 {
     $cleanPath = ltrim($path, '/');
+    
+    if (isset($_SERVER['HTTP_HOST'])) {
+        $scriptName = $_SERVER['SCRIPT_NAME'] ?? ($_SERVER['PHP_SELF'] ?? '');
+        $dir = rtrim(str_replace('\\', '/', dirname($scriptName)), '/');
+        if ($dir !== '' && $dir !== '.') {
+            return $dir . ($cleanPath ? '/' . $cleanPath : '');
+        }
+        return $cleanPath ? $cleanPath : './';
+    }
+
     return rtrim(BASE_URL, '/') . ($cleanPath ? '/' . $cleanPath : '');
 }
 

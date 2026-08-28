@@ -15,15 +15,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= assetUrl('css/main.css') ?>">
-    <link rel="stylesheet" href="<?= assetUrl('css/responsive.css') ?>">
+    <link rel="stylesheet" href="<?= assetUrl('css/main.css') ?>?v=<?= filemtime(BASE_PATH . '/assets/css/main.css') ?>">
+    <link rel="stylesheet" href="<?= assetUrl('css/responsive.css') ?>?v=<?= filemtime(BASE_PATH . '/assets/css/responsive.css') ?>">
 </head>
 <body class="public-body">
 
 <header class="public-header" id="site-header">
     <div class="header-container container">
-        <a href="<?= baseUrl('index.php') ?>" class="brand-logo" aria-label="Ceylon Therapist Home">
-            <img src="<?= assetUrl('images/logo.png') ?>" alt="Ceylon Therapist Logo" class="brand-logo-img">
+        <a href="<?= baseUrl('index.php') ?>" class="brand-logo" aria-label="Ceylon Therapist Home" style="display:inline-flex;align-items:center;max-height:56px;overflow:hidden;flex-shrink:0;">
+            <img src="<?= assetUrl('images/logo.png') ?>" alt="Ceylon Therapist Logo" class="brand-logo-img" style="height:52px;max-height:52px;width:auto;max-width:200px;object-fit:contain;display:block;">
         </a>
         
         <nav class="public-nav" id="public-nav">

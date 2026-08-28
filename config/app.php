@@ -11,13 +11,13 @@ define('APP_TAGLINE', 'Premium Therapist & Wellness Services in Sri Lanka');
 
 // Base URL configuration for XAMPP / Production environment
 $envAppUrl = function_exists('env') ? env('APP_URL') : null;
-if (!empty($envAppUrl) && $envAppUrl !== 'http://localhost') {
+if (!empty($envAppUrl) && strpos((string)$envAppUrl, 'http') === 0 && (string)$envAppUrl !== 'http://localhost' && (string)$envAppUrl !== 'http://localhost/') {
     define('BASE_URL', rtrim((string)$envAppUrl, '/'));
 } else {
     $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
     
-    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? ($_SERVER['PHP_SELF'] ?? '');
     $scriptDir = str_replace('\\', '/', dirname($scriptName));
     
     if ($scriptDir === '.' || $scriptDir === '/' || $scriptDir === '\\') {

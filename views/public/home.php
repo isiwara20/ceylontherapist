@@ -1,3 +1,5 @@
+<?php require BASE_PATH . '/views/partials/public-header.php'; ?>
+
 <!-- Cinematic Hero Section -->
 <section class="hero-section">
     <div class="hero-bg-wrapper">
@@ -388,3 +390,6 @@
         <p class="final-cta-meta">Private &bull; Discreet &bull; Easy Booking</p>
     </div>
 </section>
+
+<?php require BASE_PATH . '/views/partials/public-footer.php'; ?>
+

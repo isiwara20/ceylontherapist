@@ -217,7 +217,8 @@
     }
 
     .brand-logo-img {
-        height: 42px;
+        height: 42px !important;
+        max-height: 42px !important;
     }
 
     .hero-title {

@@ -1,14 +1,241 @@
-/* Responsive CSS Breakpoints */
+/* ==========================================================================
+   CEYLON THERAPIST - RESPONSIVE STYLESHEET
+   Breakpoints: 1200px, 1024px, 768px, 480px, 360px
+   ========================================================================== */
 
-@media (max-width: 992px) {
-    .hero-title { font-size: 2.6rem; }
-    .grid-2-col { grid-template-columns: 1fr; }
-    .footer-container { grid-template-columns: 1fr; gap: 30px; }
+/* Large Desktop (1200px and down) */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .experiences-grid,
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .journey-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .footer-container {
+        grid-template-columns: 1.5fr 1fr 1.2fr 1.5fr;
+        gap: 30px;
+    }
 }
 
+/* Tablet Landscape / Medium Screens (1024px and down) */
+@media (max-width: 1024px) {
+    .public-nav {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: rgba(13, 13, 13, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--color-border-gold);
+        padding: 30px 24px;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 999;
+    }
+
+    .public-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .mobile-toggle.active .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-toggle.active .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .btn-reserve-gold span {
+        display: none;
+    }
+
+    .btn-reserve-gold {
+        padding: 10px 14px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .trust-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .sanctuary-grid,
+    .for-her-grid,
+    .couples-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .for-her-grid {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+/* Tablet Portrait & Mobile Devices (768px and down) */
 @media (max-width: 768px) {
-    .header-container { flex-direction: column; gap: 15px; }
-    .public-nav .nav-list { gap: 15px; flex-wrap: wrap; justify-content: center; }
-    .hero-title { font-size: 2.1rem; }
-    .hero-buttons { flex-direction: column; align-items: center; }
+    .section-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .hero-section {
+        min-height: 85vh;
+        padding-top: 110px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 28px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .experiences-grid,
+    .features-grid,
+    .journey-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .trust-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .trust-item {
+        gap: 10px;
+    }
+
+    .trust-icon-box {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .trust-text strong {
+        font-size: 0.85rem;
+    }
+
+    .trust-text span {
+        font-size: 0.72rem;
+    }
+
+    .sanctuary-badge {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 16px;
+        justify-content: center;
+    }
+
+    .final-cta-title {
+        font-size: 2.4rem;
+    }
+
+    .final-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .footer-bottom-flex {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+/* Small Mobile Screens (430px, 390px, 360px) */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .brand-logo-img {
+        height: 42px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .trust-strip-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .card-image-box,
+    .for-her-img,
+    .couples-img {
+        height: 240px;
+    }
+
+    .final-cta-title {
+        font-size: 2rem;
+    }
 }

@@ -23,6 +23,9 @@ class AdminAuthBLL
      */
     public function login(string $email, string $password): array
     {
+        $email = trim(strtolower($email));
+        $password = trim($password);
+
         if (!validateRequired($email) || !validateRequired($password)) {
             return ['success' => false, 'message' => 'Please enter both email address and password.'];
         }
@@ -43,6 +46,8 @@ class AdminAuthBLL
 
         // Prevent Session Fixation: Regenerate session ID upon successful auth
         session_regenerate_id(true);
+
+        $this->adminDAL->updateLastLogin((int)$admin['id']);
 
         $_SESSION['admin_logged_in'] = true;
         $_SESSION['admin_id'] = (int)$admin['id'];

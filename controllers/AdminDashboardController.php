@@ -7,16 +7,12 @@ declare(strict_types=1);
 
 class AdminDashboardController
 {
-    private ServiceDAL $serviceDAL;
-    private PackageDAL $packageDAL;
-    private EnquiryDAL $enquiryDAL;
+    private DashboardBLL $dashboardBLL;
 
     public function __construct()
     {
         requireAdmin();
-        $this->serviceDAL = new ServiceDAL();
-        $this->packageDAL = new PackageDAL();
-        $this->enquiryDAL = new EnquiryDAL();
+        $this->dashboardBLL = new DashboardBLL();
     }
 
     /**
@@ -25,17 +21,11 @@ class AdminDashboardController
     public function index(): void
     {
         $admin = currentAdmin();
-        $services = $this->serviceDAL->getAllActive();
-        $packages = $this->packageDAL->getAllActive();
-        $recentEnquiries = $this->enquiryDAL->getRecent(5);
+        $stats = $this->dashboardBLL->getDashboardStats();
+        $recentEnquiries = $this->dashboardBLL->getRecentEnquiries(8);
+        $activeServices = $this->dashboardBLL->getActiveServices(5);
 
-        $stats = [
-            'total_services' => count($services),
-            'total_packages' => count($packages),
-            'total_enquiries' => count($recentEnquiries)
-        ];
-
-        $pageTitle = "Admin Dashboard | " . APP_NAME;
+        $pageTitle = "Dashboard | " . APP_NAME;
 
         require BASE_PATH . '/views/admin/dashboard.php';
     }

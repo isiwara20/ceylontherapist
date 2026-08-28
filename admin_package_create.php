@@ -2,10 +2,15 @@
 declare(strict_types=1);
 
 /**
- * Admin Package Create Entry Point
+ * Admin Create Package Entry Point
  */
 
 require_once __DIR__ . '/config/init.php';
 
 $controller = new AdminPackageController();
-$controller->create();
+
+if (isPost()) {
+    $controller->store();
+} else {
+    $controller->create();
+}

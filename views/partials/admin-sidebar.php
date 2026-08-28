@@ -1,93 +1,233 @@
-<?php $admin = currentAdmin(); ?>
-<aside class="admin-sidebar">
+<?php 
+$admin = currentAdmin(); 
+$currentPage = basename($_SERVER['PHP_SELF'] ?? '');
+?>
+
+<!-- Mobile Sidebar Backdrop -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleAdminSidebar()"></div>
+
+<!-- Left Sidebar Navigation -->
+<aside class="admin-sidebar" id="adminSidebar">
+    <!-- Brand Logo Box -->
     <div class="sidebar-brand">
-        <h2>CEYLON</h2>
-        <span class="badge-admin">CONTROL PANEL</span>
+        <a href="<?= baseUrl('admin_dashboard.php') ?>" class="brand-link">
+            <img src="<?= assetUrl('images/logo.png') ?>" alt="Ceylon Therapist" class="admin-sidebar-logo">
+        </a>
+        <span class="badge-portal">ADMIN PORTAL</span>
     </div>
 
-    <div class="admin-user-profile">
-        <img src="https://ui-avatars.com/api/?name=<?= urlencode($admin['name'] ?? 'Admin') ?>&background=8b0000&color=d4af37" alt="Admin Avatar" class="user-avatar">
-        <div class="user-info">
-            <span class="user-name"><?= e($admin['name'] ?? 'Administrator') ?></span>
-            <span class="user-role">System Admin</span>
-        </div>
-    </div>
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav" aria-label="Admin Navigation">
+        <!-- Section: Core -->
+        <div class="nav-section-title">CORE</div>
+        <ul class="nav-group">
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_dashboard.php') ?>" class="nav-link <?= $currentPage === 'admin_dashboard.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-chart-pie nav-icon"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+        </ul>
 
-    <nav class="sidebar-nav">
-        <ul>
-            <li>
-                <a href="<?= baseUrl('admin_dashboard.php') ?>" class="sidebar-link">
-                    <i class="fa-solid fa-chart-line"></i> Dashboard
+        <!-- Section: Website Content -->
+        <div class="nav-section-title">WEBSITE CONTENT</div>
+        <ul class="nav-group">
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_home_content.php') ?>" class="nav-link <?= $currentPage === 'admin_home_content.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-house nav-icon"></i>
+                    <span class="nav-text">Home Page</span>
                 </a>
             </li>
-            <li>
-                <a href="<?= baseUrl('admin_services.php') ?>" class="sidebar-link">
-                    <i class="fa-solid fa-spa"></i> Services & Treatments
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_about_content.php') ?>" class="nav-link <?= $currentPage === 'admin_about_content.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-feather-pointed nav-icon"></i>
+                    <span class="nav-text">About Page</span>
                 </a>
             </li>
-            <li>
-                <a href="<?= baseUrl('admin_packages.php') ?>" class="sidebar-link">
-                    <i class="fa-solid fa-box-open"></i> Packages
+        </ul>
+
+        <!-- Section: Services -->
+        <div class="nav-section-title">SERVICES & EXPERIENCES</div>
+        <ul class="nav-group">
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_services.php') ?>" class="nav-link <?= in_array($currentPage, ['admin_services.php', 'admin_service_create.php', 'admin_service_edit.php']) && !isset($_GET['category']) ? 'active' : '' ?>">
+                    <i class="fa-solid fa-spa nav-icon"></i>
+                    <span class="nav-text">Treatments</span>
                 </a>
             </li>
-            <li>
-                <a href="<?= baseUrl('admin_for_her.php') ?>" class="sidebar-link">
-                    <i class="fa-solid fa-venus"></i> For Her
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_categories.php') ?>" class="nav-link <?= in_array($currentPage, ['admin_categories.php', 'admin_category_create.php', 'admin_category_edit.php']) ? 'active' : '' ?>">
+                    <i class="fa-solid fa-layer-group nav-icon"></i>
+                    <span class="nav-text">Categories</span>
                 </a>
             </li>
-            <li>
-                <a href="<?= baseUrl('admin_couples.php') ?>" class="sidebar-link">
-                    <i class="fa-solid fa-heart"></i> Couples
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_for_her.php') ?>" class="nav-link <?= $currentPage === 'admin_for_her.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-venus nav-icon"></i>
+                    <span class="nav-text">For Her Sanctuary</span>
                 </a>
             </li>
-            <li>
-                <a href="<?= baseUrl('admin_site_settings.php') ?>" class="sidebar-link">
-                    <i class="fa-solid fa-sliders"></i> Site Settings
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_couples.php') ?>" class="nav-link <?= $currentPage === 'admin_couples.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-heart nav-icon"></i>
+                    <span class="nav-text">Couples Rituals</span>
                 </a>
             </li>
-            <li>
-                <a href="<?= baseUrl('admin_contact_settings.php') ?>" class="sidebar-link">
-                    <i class="fa-solid fa-address-book"></i> Contact Details
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_packages.php') ?>" class="nav-link <?= in_array($currentPage, ['admin_packages.php', 'admin_package_create.php', 'admin_package_edit.php']) ? 'active' : '' ?>">
+                    <i class="fa-solid fa-box-open nav-icon"></i>
+                    <span class="nav-text">Packages</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Section: Bookings & Enquiries -->
+        <div class="nav-section-title">RESERVATIONS</div>
+        <ul class="nav-group">
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_enquiries.php') ?>" class="nav-link <?= in_array($currentPage, ['admin_enquiries.php', 'admin_enquiry_view.php']) ? 'active' : '' ?>">
+                    <i class="fa-solid fa-calendar-check nav-icon"></i>
+                    <span class="nav-text">Enquiries & Bookings</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Section: Media -->
+        <div class="nav-section-title">ASSETS</div>
+        <ul class="nav-group">
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_media.php') ?>" class="nav-link <?= $currentPage === 'admin_media.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-images nav-icon"></i>
+                    <span class="nav-text">Media Library</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Section: Settings -->
+        <div class="nav-section-title">SETTINGS</div>
+        <ul class="nav-group">
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_contact_settings.php') ?>" class="nav-link <?= $currentPage === 'admin_contact_settings.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-address-book nav-icon"></i>
+                    <span class="nav-text">Contact Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_site_settings.php') ?>" class="nav-link <?= $currentPage === 'admin_site_settings.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-sliders nav-icon"></i>
+                    <span class="nav-text">Website Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Section: Account -->
+        <div class="nav-section-title">ACCOUNT</div>
+        <ul class="nav-group">
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_profile.php') ?>" class="nav-link <?= $currentPage === 'admin_profile.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-user-gear nav-icon"></i>
+                    <span class="nav-text">My Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= baseUrl('admin_change_password.php') ?>" class="nav-link <?= $currentPage === 'admin_change_password.php' ? 'active' : '' ?>">
+                    <i class="fa-solid fa-key nav-icon"></i>
+                    <span class="nav-text">Change Password</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= baseUrl('logout.php') ?>" class="nav-link nav-logout">
+                    <i class="fa-solid fa-right-from-bracket nav-icon"></i>
+                    <span class="nav-text">Sign Out</span>
                 </a>
             </li>
         </ul>
     </nav>
-
-    <div class="sidebar-footer">
-        <a href="<?= baseUrl('logout.php') ?>" class="btn-logout">
-            <i class="fa-solid fa-right-from-bracket"></i> Sign Out
-        </a>
-    </div>
 </aside>
 
-<div class="admin-main">
+<!-- Main Wrapper -->
+<div class="admin-main-container">
+    <!-- Top Bar Navigation -->
     <header class="admin-topbar">
-        <div class="topbar-title">
-            <h1><?= e($pageTitle ?? 'Dashboard') ?></h1>
+        <div class="topbar-left">
+            <button type="button" class="btn-sidebar-toggle" id="sidebarToggleBtn" onclick="toggleAdminSidebar()" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="topbar-breadcrumbs">
+                <span class="breadcrumb-item"><a href="<?= baseUrl('admin_dashboard.php') ?>"><i class="fa-solid fa-gauge-high"></i> Portal</a></span>
+                <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="breadcrumb-item active"><?= e($pageTitle ?? 'Dashboard') ?></span>
+            </div>
+        </div>
+
+        <div class="topbar-right">
+            <div class="topbar-badge-live">
+                <span class="live-dot"></span>
+                <span>Production Mode</span>
+            </div>
+
+            <!-- Admin Profile Menu -->
+            <div class="admin-profile-pill" onclick="toggleProfileDropdown()">
+                <div class="profile-avatar-circle">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <div class="profile-meta">
+                    <span class="profile-name"><?= e($admin['name'] ?? 'Administrator') ?></span>
+                    <span class="profile-role">Senior Admin</span>
+                </div>
+                <i class="fa-solid fa-chevron-down profile-arrow"></i>
+
+                <!-- Profile Dropdown -->
+                <div class="profile-dropdown-menu" id="profileDropdown">
+                    <a href="<?= baseUrl('admin_profile.php') ?>" class="dropdown-item">
+                        <i class="fa-solid fa-user-gear"></i> My Profile
+                    </a>
+                    <a href="<?= baseUrl('admin_change_password.php') ?>" class="dropdown-item">
+                        <i class="fa-solid fa-key"></i> Change Password
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="<?= baseUrl('logout.php') ?>" class="dropdown-item dropdown-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
-    
-    <div class="admin-content">
+
+    <!-- Content Workspace -->
+    <main class="admin-workspace">
         <?php if (hasFlash('success')): ?>
-            <div class="alert alert-success">
-                <?php foreach (getFlash('success') as $msg): ?>
-                    <p><i class="fa-solid fa-circle-check"></i> <?= e($msg) ?></p>
-                <?php endforeach; ?>
+            <div class="admin-alert admin-alert-success" role="alert">
+                <i class="fa-solid fa-circle-check alert-icon"></i>
+                <div class="alert-content">
+                    <?php foreach (getFlash('success') as $msg): ?>
+                        <p><?= e($msg) ?></p>
+                    <?php endforeach; ?>
+                </div>
+                <button type="button" class="alert-close" onclick="this.parentElement.remove()">&times;</button>
             </div>
         <?php endif; ?>
 
         <?php if (hasFlash('error')): ?>
-            <div class="alert alert-error">
-                <?php foreach (getFlash('error') as $msg): ?>
-                    <p><i class="fa-solid fa-circle-exclamation"></i> <?= e($msg) ?></p>
-                <?php endforeach; ?>
+            <div class="admin-alert admin-alert-error" role="alert">
+                <i class="fa-solid fa-circle-exclamation alert-icon"></i>
+                <div class="alert-content">
+                    <?php foreach (getFlash('error') as $msg): ?>
+                        <p><?= e($msg) ?></p>
+                    <?php endforeach; ?>
+                </div>
+                <button type="button" class="alert-close" onclick="this.parentElement.remove()">&times;</button>
             </div>
         <?php endif; ?>
 
         <?php if (hasFlash('info')): ?>
-            <div class="alert alert-info">
-                <?php foreach (getFlash('info') as $msg): ?>
-                    <p><i class="fa-solid fa-circle-info"></i> <?= e($msg) ?></p>
-                <?php endforeach; ?>
+            <div class="admin-alert admin-alert-info" role="alert">
+                <i class="fa-solid fa-circle-info alert-icon"></i>
+                <div class="alert-content">
+                    <?php foreach (getFlash('info') as $msg): ?>
+                        <p><?= e($msg) ?></p>
+                    <?php endforeach; ?>
+                </div>
+                <button type="button" class="alert-close" onclick="this.parentElement.remove()">&times;</button>
             </div>
         <?php endif; ?>

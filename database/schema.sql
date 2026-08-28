@@ -14,7 +14,9 @@ CREATE TABLE IF NOT EXISTS `admins` (
     `name` VARCHAR(100) NOT NULL,
     `email` VARCHAR(150) NOT NULL UNIQUE,
     `password` VARCHAR(255) NOT NULL,
+    `profile_image` VARCHAR(255) NULL,
     `status` ENUM('ACTIVE', 'INACTIVE') NOT NULL DEFAULT 'ACTIVE',
+    `last_login_at` DATETIME NULL,
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -125,3 +127,18 @@ CREATE TABLE IF NOT EXISTS `enquiries` (
     CONSTRAINT `fk_enquiries_package` FOREIGN KEY (`package_id`) 
         REFERENCES `packages` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ---------------------------------------------------
+-- Table 9: media (Media Library Uploaded Files)
+-- ---------------------------------------------------
+CREATE TABLE IF NOT EXISTS `media` (
+    `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `filename` VARCHAR(255) NOT NULL,
+    `stored_name` VARCHAR(255) NOT NULL,
+    `path` VARCHAR(255) NOT NULL,
+    `mime_type` VARCHAR(100) NOT NULL,
+    `file_size` INT UNSIGNED NOT NULL DEFAULT 0,
+    `alt_text` VARCHAR(255) NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+

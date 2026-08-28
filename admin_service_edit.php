@@ -2,11 +2,21 @@
 declare(strict_types=1);
 
 /**
- * Admin Service Edit Entry Point
+ * Admin Edit Treatment Service Entry Point
  */
 
 require_once __DIR__ . '/config/init.php';
 
-$id = (int)get('id', 0);
 $controller = new AdminServiceController();
-$controller->edit($id);
+$id = (int)get('id', (int)post('id', '0'));
+
+if ($id <= 0) {
+    setFlash('error', 'Invalid treatment ID.');
+    redirect('admin_services.php');
+}
+
+if (isPost()) {
+    $controller->update($id);
+} else {
+    $controller->edit($id);
+}

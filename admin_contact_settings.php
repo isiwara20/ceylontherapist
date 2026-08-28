@@ -8,4 +8,9 @@ declare(strict_types=1);
 require_once __DIR__ . '/config/init.php';
 
 $controller = new AdminSettingsController();
-$controller->index();
+
+if (isPost()) {
+    $controller->updateContactSettings();
+} else {
+    $controller->contactSettings();
+}

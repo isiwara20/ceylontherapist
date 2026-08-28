@@ -21,7 +21,7 @@ class ServiceDAL
      */
     public function getAllActive(): array
     {
-        $sql = "SELECT s.*, c.name AS category_name, c.slug AS category_slug 
+        $sql = "SELECT s.*, c.name AS category_name, c.code AS category_code 
                 FROM services s
                 LEFT JOIN service_categories c ON s.category_id = c.id
                 WHERE s.status = 'ACTIVE'

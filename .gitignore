@@ -1,7 +1,26 @@
-/storage/logs/*.log
+# Environment and sensitive credential files
+.env
+.env.*
+!.env.example
+*.env
+config/*.local.php
+config/db.local.php
+
+# Storage & Log files
+/storage/logs/*
+!/storage/logs/.gitkeep
+*.log
+
+# Uploads
 /storage/uploads/services/*
 !/storage/uploads/services/.gitkeep
 /storage/uploads/packages/*
 !/storage/uploads/packages/.gitkeep
+
+# Operating System & IDE files
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak

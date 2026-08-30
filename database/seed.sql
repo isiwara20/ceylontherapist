@@ -14,7 +14,7 @@ USE `ceylon_therapist`;
 -- Password: admin123
 -- ---------------------------------------------------
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `status`) VALUES
-(1, 'Administrator', 'admin@ceylontherapist.lk', '$2y$10$45zCgL8E0cMsmL4bT5Nq1eU1bT4nS2mK8eO0wR5yU7iP3qW9xZ0y2', 'ACTIVE')
+(1, 'Administrator', 'admin@ceylontherapist.lk', '$2y$10$pOizTZzBDIPigWn15J9PGuAOgBVFZIztTJzOwExmo1wh050VgV7ty', 'ACTIVE')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`);
 
 -- ---------------------------------------------------

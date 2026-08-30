@@ -1353,6 +1353,19 @@ body.admin-body {
     }
 }
 
+/* Admin Portal Footer Base */
+.admin-portal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    background-color: var(--admin-surface);
+    border-top: 1px solid var(--admin-border);
+    color: var(--admin-muted);
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+
 @media (max-width: 768px) {
     .admin-topbar {
         padding: 0 16px;
@@ -1377,6 +1390,14 @@ body.admin-body {
     .admin-portal-footer {
         flex-direction: column;
         gap: 8px;
+        text-align: center;
+        padding: 16px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .admin-portal-footer .footer-left,
+    .admin-portal-footer .footer-right {
         text-align: center;
     }
 }

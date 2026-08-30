@@ -31,7 +31,8 @@ class TreatmentController
     public function forHer(): void
     {
         $services = $this->serviceBLL->getServicesByCategory('FOR_HER');
-        $pageTitle = "For Her - Exclusive Spa & Wellness Packages | " . APP_NAME;
+        $contact = (new SettingsBLL())->getContactSettings();
+        $pageTitle = "For Her - Exclusive Spa & Wellness Sanctuary | " . APP_NAME;
 
         require BASE_PATH . '/views/public/for-her.php';
     }

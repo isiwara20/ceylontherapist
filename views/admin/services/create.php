@@ -4,32 +4,32 @@
 <!-- Page Header -->
 <div class="admin-page-header">
     <div class="page-title-wrap">
-        <h1>Add New Treatment</h1>
-        <p>Create a new wellness therapy experience for the Ceylon Therapist menu.</p>
+        <h1><?= e($pageHeading ?? 'Add New Treatment') ?></h1>
+        <p><?= e($pageSubtitle ?? 'Create a new wellness therapy experience for the Ceylon Therapist menu.') ?></p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">
-            <i class="fa-solid fa-arrow-left"></i> Back to Treatments
+        <a href="<?= $backUrl ?? baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">
+            <i class="fa-solid fa-arrow-left"></i> <?= e($backLabel ?? 'Back to Treatments') ?>
         </a>
     </div>
 </div>
 
 <!-- Form Card -->
 <div class="admin-card">
-    <form action="<?= baseUrl('admin_service_create.php') ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= baseUrl(!empty($selectedCategoryCode) ? ('admin_service_create.php?category=' . urlencode($selectedCategoryCode)) : 'admin_service_create.php') ?>" method="POST" enctype="multipart/form-data">
         <?= CsrfService::getHiddenInput() ?>
 
         <div class="form-grid-2">
             <!-- Treatment Name -->
             <div class="form-group">
-                <label for="name">Treatment Name <span class="required">*</span></label>
-                <input type="text" id="name" name="name" class="admin-input" required placeholder="e.g. Deep Restorative Body Therapy" value="<?= e(post('name', '')) ?>">
+                <label for="name">Treatment / Experience Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" class="admin-input" required placeholder="<?= ($selectedCategoryCode ?? '') === 'FOR_HER' ? 'e.g. Botanical Radiance Body & Facial Ritual' : 'e.g. Deep Restorative Body Therapy' ?>" value="<?= e(post('name', '')) ?>">
             </div>
 
             <!-- Slug -->
             <div class="form-group">
                 <label for="slug">URL Slug <span style="color:var(--admin-muted);font-weight:normal;">(Auto-generated if left empty)</span></label>
-                <input type="text" id="slug" name="slug" class="admin-input" placeholder="e.g. deep-restorative-body-therapy" value="<?= e(post('slug', '')) ?>">
+                <input type="text" id="slug" name="slug" class="admin-input" placeholder="e.g. botanical-radiance-ritual" value="<?= e(post('slug', '')) ?>">
             </div>
         </div>
 
@@ -39,8 +39,15 @@
                 <label for="category_id">Category <span class="required">*</span></label>
                 <select id="category_id" name="category_id" class="admin-select" required>
                     <option value="">Select Category</option>
-                    <?php foreach ($categories as $cat): ?>
-                        <option value="<?= (int)$cat['id'] ?>" <?= post('category_id') == $cat['id'] ? 'selected' : '' ?>>
+                    <?php foreach ($categories as $cat): 
+                        $isSelected = false;
+                        if (post('category_id')) {
+                            $isSelected = ((int)post('category_id') === (int)$cat['id']);
+                        } elseif (!empty($selectedCategoryCode)) {
+                            $isSelected = (strtoupper((string)$cat['code']) === strtoupper((string)$selectedCategoryCode));
+                        }
+                    ?>
+                        <option value="<?= (int)$cat['id'] ?>" <?= $isSelected ? 'selected' : '' ?>>
                             <?= e($cat['name']) ?> (<?= e($cat['code']) ?>)
                         </option>
                     <?php endforeach; ?>
@@ -93,9 +100,9 @@
         <!-- Form Actions -->
         <div class="form-actions">
             <button type="submit" class="btn-admin btn-admin-gold">
-                <i class="fa-solid fa-floppy-disk"></i> Create Treatment
+                <i class="fa-solid fa-floppy-disk"></i> <?= ($selectedCategoryCode ?? '') === 'FOR_HER' ? 'Save For Her Experience' : (($selectedCategoryCode ?? '') === 'COUPLES' ? 'Save Couples Ritual' : 'Create Treatment') ?>
             </button>
-            <a href="<?= baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
+            <a href="<?= $backUrl ?? baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
         </div>
     </form>
 </div>

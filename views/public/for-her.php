@@ -58,21 +58,27 @@
             <div class="gold-line-divider"></div>
         </div>
 
-        <div class="fh-cards-grid">
-            <?php if (!empty($services)): ?>
+        <?php 
+        $waNumber = preg_replace('/[^0-9]/', '', (string)($contact['whatsapp'] ?? DEFAULT_WHATSAPP_NUMBER));
+        $fallbackImages = ['for_her_banner.jpg', 'treatment_signature.jpg', 'sanctuary_interior.jpg', 'treatment_essential.jpg'];
+        $icons = ['fa-spa', 'fa-heart', 'fa-droplet', 'fa-gem', 'fa-moon', 'fa-wind'];
+        ?>
+
+        <?php if (!empty($services)): ?>
+            <div class="fh-cards-grid">
                 <?php 
-                $icons = ['fa-wind', 'fa-droplet', 'fa-gem', 'fa-moon', 'fa-spa', 'fa-heart'];
                 $i = 0;
                 foreach ($services as $service): 
                     $icon = $icons[$i % count($icons)];
-                    $img = mediaUrl($service['image'], 'assets/images/for_her_banner.jpg');
-                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) For Her session.');
-                    $waLink = 'https://wa.me/' . DEFAULT_WHATSAPP_NUMBER . '?text=' . $waMsg;
+                    $fallback = $fallbackImages[$i % count($fallbackImages)];
+                    $img = mediaUrl($service['image'], 'assets/images/' . $fallback);
+                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to reserve the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) For Her session. Please advise on availability.');
+                    $waLink = 'https://wa.me/' . $waNumber . '?text=' . $waMsg;
                     $i++;
                 ?>
                     <article class="fh-card" id="fh-card-<?= (int)$service['id'] ?>">
                         <div class="fh-card-img-box">
-                            <img src="<?= $img ?>" alt="<?= e($service['name']) ?>" class="fh-card-img">
+                            <img src="<?= $img ?>" alt="<?= e($service['name']) ?>" class="fh-card-img" loading="lazy">
                             <div class="fh-card-img-overlay"></div>
                             <div class="fh-card-duration-tag">
                                 <i class="fa-regular fa-clock"></i> <?= (int)$service['duration_minutes'] ?> Min
@@ -84,87 +90,42 @@
                             </div>
                             <h3 class="fh-card-title"><?= e($service['name']) ?></h3>
                             <p class="fh-card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A gentle and restorative experience designed for your total privacy and comfort.') ?></p>
-                            <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                                RESERVE PRIVATELY <i class="fa-solid fa-arrow-right-long"></i>
-                            </a>
+                            
+                            <div class="fh-card-footer" style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(213,166,83,0.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+                                <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="fh-card-btn" id="book-fh-<?= (int)$service['id'] ?>">
+                                    RESERVE PRIVATELY <i class="fa-solid fa-arrow-right-long"></i>
+                                </a>
+                                <?php if (!empty($service['description']) && $service['description'] !== $service['short_description']): ?>
+                                    <button type="button" class="fh-detail-btn" onclick="openFhModal(<?= htmlspecialchars(json_encode([
+                                        'id' => $service['id'],
+                                        'name' => $service['name'],
+                                        'duration' => $service['duration_minutes'],
+                                        'image' => $img,
+                                        'short' => $service['short_description'] ?? '',
+                                        'desc' => $service['description'],
+                                        'waLink' => $waLink
+                                    ]), ENT_QUOTES, 'UTF-8') ?>)" style="background:none;border:none;color:var(--color-champagne-gold,#d5a653);font-size:0.75rem;letter-spacing:1px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-weight:600;padding:4px 0;">
+                                        <i class="fa-solid fa-circle-info"></i> DETAILS
+                                    </button>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </article>
                 <?php endforeach; ?>
-            <?php else: ?>
-                <!-- Default Cards -->
-                <article class="fh-card" id="fh-card-relax">
-                    <div class="fh-card-img-box">
-                        <img src="<?= assetUrl('images/treatment_essential.jpg') ?>" alt="Relax and Reset massage treatment" class="fh-card-img">
-                        <div class="fh-card-img-overlay"></div>
-                        <div class="fh-card-duration-tag">
-                            <i class="fa-regular fa-clock"></i> 60 Min
-                        </div>
-                    </div>
-                    <div class="fh-card-body">
-                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-wind"></i></div>
-                        <h3 class="fh-card-title">Relax &amp; Reset</h3>
-                        <p class="fh-card-desc">A tension-relieving massage designed to melt away stress and help you unwind deeply.</p>
-                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Relax%20and%20Reset%20treatment%20(60%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="fh-card" id="fh-card-aroma">
-                    <div class="fh-card-img-box">
-                        <img src="<?= assetUrl('images/for_her_banner.jpg') ?>" alt="Aromatherapy escape with essential oils" class="fh-card-img">
-                        <div class="fh-card-img-overlay"></div>
-                        <div class="fh-card-duration-tag">
-                            <i class="fa-regular fa-clock"></i> 90 Min
-                        </div>
-                    </div>
-                    <div class="fh-card-body">
-                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-droplet"></i></div>
-                        <h3 class="fh-card-title">Aromatherapy Escape</h3>
-                        <p class="fh-card-desc">Calming essential oils combined with flowing massage techniques to soothe your body and mind.</p>
-                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Aromatherapy%20Escape%20treatment%20(90%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="fh-card" id="fh-card-glow">
-                    <div class="fh-card-img-box">
-                        <img src="<?= assetUrl('images/treatment_signature.jpg') ?>" alt="Glow and restore revitalizing treatment" class="fh-card-img">
-                        <div class="fh-card-img-overlay"></div>
-                        <div class="fh-card-duration-tag">
-                            <i class="fa-regular fa-clock"></i> 90 Min
-                        </div>
-                    </div>
-                    <div class="fh-card-body">
-                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-gem"></i></div>
-                        <h3 class="fh-card-title">Glow &amp; Restore</h3>
-                        <p class="fh-card-desc">Revitalizing care that nourishes your skin, relaxes your muscles and brings back your natural glow.</p>
-                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Glow%20and%20Restore%20treatment%20(90%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="fh-card" id="fh-card-mindful">
-                    <div class="fh-card-img-box">
-                        <img src="<?= assetUrl('images/sanctuary_interior.jpg') ?>" alt="Mindful calm full body session" class="fh-card-img">
-                        <div class="fh-card-img-overlay"></div>
-                        <div class="fh-card-duration-tag">
-                            <i class="fa-regular fa-clock"></i> 120 Min
-                        </div>
-                    </div>
-                    <div class="fh-card-body">
-                        <div class="fh-card-icon-wrap" aria-hidden="true"><i class="fa-solid fa-moon"></i></div>
-                        <h3 class="fh-card-title">Mindful Calm Session</h3>
-                        <p class="fh-card-desc">A gentle full-body experience focused on mental clarity, emotional balance and deep rest.</p>
-                        <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20the%20Mindful%20Calm%20Session%20(120%20min)." target="_blank" rel="noopener noreferrer" class="fh-card-btn">
-                            LEARN MORE <i class="fa-solid fa-arrow-right-long"></i>
-                        </a>
-                    </div>
-                </article>
-            <?php endif; ?>
-        </div><!-- /fh-cards-grid -->
+            </div><!-- /fh-cards-grid -->
+        <?php else: ?>
+            <!-- Graceful Empty State -->
+            <div class="treatments-empty text-center" style="padding:60px 20px;">
+                <div class="empty-icon-box" style="font-size:3rem;color:var(--color-champagne-gold,#d5a653);margin-bottom:20px;">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 style="font-family:var(--font-heading);font-size:1.8rem;color:var(--color-cream);margin-bottom:12px;">Experiences Being Curated</h3>
+                <p style="color:var(--color-text-muted);max-width:560px;margin:0 auto 28px;line-height:1.6;">Our specialized sanctuary experiences for women are being refreshed. Inquire directly via WhatsApp for our current private session availability.</p>
+                <a href="https://wa.me/<?= $waNumber ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20inquire%20about%20For%20Her%20private%20sessions." target="_blank" rel="noopener noreferrer" class="fh-btn-primary" style="display:inline-block;">
+                    <i class="fa-brands fa-whatsapp"></i> Inquire via WhatsApp
+                </a>
+            </div>
+        <?php endif; ?>
 
     </div>
 </section>
@@ -356,5 +317,80 @@
 
     </div>
 </div>
+
+<!-- Experience Detail Modal -->
+<div class="fh-modal-backdrop" id="fhDetailModal" onclick="closeFhModal(event)" style="display:none;position:fixed;inset:0;background:rgba(5,5,5,0.85);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+    <div class="fh-modal-card" style="background:#0e0b0c;border:1px solid rgba(213,166,83,0.35);border-radius:12px;max-width:580px;width:100%;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.85),0 0 40px rgba(232,155,167,0.12);animation:modalFadeIn 0.25s ease-out;">
+        <div style="position:relative;height:200px;overflow:hidden;">
+            <img id="fhModalImg" src="" alt="Treatment Experience" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,#0e0b0c 100%);"></div>
+            <button type="button" onclick="closeFhModalDirect()" aria-label="Close modal" style="position:absolute;top:14px;right:14px;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span id="fhModalDuration" style="position:absolute;bottom:14px;left:20px;background:rgba(7,7,7,0.85);border:1px solid rgba(213,166,83,0.5);color:#d5a653;font-size:0.75rem;font-weight:700;padding:5px 12px;border-radius:4px;letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;">
+                <i class="fa-regular fa-clock"></i> <span>60 Min</span>
+            </span>
+        </div>
+        <div style="padding:24px 28px 28px;">
+            <span style="font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:#e89ba7;font-weight:600;display:block;margin-bottom:6px;">FOR HER SANCTUARY</span>
+            <h3 id="fhModalTitle" style="font-family:var(--font-heading, 'Playfair Display', serif);font-size:1.6rem;color:#f7f3ee;margin-bottom:12px;line-height:1.25;"></h3>
+            <p id="fhModalShort" style="color:#d5a653;font-size:0.92rem;line-height:1.6;margin-bottom:14px;font-style:italic;"></p>
+            <div id="fhModalDesc" style="color:#b8b0a5;font-size:0.9rem;line-height:1.7;margin-bottom:24px;max-height:180px;overflow-y:auto;padding-right:6px;"></div>
+            
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);">
+                <div style="display:flex;align-items:center;gap:8px;font-size:0.78rem;color:#9b9286;">
+                    <i class="fa-solid fa-shield-heart" style="color:#d5a653;"></i>
+                    <span>100% Private &amp; Confidential</span>
+                </div>
+                <a id="fhModalBookBtn" href="" target="_blank" rel="noopener noreferrer" class="fh-btn-primary" style="padding:12px 22px;font-size:0.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+                    <i class="fa-brands fa-whatsapp"></i> Reserve Privately
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.fh-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+}
+</style>
+
+<script>
+function openFhModal(data) {
+    document.getElementById('fhModalTitle').textContent = data.name || '';
+    document.getElementById('fhModalShort').textContent = data.short || '';
+    document.getElementById('fhModalDesc').textContent = data.desc || data.short || '';
+    document.getElementById('fhModalDuration').querySelector('span').textContent = (data.duration || 60) + ' Min';
+    document.getElementById('fhModalImg').src = data.image || '';
+    document.getElementById('fhModalBookBtn').href = data.waLink || '#';
+    
+    var modal = document.getElementById('fhDetailModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFhModal(e) {
+    if (e.target.id === 'fhDetailModal') {
+        closeFhModalDirect();
+    }
+}
+
+function closeFhModalDirect() {
+    var modal = document.getElementById('fhDetailModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeFhModalDirect();
+    }
+});
+</script>
 
 <?php require BASE_PATH . '/views/partials/public-footer.php'; ?>

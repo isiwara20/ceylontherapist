@@ -62,13 +62,13 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= baseUrl('admin_for_her.php') ?>" class="nav-link <?= $currentPage === 'admin_for_her.php' ? 'active' : '' ?>">
+                <a href="<?= baseUrl('admin_for_her.php') ?>" class="nav-link <?= (in_array($currentPage, ['admin_for_her.php', 'admin_for_her_create.php']) || ($currentPage === 'admin_service_create.php' && strtoupper((string)($_GET['category'] ?? '')) === 'FOR_HER')) ? 'active' : '' ?>">
                     <i class="fa-solid fa-venus nav-icon"></i>
                     <span class="nav-text">For Her Sanctuary</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?= baseUrl('admin_couples.php') ?>" class="nav-link <?= $currentPage === 'admin_couples.php' ? 'active' : '' ?>">
+                <a href="<?= baseUrl('admin_couples.php') ?>" class="nav-link <?= (in_array($currentPage, ['admin_couples.php', 'admin_couples_create.php']) || ($currentPage === 'admin_service_create.php' && strtoupper((string)($_GET['category'] ?? '')) === 'COUPLES')) ? 'active' : '' ?>">
                     <i class="fa-solid fa-heart nav-icon"></i>
                     <span class="nav-text">Couples Rituals</span>
                 </a>
@@ -161,6 +161,10 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? '');
         </div>
 
         <div class="topbar-right">
+            <a href="<?= baseUrl() ?>" target="_blank" class="btn-admin btn-admin-secondary" style="font-size:12px;padding:7px 14px;display:flex;align-items:center;gap:7px;text-decoration:none;" title="Open Public Website in New Tab">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Website
+            </a>
+
             <div class="topbar-badge-live">
                 <span class="live-dot"></span>
                 <span>Production Mode</span>

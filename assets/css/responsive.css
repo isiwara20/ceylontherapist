@@ -197,14 +197,131 @@
         align-items: stretch;
     }
 
+    /* Footer - Mobile Responsive & Centralized */
+    .public-footer {
+        padding-top: 55px;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
         gap: 36px;
+        text-align: center;
+        padding-bottom: 45px;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo-link {
+        display: inline-flex;
+        justify-content: center;
+        margin: 0 auto 16px auto;
+    }
+
+    .footer-logo-img {
+        margin: 0 auto 16px auto !important;
+    }
+
+    .footer-brand-desc {
+        text-align: center;
+        margin: 0 auto 20px auto;
+        max-width: 360px;
+    }
+
+    .footer-socials {
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .footer-title {
+        text-align: center;
+        margin-bottom: 16px;
+        position: relative;
+    }
+
+    .footer-title::after {
+        content: '';
+        display: block;
+        width: 32px;
+        height: 2px;
+        background: var(--color-champagne-gold, #d5a653);
+        margin: 8px auto 0 auto;
+        opacity: 0.7;
+    }
+
+    .footer-links {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+    }
+
+    .footer-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-links a {
+        display: inline-block;
+        padding: 4px 0;
+    }
+
+    .footer-links a:hover {
+        padding-left: 0 !important;
+        transform: translateY(-2px);
+        color: var(--color-soft-gold, #f0c978);
+    }
+
+    .contact-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .booking-text {
+        text-align: center;
+        margin: 0 auto 18px auto;
+        max-width: 340px;
+    }
+
+    .btn-footer-whatsapp {
+        margin: 0 auto;
+        justify-content: center;
+        width: fit-content;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        padding: 22px 0;
     }
 
     .footer-bottom-flex {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-bottom-flex p {
+        text-align: center;
+        margin: 0;
+    }
+
+    .footer-tagline {
         text-align: center;
     }
 }
@@ -238,6 +355,13 @@
 
     .final-cta-title {
         font-size: 2rem;
+    }
+
+    .btn-footer-whatsapp {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px 16px !important;
+        font-size: 0.78rem !important;
     }
 }
 

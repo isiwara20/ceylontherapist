@@ -1,15 +1,43 @@
 <?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
 <?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
 
+<?php
+$isForHer = ($categoryFilter ?? '') === 'FOR_HER';
+$isCouples = ($categoryFilter ?? '') === 'COUPLES';
+
+if ($isForHer) {
+    $addBtnLabel = "Add For Her Sanctuary";
+    $addBtnUrl = baseUrl('admin_for_her_create.php');
+    $headerDesc = "Manage private wellness therapies and sanctuary experiences tailored exclusively for her.";
+    $emptyTitle = "No For Her Sanctuary Experiences Found";
+    $emptyDesc = "No sanctuary experiences have been added for her yet. Add a new sanctuary experience to publish it to the customer For Her page.";
+    $emptyIcon = "fa-venus";
+} elseif ($isCouples) {
+    $addBtnLabel = "Add Couples Ritual";
+    $addBtnUrl = baseUrl('admin_couples_create.php');
+    $headerDesc = "Manage harmonious side-by-side treatments and luxury sanctuary rituals for couples.";
+    $emptyTitle = "No Couples Rituals Found";
+    $emptyDesc = "No couples shared rituals have been added yet. Add a new ritual to publish it to the customer Couples page.";
+    $emptyIcon = "fa-heart";
+} else {
+    $addBtnLabel = "Add New Treatment";
+    $addBtnUrl = baseUrl('admin_service_create.php');
+    $headerDesc = "Manage all therapeutic experiences, descriptions, duration, and display settings.";
+    $emptyTitle = "No Treatments Found";
+    $emptyDesc = "No treatments matched your criteria. Add a new service to enrich your sanctuary menu.";
+    $emptyIcon = "fa-spa";
+}
+?>
+
 <!-- Page Title & Header Actions -->
 <div class="admin-page-header">
     <div class="page-title-wrap">
         <h1><?= e($pageTitle ?? 'Treatments & Services') ?></h1>
-        <p>Manage all therapeutic experiences, descriptions, duration, and display settings.</p>
+        <p><?= e($headerDesc) ?></p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_service_create.php') ?>" class="btn-admin btn-admin-gold">
-            <i class="fa-solid fa-plus"></i> Add New Treatment
+        <a href="<?= $addBtnUrl ?>" class="btn-admin btn-admin-gold">
+            <i class="fa-solid fa-plus"></i> <?= e($addBtnLabel) ?>
         </a>
     </div>
 </div>
@@ -19,7 +47,7 @@
     <form action="" method="GET" class="filter-form">
         <div class="filter-input-wrap">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" name="search" class="admin-input" placeholder="Search treatment by name or keyword..." value="<?= e($_GET['search'] ?? '') ?>">
+            <input type="text" name="search" class="admin-input" placeholder="Search by name or keyword..." value="<?= e($_GET['search'] ?? '') ?>">
         </div>
 
         <?php if (!isset($categoryFilter)): ?>
@@ -46,11 +74,11 @@
 <div class="admin-card">
     <?php if (empty($services)): ?>
         <div class="admin-empty-state">
-            <i class="fa-solid fa-spa empty-icon"></i>
-            <h3 class="empty-title">No Treatments Found</h3>
-            <p class="empty-desc">No treatments matched your criteria. Add a new service to enrich your sanctuary menu.</p>
-            <a href="<?= baseUrl('admin_service_create.php') ?>" class="btn-admin btn-admin-gold">
-                <i class="fa-solid fa-plus"></i> Add Treatment
+            <i class="fa-solid <?= $emptyIcon ?> empty-icon"></i>
+            <h3 class="empty-title"><?= e($emptyTitle) ?></h3>
+            <p class="empty-desc"><?= e($emptyDesc) ?></p>
+            <a href="<?= $addBtnUrl ?>" class="btn-admin btn-admin-gold">
+                <i class="fa-solid fa-plus"></i> <?= e($addBtnLabel) ?>
             </a>
         </div>
     <?php else: ?>

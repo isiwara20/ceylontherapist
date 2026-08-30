@@ -65,8 +65,28 @@ class AdminServiceController
     public function create(): void
     {
         $categories = $this->serviceBLL->getAllCategories();
+        $selectedCategoryCode = strtoupper((string)get('category', ''));
         $service = null;
+
+        $pageHeading = "Add New Treatment";
+        $pageSubtitle = "Create a new wellness therapy experience for the Ceylon Therapist menu.";
+        $backUrl = baseUrl('admin_services.php');
+        $backLabel = "Back to Treatments";
         $pageTitle = "Add New Treatment | Admin Panel";
+
+        if ($selectedCategoryCode === 'FOR_HER') {
+            $pageHeading = "Add For Her Sanctuary";
+            $pageSubtitle = "Create an exclusive wellness experience tailored for women, published directly to the public For Her Sanctuary page.";
+            $backUrl = baseUrl('admin_for_her.php');
+            $backLabel = "Back to For Her Sanctuary";
+            $pageTitle = "Add For Her Sanctuary | Admin Panel";
+        } elseif ($selectedCategoryCode === 'COUPLES') {
+            $pageHeading = "Add Couples Ritual";
+            $pageSubtitle = "Create a harmonious shared therapy ritual for couples, published directly to the public Couples page.";
+            $backUrl = baseUrl('admin_couples.php');
+            $backLabel = "Back to Couples Rituals";
+            $pageTitle = "Add Couples Ritual | Admin Panel";
+        }
 
         require BASE_PATH . '/views/admin/services/create.php';
     }
@@ -109,10 +129,33 @@ class AdminServiceController
         $res = $this->serviceBLL->saveService($input);
         if ($res['success']) {
             setFlash('success', $res['message']);
-            redirect('admin_services.php');
+
+            // Determine smart redirection destination based on category
+            $redirectUrl = 'admin_services.php';
+            $categoryCode = strtoupper((string)get('category', ''));
+            if (empty($categoryCode) && !empty($input['category_id'])) {
+                foreach ($this->serviceBLL->getAllCategories() as $cat) {
+                    if ((int)$cat['id'] === (int)$input['category_id']) {
+                        $categoryCode = strtoupper((string)$cat['code']);
+                        break;
+                    }
+                }
+            }
+
+            if ($categoryCode === 'FOR_HER') {
+                $redirectUrl = 'admin_for_her.php';
+            } elseif ($categoryCode === 'COUPLES') {
+                $redirectUrl = 'admin_couples.php';
+            }
+
+            redirect($redirectUrl);
         } else {
             setFlash('error', $res['message']);
-            redirect('admin_service_create.php');
+            $redirectBack = 'admin_service_create.php';
+            if (get('category')) {
+                $redirectBack .= '?category=' . urlencode((string)get('category'));
+            }
+            redirect($redirectBack);
         }
     }
 
@@ -130,7 +173,23 @@ class AdminServiceController
         }
 
         $categories = $this->serviceBLL->getAllCategories();
-        $pageTitle = "Edit Treatment: " . $service['name'] . " | Admin Panel";
+        $categoryCode = strtoupper((string)($service['category_code'] ?? ''));
+
+        $backUrl = baseUrl('admin_services.php');
+        $backLabel = "Back to Treatments";
+        $pageHeading = "Edit Treatment";
+
+        if ($categoryCode === 'FOR_HER') {
+            $backUrl = baseUrl('admin_for_her.php');
+            $backLabel = "Back to For Her Sanctuary";
+            $pageHeading = "Edit For Her Sanctuary Treatment";
+        } elseif ($categoryCode === 'COUPLES') {
+            $backUrl = baseUrl('admin_couples.php');
+            $backLabel = "Back to Couples Rituals";
+            $pageHeading = "Edit Couples Ritual";
+        }
+
+        $pageTitle = $pageHeading . ": " . $service['name'] . " | Admin Panel";
 
         require BASE_PATH . '/views/admin/services/edit.php';
     }
@@ -175,7 +234,23 @@ class AdminServiceController
         $res = $this->serviceBLL->saveService($input, $id);
         if ($res['success']) {
             setFlash('success', $res['message']);
-            redirect('admin_services.php');
+
+            // Determine smart redirection destination based on category
+            $redirectUrl = 'admin_services.php';
+            if (!empty($input['category_id'])) {
+                foreach ($this->serviceBLL->getAllCategories() as $cat) {
+                    if ((int)$cat['id'] === (int)$input['category_id']) {
+                        if (strtoupper((string)$cat['code']) === 'FOR_HER') {
+                            $redirectUrl = 'admin_for_her.php';
+                        } elseif (strtoupper((string)$cat['code']) === 'COUPLES') {
+                            $redirectUrl = 'admin_couples.php';
+                        }
+                        break;
+                    }
+                }
+            }
+
+            redirect($redirectUrl);
         } else {
             setFlash('error', $res['message']);
             redirect('admin_service_edit.php?id=' . $id);

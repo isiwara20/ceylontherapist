@@ -15,32 +15,34 @@
         <div class="cp-hero-gold-glow" aria-hidden="true"></div>
     </div>
 
-    <div class="container cp-hero-content">
-        <span class="cp-eyebrow">PRIVATE. CONNECTED. UNFORGETTABLE.</span>
+    <div class="hero-container container">
+        <div class="cp-hero-content">
+            <span class="cp-eyebrow">PRIVATE. CONNECTED. UNFORGETTABLE.</span>
 
-        <h1 class="cp-hero-title">
-            Shared Calm.<br>
-            A Premium<br>
-            <span class="gold-gradient-text">Experience for Two.</span>
-        </h1>
+            <h1 class="cp-hero-title">
+                Shared Calm.<br>
+                A Premium<br>
+                <span class="gold-gradient-text">Experience for Two.</span>
+            </h1>
 
-        <p class="cp-hero-body">
-            Relax together, reconnect deeply and enjoy meaningful time in a private setting designed for two. Thoughtful therapies, a calm atmosphere and complete comfort from beginning to end.
-        </p>
+            <p class="cp-hero-body">
+                Relax together, reconnect deeply and enjoy meaningful time in a private setting designed for two. Thoughtful therapies, a calm atmosphere and complete comfort from beginning to end.
+            </p>
 
-        <div class="cp-hero-actions">
-            <a href="#cp-experiences" class="cp-btn-primary" id="hero-explore-couples">
-                EXPLORE COUPLES PACKAGES
-            </a>
-            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20Couples%20wellness%20experience." target="_blank" rel="noopener noreferrer" class="cp-btn-secondary" id="hero-reserve-couples">
-                <i class="fa-brands fa-whatsapp"></i> RESERVE PRIVATELY
-            </a>
-        </div>
+            <div class="cp-hero-actions">
+                <a href="#cp-experiences" class="cp-btn-primary" id="hero-explore-couples">
+                    EXPLORE COUPLES PACKAGES
+                </a>
+                <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20Couples%20wellness%20experience." target="_blank" rel="noopener noreferrer" class="cp-btn-secondary" id="hero-reserve-couples">
+                    <i class="fa-brands fa-whatsapp"></i> RESERVE PRIVATELY
+                </a>
+            </div>
 
-        <!-- Floating accent badge -->
-        <div class="cp-hero-accent-badge" aria-hidden="true">
-            <i class="fa-solid fa-heart gold-icon"></i>
-            <span>Curated Moments for Two</span>
+            <!-- Floating accent badge -->
+            <div class="cp-hero-accent-badge" aria-hidden="true">
+                <i class="fa-solid fa-heart gold-icon"></i>
+                <span>Curated Moments for Two</span>
+            </div>
         </div>
     </div>
 </section>

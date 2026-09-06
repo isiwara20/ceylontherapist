@@ -15,31 +15,33 @@
         <div class="ct-hero-gold-glow" aria-hidden="true"></div>
     </div>
 
-    <div class="container ct-hero-content">
-        <span class="ct-eyebrow">PRIVATE. PERSONAL. EFFORTLESS.</span>
+    <div class="hero-container container">
+        <div class="ct-hero-content">
+            <span class="ct-eyebrow">PRIVATE. PERSONAL. EFFORTLESS.</span>
 
-        <h1 class="ct-hero-title">
-            Reserve Your<br>
-            <span class="gold-gradient-text">Private Session.</span>
-        </h1>
+            <h1 class="ct-hero-title">
+                Reserve Your<br>
+                <span class="gold-gradient-text">Private Session.</span>
+            </h1>
 
-        <p class="ct-hero-body">
-            A discreet reservation experience designed around your comfort, convenience and complete peace of mind.
-        </p>
+            <p class="ct-hero-body">
+                A discreet reservation experience designed around your comfort, convenience and complete peace of mind.
+            </p>
 
-        <div class="ct-hero-actions">
-            <a href="#ct-booking-area" class="ct-btn-primary" id="hero-book-session">
-                <i class="fa-brands fa-whatsapp"></i> BOOK YOUR SESSION
-            </a>
-            <a href="<?= baseUrl('treatments.php') ?>" class="ct-btn-secondary" id="hero-view-treatments">
-                VIEW TREATMENTS
-            </a>
-        </div>
+            <div class="ct-hero-actions">
+                <a href="#ct-booking-area" class="ct-btn-primary" id="hero-book-session">
+                    <i class="fa-brands fa-whatsapp"></i> BOOK YOUR SESSION
+                </a>
+                <a href="<?= baseUrl('treatments.php') ?>" class="ct-btn-secondary" id="hero-view-treatments">
+                    VIEW TREATMENTS
+                </a>
+            </div>
 
-        <!-- Floating accent badge -->
-        <div class="ct-hero-accent-badge" aria-hidden="true">
-            <i class="fa-solid fa-shield-halved gold-icon"></i>
-            <span>100% Confidential &bull; By Appointment Only</span>
+            <!-- Floating accent badge -->
+            <div class="ct-hero-accent-badge" aria-hidden="true">
+                <i class="fa-solid fa-shield-halved gold-icon"></i>
+                <span>100% Confidential &bull; By Appointment Only</span>
+            </div>
         </div>
     </div>
 </section>

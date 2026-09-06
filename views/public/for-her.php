@@ -15,32 +15,34 @@
         <div class="fh-hero-burgundy-glow" aria-hidden="true"></div>
     </div>
 
-    <div class="container fh-hero-content">
-        <span class="fh-eyebrow">GENTLE. PRIVATE. MADE FOR YOU.</span>
+    <div class="hero-container container">
+        <div class="fh-hero-content">
+            <span class="fh-eyebrow">GENTLE. PRIVATE. MADE FOR YOU.</span>
 
-        <h1 class="fh-hero-title">
-            A Private Wellness<br>
-            Experience<br>
-            <span class="burgundy-gold-text">Designed for Her.</span>
-        </h1>
+            <h1 class="fh-hero-title">
+                A Private Wellness<br>
+                Experience<br>
+                <span class="burgundy-gold-text">Designed for Her.</span>
+            </h1>
 
-        <p class="fh-hero-body">
-            Step into a space of comfort and calm, designed to support your body, mind and spirit. Every session is tailored to you — your needs, your pace, your peace.
-        </p>
+            <p class="fh-hero-body">
+                Step into a space of comfort and calm, designed to support your body, mind and spirit. Every session is tailored to you — your needs, your pace, your peace.
+            </p>
 
-        <div class="fh-hero-actions">
-            <a href="#fh-treatments" class="fh-btn-primary" id="hero-explore-treatments">
-                EXPLORE TREATMENTS
-            </a>
-            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20a%20For%20Her%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="fh-btn-secondary" id="hero-book-session">
-                <i class="fa-brands fa-whatsapp"></i> BOOK A SESSION
-            </a>
-        </div>
+            <div class="fh-hero-actions">
+                <a href="#fh-treatments" class="fh-btn-primary" id="hero-explore-treatments">
+                    EXPLORE TREATMENTS
+                </a>
+                <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20a%20For%20Her%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="fh-btn-secondary" id="hero-book-session">
+                    <i class="fa-brands fa-whatsapp"></i> BOOK A SESSION
+                </a>
+            </div>
 
-        <!-- Floating accent badge -->
-        <div class="fh-hero-accent-badge" aria-hidden="true">
-            <i class="fa-solid fa-leaf gold-icon"></i>
-            <span>Your Private Sanctuary</span>
+            <!-- Floating accent badge -->
+            <div class="fh-hero-accent-badge" aria-hidden="true">
+                <i class="fa-solid fa-leaf gold-icon"></i>
+                <span>Your Private Sanctuary</span>
+            </div>
         </div>
     </div>
 </section>

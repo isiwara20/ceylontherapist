@@ -15,32 +15,34 @@
         <div class="ab-hero-gold-glow" aria-hidden="true"></div>
     </div>
 
-    <div class="container ab-hero-content">
-        <span class="ab-eyebrow">OUR STORY. OUR PROMISE.</span>
+    <div class="hero-container container">
+        <div class="ab-hero-content">
+            <span class="ab-eyebrow">OUR STORY. OUR PROMISE.</span>
 
-        <h1 class="ab-hero-title">
-            A Space Built<br>
-            Around Calm,<br>
-            <span class="gold-gradient-text">Care &amp; Privacy.</span>
-        </h1>
+            <h1 class="ab-hero-title">
+                A Space Built<br>
+                Around Calm,<br>
+                <span class="gold-gradient-text">Care &amp; Privacy.</span>
+            </h1>
 
-        <p class="ab-hero-body">
-            Ceylon Therapist was created for those who value comfort, discretion and meaningful time for themselves. Every detail is thoughtfully designed to help you feel relaxed, respected and completely at ease.
-        </p>
+            <p class="ab-hero-body">
+                Ceylon Therapist was created for those who value comfort, discretion and meaningful time for themselves. Every detail is thoughtfully designed to help you feel relaxed, respected and completely at ease.
+            </p>
 
-        <div class="ab-hero-actions">
-            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="ab-btn-primary" id="hero-about-book">
-                <i class="fa-brands fa-whatsapp"></i> BOOK A SESSION
-            </a>
-            <a href="#about-space" class="ab-btn-secondary" id="hero-about-space">
-                DISCOVER OUR SPACE
-            </a>
-        </div>
+            <div class="ab-hero-actions">
+                <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20book%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="ab-btn-primary" id="hero-about-book">
+                    <i class="fa-brands fa-whatsapp"></i> BOOK A SESSION
+                </a>
+                <a href="#about-space" class="ab-btn-secondary" id="hero-about-space">
+                    DISCOVER OUR SPACE
+                </a>
+            </div>
 
-        <!-- Floating accent badge -->
-        <div class="ab-hero-accent-badge" aria-hidden="true">
-            <i class="fa-solid fa-leaf gold-icon"></i>
-            <span>Dedicated to Discretion &amp; Well-being</span>
+            <!-- Floating accent badge -->
+            <div class="ab-hero-accent-badge" aria-hidden="true">
+                <i class="fa-solid fa-leaf gold-icon"></i>
+                <span>Dedicated to Discretion &amp; Well-being</span>
+            </div>
         </div>
     </div>
 </section>

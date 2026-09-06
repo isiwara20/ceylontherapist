@@ -80,8 +80,9 @@
         padding: 10px 14px;
     }
 
-    .hero-title {
-        font-size: 3rem;
+    .hero-container {
+        padding-left: clamp(24px, 4.5vw, 56px);
+        padding-right: clamp(24px, 4.5vw, 56px);
     }
 
     .trust-strip-grid {
@@ -124,13 +125,18 @@
         padding-top: 110px;
     }
 
-    .hero-title {
-        font-size: 2.5rem;
+    .hero-container {
+        padding-left: clamp(20px, 4vw, 32px);
+        padding-right: clamp(20px, 4vw, 32px);
     }
 
-    .hero-description {
-        font-size: 1rem;
-        margin-bottom: 28px;
+    .hero-content,
+    .fh-hero-content,
+    .cp-hero-content,
+    .ab-hero-content,
+    .ct-hero-content {
+        text-align: left;
+        max-width: 100%;
     }
 
     .hero-actions {
@@ -328,9 +334,10 @@
 
 /* Small Mobile Screens (430px, 390px, 360px) */
 @media (max-width: 480px) {
-    .container {
-        padding-left: 16px;
-        padding-right: 16px;
+    .container,
+    .hero-container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .brand-logo-img {
@@ -338,8 +345,52 @@
         max-height: 42px !important;
     }
 
-    .hero-title {
-        font-size: 2.2rem;
+    .hero-content,
+    .fh-hero-content,
+    .cp-hero-content,
+    .ab-hero-content,
+    .ct-hero-content {
+        text-align: left;
+        max-width: 100%;
+        padding: 16px 0;
+    }
+
+    .hero-actions,
+    .fh-hero-actions,
+    .cp-hero-actions,
+    .ab-hero-actions,
+    .ct-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary,
+    .fh-btn-primary,
+    .fh-btn-secondary,
+    .cp-btn-primary,
+    .cp-btn-secondary,
+    .ab-btn-primary,
+    .ab-btn-secondary,
+    .ct-btn-primary,
+    .ct-btn-secondary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        white-space: normal;
+        padding: 14px 20px;
+        font-size: 0.82rem;
+    }
+
+    .hero-bg-img,
+    .fh-hero-bg-img,
+    .cp-hero-bg-img,
+    .ab-hero-bg-img,
+    .ct-hero-bg-img {
+        object-position: 75% center;
     }
 
     .trust-strip-grid {

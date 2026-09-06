@@ -7,21 +7,23 @@
         <div class="hero-overlay"></div>
     </div>
     
-    <div class="hero-content container">
-        <span class="hero-eyebrow"><i class="fa-solid fa-gem gold-icon-sm"></i> PRIVATE. PERSONAL. RESTORATIVE.</span>
-        <h1 class="hero-title">
-            Your Time.<br>
-            Your Space.<br>
-            <span class="gold-gradient-text">Your Escape.</span>
-        </h1>
-        <p class="hero-description">
-            Thoughtfully designed therapeutic experiences created to help you slow down, release tension and return to a state of balance.
-        </p>
-        <div class="hero-actions">
-            <a href="<?= baseUrl('treatments.php') ?>" class="btn-hero-primary">EXPLORE TREATMENTS</a>
-            <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
-                <i class="fa-brands fa-whatsapp"></i> RESERVE PRIVATELY
-            </a>
+    <div class="hero-container container">
+        <div class="hero-content">
+            <span class="hero-eyebrow"><i class="fa-solid fa-gem gold-icon-sm"></i> PRIVATE. PERSONAL. RESTORATIVE.</span>
+            <h1 class="hero-title">
+                Your Time.<br>
+                Your Space.<br>
+                <span class="gold-gradient-text">Your Escape.</span>
+            </h1>
+            <p class="hero-description">
+                Thoughtfully designed therapeutic experiences created to help you slow down, release tension and return to a state of balance.
+            </p>
+            <div class="hero-actions">
+                <a href="<?= baseUrl('treatments.php') ?>" class="btn-hero-primary">EXPLORE TREATMENTS</a>
+                <a href="https://wa.me/<?= DEFAULT_WHATSAPP_NUMBER ?>?text=Hello%20Ceylon%20Therapist%2C%20I%20would%20like%20to%20reserve%20a%20private%20wellness%20session." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+                    <i class="fa-brands fa-whatsapp"></i> RESERVE PRIVATELY
+                </a>
+            </div>
         </div>
     </div>
 

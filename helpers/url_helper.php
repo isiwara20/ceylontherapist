@@ -14,17 +14,23 @@ declare(strict_types=1);
 function baseUrl(string $path = ''): string
 {
     $cleanPath = ltrim($path, '/');
-    
+
+    // If APP_URL was explicitly configured in .env with a live domain/custom host, use it
+    if (defined('BASE_URL') && BASE_URL !== '' && strpos(BASE_URL, 'http://localhost') !== 0) {
+        return rtrim(BASE_URL, '/') . ($cleanPath !== '' ? '/' . $cleanPath : '');
+    }
+
     if (isset($_SERVER['HTTP_HOST'])) {
         $scriptName = $_SERVER['SCRIPT_NAME'] ?? ($_SERVER['PHP_SELF'] ?? '');
         $dir = rtrim(str_replace('\\', '/', dirname($scriptName)), '/');
         if ($dir !== '' && $dir !== '.') {
-            return $dir . ($cleanPath ? '/' . $cleanPath : '');
+            return $dir . ($cleanPath !== '' ? '/' . $cleanPath : '');
         }
-        return $cleanPath ? $cleanPath : './';
+        // At domain root (live hosting like public_html), prepend '/' so paths are root-relative
+        return '/' . $cleanPath;
     }
 
-    return rtrim(BASE_URL, '/') . ($cleanPath ? '/' . $cleanPath : '');
+    return defined('BASE_URL') ? rtrim(BASE_URL, '/') . ($cleanPath !== '' ? '/' . $cleanPath : '') : '/' . $cleanPath;
 }
 
 /**

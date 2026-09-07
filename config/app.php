@@ -14,7 +14,11 @@ $envAppUrl = function_exists('env') ? env('APP_URL') : null;
 if (!empty($envAppUrl) && strpos((string)$envAppUrl, 'http') === 0 && (string)$envAppUrl !== 'http://localhost' && (string)$envAppUrl !== 'http://localhost/') {
     define('BASE_URL', rtrim((string)$envAppUrl, '/'));
 } else {
-    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (isset($_SERVER['SERVER_PORT']) && (int)$_SERVER['SERVER_PORT'] === 443)
+        || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+        || (isset($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on');
+    $protocol = $isHttps ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
     
     $scriptName = $_SERVER['SCRIPT_NAME'] ?? ($_SERVER['PHP_SELF'] ?? '');

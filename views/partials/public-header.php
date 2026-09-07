@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?= assetUrl('css/main.css') ?>?v=<?= filemtime(BASE_PATH . '/assets/css/main.css') ?>">
-    <link rel="stylesheet" href="<?= assetUrl('css/responsive.css') ?>?v=<?= filemtime(BASE_PATH . '/assets/css/responsive.css') ?>">
+    <link rel="stylesheet" href="<?= assetUrl('css/main.css') ?>?v=<?= file_exists(BASE_PATH . '/assets/css/main.css') ? @filemtime(BASE_PATH . '/assets/css/main.css') : '1.0' ?>">
+    <link rel="stylesheet" href="<?= assetUrl('css/responsive.css') ?>?v=<?= file_exists(BASE_PATH . '/assets/css/responsive.css') ? @filemtime(BASE_PATH . '/assets/css/responsive.css') : '1.0' ?>">
 </head>
 <body class="public-body">
 

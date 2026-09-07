@@ -4,7 +4,7 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /ceylontherapist/
+    # Portable for both root domain hosting and local subdirectories
 
     # Prevent direct HTTP access to configuration, views, and storage logs
     RewriteRule ^(config|bll|dal|views|storage/logs)/ - [F,L]

@@ -1,4 +1,4 @@
-<?php require BASE_PATH . '/views/partials/public-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/header.php'; ?>
 
 <!-- =======================================================
      COUPLES — CEYLON THERAPIST
@@ -381,4 +381,4 @@
     </div>
 </section>
 
-<?php require BASE_PATH . '/views/partials/public-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/footer.php'; ?>

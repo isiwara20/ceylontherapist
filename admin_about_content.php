@@ -1,16 +1,8 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Admin About Page Content Entry Point
- */
+require_once __DIR__ . '/app/bootstrap.php';
 
-require_once __DIR__ . '/config/init.php';
-
-$controller = new AdminContentController();
-
-if (isPost()) {
-    $controller->updateAboutContent();
-} else {
-    $controller->aboutContent();
-}
+$target = 'admin/content/about.php';
+$qs = !empty($_SERVER['QUERY_STRING']) ? (strpos($target, '?') !== false ? '&' : '?') . $_SERVER['QUERY_STRING'] : '';
+redirect($target . $qs);

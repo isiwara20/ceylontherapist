@@ -2,12 +2,12 @@
 declare(strict_types=1);
 
 /**
- * Isolated Admin Login Entry Point
+ * Admin Login Entry Point
  */
 
-require_once __DIR__ . '/config/init.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
-$controller = new AdminAuthController();
+$controller = new AuthController();
 
 if (isPost()) {
     $controller->processLogin();

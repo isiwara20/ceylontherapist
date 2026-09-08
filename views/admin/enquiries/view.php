@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p>Submitted by <strong><?= e($enquiry['customer_name']) ?></strong> on <?= date('F d, Y \a\t H:i', strtotime($enquiry['created_at'])) ?>.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_enquiries.php') ?>" class="btn-admin btn-admin-secondary">
+        <a href="<?= baseUrl('admin/enquiries/index.php') ?>" class="btn-admin btn-admin-secondary">
             <i class="fa-solid fa-arrow-left"></i> Back to Enquiries
         </a>
     </div>
@@ -108,7 +108,7 @@
         </div>
 
         <!-- Update Status Form -->
-        <form action="<?= baseUrl('admin_enquiry_view.php?id=' . (int)$enquiry['id']) ?>" method="POST">
+        <form action="<?= baseUrl('admin/enquiries/view.php?id=' . (int)$enquiry['id']) ?>" method="POST">
             <?= CsrfService::getHiddenInput() ?>
             <input type="hidden" name="id" value="<?= (int)$enquiry['id'] ?>">
 
@@ -132,4 +132,4 @@
     </div>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

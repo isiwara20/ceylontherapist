@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <form action="<?= baseUrl('admin_media.php') ?>" method="POST" enctype="multipart/form-data" class="form-grid-2" style="align-items:flex-end;">
+    <form action="<?= baseUrl('admin/media/index.php') ?>" method="POST" enctype="multipart/form-data" class="form-grid-2" style="align-items:flex-end;">
         <?= CsrfService::getHiddenInput() ?>
 
         <div class="form-group" style="margin-bottom:0;">
@@ -69,7 +69,7 @@
                         </button>
 
                         <?php if (empty($item['is_static'])): ?>
-                            <form action="<?= baseUrl('admin_media.php?action=delete&id=' . (int)$item['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Delete this media file?');">
+                            <form action="<?= baseUrl('admin/media/index.php?action=delete&id=' . (int)$item['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Delete this media file?');">
                                 <?= CsrfService::getHiddenInput() ?>
                                 <button type="submit" class="btn-admin btn-admin-danger btn-admin-sm" title="Delete">
                                     <i class="fa-solid fa-trash-can"></i>
@@ -85,4 +85,4 @@
     <?php endif; ?>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

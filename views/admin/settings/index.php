@@ -1,12 +1,12 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <div class="admin-panel-card">
     <h2>Website & Contact Settings</h2>
     <p class="subtitle">Manage business contact information, default WhatsApp booking number, and business email.</p>
 
     <div class="settings-form-container mt-20">
-        <form action="<?= baseUrl('admin_site_settings.php') ?>" method="POST" class="admin-form">
+        <form action="<?= baseUrl('admin/settings/site.php') ?>" method="POST" class="admin-form">
             <?= CsrfService::getHiddenInput() ?>
 
             <div class="form-group">
@@ -29,4 +29,4 @@
     </div>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

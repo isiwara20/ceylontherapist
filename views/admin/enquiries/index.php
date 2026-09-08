@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -38,7 +38,7 @@
 
         <button type="submit" class="btn-admin btn-admin-secondary">Filter</button>
         <?php if (!empty($_GET['search']) || !empty($_GET['status']) || !empty($_GET['source'])): ?>
-            <a href="<?= baseUrl('admin_enquiries.php') ?>" class="btn-admin btn-admin-secondary" style="color:var(--admin-muted);">Reset</a>
+            <a href="<?= baseUrl('admin/enquiries/index.php') ?>" class="btn-admin btn-admin-secondary" style="color:var(--admin-muted);">Reset</a>
         <?php endif; ?>
     </form>
 </div>
@@ -101,7 +101,7 @@
                             <td><small><?= date('M d, Y H:i', strtotime($enq['created_at'])) ?></small></td>
                             <td>
                                 <div class="table-actions">
-                                    <a href="<?= baseUrl('admin_enquiry_view.php?id=' . (int)$enq['id']) ?>" class="btn-table-action" title="View Details">
+                                    <a href="<?= baseUrl('admin/enquiries/view.php?id=' . (int)$enq['id']) ?>" class="btn-table-action" title="View Details">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
 
@@ -111,7 +111,7 @@
                                         </a>
                                     <?php endif; ?>
 
-                                    <form action="<?= baseUrl('admin_enquiries.php?action=delete&id=' . (int)$enq['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this enquiry record?');">
+                                    <form action="<?= baseUrl('admin/enquiries/index.php?action=delete&id=' . (int)$enq['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this enquiry record?');">
                                         <?= CsrfService::getHiddenInput() ?>
                                         <button type="submit" class="btn-table-action action-delete" title="Delete Enquiry">
                                             <i class="fa-solid fa-trash-can"></i>
@@ -138,4 +138,4 @@
     <?php endif; ?>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

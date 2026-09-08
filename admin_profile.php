@@ -1,16 +1,8 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Admin Profile Management Entry Point
- */
+require_once __DIR__ . '/app/bootstrap.php';
 
-require_once __DIR__ . '/config/init.php';
-
-$controller = new AdminProfileController();
-
-if (isPost()) {
-    $controller->updateProfile();
-} else {
-    $controller->profile();
-}
+$target = 'admin/profile/index.php';
+$qs = !empty($_SERVER['QUERY_STRING']) ? (strpos($target, '?') !== false ? '&' : '?') . $_SERVER['QUERY_STRING'] : '';
+redirect($target . $qs);

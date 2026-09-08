@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p>Update your administrative login credentials with strong password verification.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_profile.php') ?>" class="btn-admin btn-admin-secondary">
+        <a href="<?= baseUrl('admin/profile/index.php') ?>" class="btn-admin btn-admin-secondary">
             <i class="fa-solid fa-arrow-left"></i> Back to Profile
         </a>
     </div>
@@ -16,7 +16,7 @@
 
 <!-- Password Change Form Card -->
 <div class="admin-card" style="max-width: 600px;">
-    <form action="<?= baseUrl('admin_change_password.php') ?>" method="POST">
+    <form action="<?= baseUrl('admin/profile/change-password.php') ?>" method="POST">
         <?= CsrfService::getHiddenInput() ?>
 
         <div class="form-group">
@@ -51,9 +51,9 @@
             <button type="submit" class="btn-admin btn-admin-gold">
                 <i class="fa-solid fa-shield-check"></i> Update Password & Re-authenticate
             </button>
-            <a href="<?= baseUrl('admin_profile.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
+            <a href="<?= baseUrl('admin/profile/index.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
         </div>
     </form>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

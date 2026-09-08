@@ -18,15 +18,17 @@
     <!-- Font Awesome 6.4.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Admin Stylesheet -->
-    <link rel="stylesheet" href="<?= assetUrl('css/admin.css') ?>">
+    <!-- Login Stylesheet with cache busting -->
+    <link rel="stylesheet" href="<?= baseUrl('assets/css/pages/login.css?v=2.1') ?>">
 </head>
 <body class="login-body">
 
 <div class="login-card-container">
     <div class="login-card">
         <div class="login-header">
-            <img src="<?= assetUrl('images/logo.png') ?>" alt="Ceylon Therapist" class="login-logo">
+            <a href="<?= baseUrl() ?>" title="Return to Ceylon Therapist Website">
+                <img src="<?= assetUrl('images/logo.png') ?>" alt="Ceylon Therapist" class="login-logo">
+            </a>
             <h2>ADMIN PORTAL</h2>
             <p>Authorized Personnel Only</p>
         </div>
@@ -93,8 +95,14 @@
             <small>&copy; <?= date('Y') ?> Ceylon Therapist. Encrypted Management Area.</small>
         </div>
     </div>
+
+    <div class="login-back-wrap">
+        <a href="<?= baseUrl() ?>" class="login-back-link">
+            <i class="fa-solid fa-arrow-left"></i> Return to Main Website
+        </a>
+    </div>
 </div>
 
-<script src="<?= assetUrl('js/admin.js') ?>"></script>
+<script src="<?= baseUrl('assets/js/pages/login.js') ?>" defer></script>
 </body>
 </html>

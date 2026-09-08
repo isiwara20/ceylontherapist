@@ -1,4 +1,4 @@
-<?php require BASE_PATH . '/views/partials/public-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/header.php'; ?>
 
 <section class="page-banner">
     <div class="container text-center">
@@ -12,7 +12,7 @@
         <div class="package-detail-card">
             <h2>Package Overview</h2>
             <p><?= e($package['description'] ?? 'Detailed therapy information.') ?></p>
-            <p class="meta-info"><strong>Duration:</strong> <?= e($package['duration_minutes'] ?? '60') ?> Minutes</p>
+            <p class="meta-info"><strong>Duration:</strong> <?= (int)($package['duration_minutes'] ?? 60) ?> Minutes</p>
 
             <div class="cta-box mt-30">
                 <a href="<?= baseUrl('contact.php') ?>" class="btn-primary-gold">
@@ -23,4 +23,4 @@
     </div>
 </section>
 
-<?php require BASE_PATH . '/views/partials/public-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/footer.php'; ?>

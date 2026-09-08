@@ -1,0 +1,877 @@
+/* ==========================================================================
+   3. HERO SECTION & TRUST STRIP
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: clamp(105px, 13vh, 140px);
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% center;
+    transform: scale(1.05);
+    transition: transform 8s ease;
+}
+
+.hero-section:hover .hero-bg-img {
+    transform: scale(1.0);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(7, 7, 7, 0.95) 0%,
+        rgba(7, 7, 7, 0.84) 38%,
+        rgba(7, 7, 7, 0.52) 68%,
+        rgba(7, 7, 7, 0.20) 100%
+    ),
+    linear-gradient(
+        180deg,
+        rgba(7, 7, 7, 0.35) 0%,
+        transparent 25%,
+        rgba(7, 7, 7, 0.85) 100%
+    );
+}
+
+.hero-section .hero-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--hero-content-max-width, 660px);
+    margin: 0;
+    text-align: left;
+    padding: clamp(20px, 3vh, 40px) 0;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    font-weight: 700;
+    letter-spacing: clamp(2px, 0.3vw, 3.5px);
+    color: var(--color-champagne-gold);
+    margin-bottom: clamp(14px, 2vw, 20px);
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: clamp(16px, 2.5vw, 24px);
+    letter-spacing: -0.5px;
+    color: var(--color-cream);
+}
+
+.hero-description {
+    font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(243, 235, 221, 0.85);
+    margin-bottom: clamp(26px, 3.5vw, 38px);
+    max-width: 580px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.8vw, 20px);
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 14px 32px;
+    border: 1px solid var(--color-champagne-gold);
+    color: var(--color-cream);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    background: rgba(7, 7, 7, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.btn-hero-primary:hover {
+    background: var(--color-champagne-gold);
+    color: #070707;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold-glow);
+}
+
+.btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #D5A653 0%, #B88836 100%);
+    color: #070707;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 20px rgba(213, 166, 83, 0.3);
+    white-space: nowrap;
+}
+
+.btn-hero-secondary:hover {
+    background: linear-gradient(135deg, #E4C07A 0%, #D5A653 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(213, 166, 83, 0.5);
+}
+
+/* Trust Strip */
+.trust-strip {
+    position: relative;
+    z-index: 2;
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-border-gold);
+    border-bottom: 1px solid var(--color-border-gold);
+    padding: 24px 0;
+    margin-top: 40px;
+}
+
+.trust-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.trust-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.1);
+    border: 1px solid var(--color-border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-champagne-gold);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.trust-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-text strong {
+    font-size: 0.95rem;
+    color: var(--color-cream);
+    font-weight: 600;
+}
+
+.trust-text span {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   4. FEATURED TREATMENTS SECTION
+   ========================================================================== */
+.featured-section {
+    background-color: var(--color-main-black);
+}
+
+.experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 54px;
+}
+
+.experience-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), var(--shadow-gold-glow);
+}
+
+.card-image-box {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.experience-card:hover .card-img {
+    transform: scale(1.08);
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 50%, rgba(13, 13, 13, 0.95) 100%);
+}
+
+.card-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(7, 7, 7, 0.75);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-soft-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.tag-burgundy {
+    background: rgba(66, 16, 24, 0.85);
+    border-color: #681A26;
+    color: #E89BA7;
+}
+
+.tag-gold {
+    background: rgba(213, 166, 83, 0.2);
+    border-color: var(--color-champagne-gold);
+    color: var(--color-champagne-gold);
+}
+
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: var(--color-cream);
+}
+
+.card-desc {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.card-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--color-champagne-gold);
+    transition: var(--transition-smooth);
+    margin-top: auto;
+}
+
+.card-cta-btn:hover {
+    color: var(--color-soft-gold);
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   5. SANCTUARY / BRAND EXPERIENCE SECTION
+   ========================================================================== */
+.sanctuary-section {
+    background: linear-gradient(180deg, var(--color-main-black) 0%, var(--color-soft-black) 100%);
+    border-top: 1px solid rgba(213, 166, 83, 0.1);
+    border-bottom: 1px solid rgba(213, 166, 83, 0.1);
+}
+
+.sanctuary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sanctuary-lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.sanctuary-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.point-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.point-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.15);
+    border: 1px solid var(--color-champagne-gold);
+    color: var(--color-champagne-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.point-info h4 {
+    font-size: 1.05rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-cream);
+    margin-bottom: 4px;
+}
+
+.point-info p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.btn-gold-outline-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border: 1px solid var(--color-champagne-gold);
+    color: var(--color-champagne-gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.btn-gold-outline-lg:hover {
+    background: var(--color-champagne-gold);
+    color: #070707;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold-glow);
+}
+
+.sanctuary-image-box {
+    position: relative;
+}
+
+.image-frame-gold {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.sanctuary-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.image-frame-gold:hover .sanctuary-img {
+    transform: scale(1.03);
+}
+
+.sanctuary-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border-gold);
+    padding: 14px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.sanctuary-badge span {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-cream);
+    font-style: italic;
+}
+
+/* ==========================================================================
+   6. WHY CHOOSE CEYLON THERAPIST SECTION
+   ========================================================================== */
+.why-choose-section {
+    background-color: var(--color-main-black);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 54px;
+}
+
+.feature-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 8px;
+    padding: 36px 28px;
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6), var(--shadow-gold-glow);
+}
+
+.feature-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.08);
+    border: 1px solid var(--color-border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px auto;
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover .feature-icon-wrapper {
+    background: rgba(213, 166, 83, 0.2);
+    border-color: var(--color-champagne-gold);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    color: var(--color-champagne-gold);
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--color-cream);
+}
+
+.feature-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   7. FOR HER & COUPLES PREVIEW SECTIONS
+   ========================================================================== */
+.for-her-preview {
+    background: linear-gradient(135deg, #1C0A0E 0%, #421018 50%, #120507 100%);
+    border-top: 1px solid rgba(104, 26, 38, 0.4);
+    border-bottom: 1px solid rgba(104, 26, 38, 0.4);
+    position: relative;
+}
+
+.for-her-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.for-her-image-box {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(232, 155, 167, 0.25);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.for-her-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.for-her-image-box:hover .for-her-img {
+    transform: scale(1.04);
+}
+
+.for-her-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 40%, rgba(66, 16, 24, 0.7) 100%);
+}
+
+.btn-burgundy-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #681A26 0%, #421018 100%);
+    border: 1px solid #E89BA7;
+    color: var(--color-cream);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 20px rgba(66, 16, 24, 0.5);
+}
+
+.btn-burgundy-gold:hover {
+    background: linear-gradient(135deg, #822232 0%, #681A26 100%);
+    border-color: var(--color-soft-gold);
+    color: var(--color-soft-gold);
+    transform: translateY(-2px);
+}
+
+/* Couples Preview Section */
+.couples-preview {
+    background: var(--color-soft-black);
+    border-bottom: 1px solid rgba(213, 166, 83, 0.1);
+}
+
+.couples-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.couples-image-box {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-gold);
+    box-shadow: var(--shadow-soft);
+}
+
+.couples-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.couples-image-box:hover .couples-img {
+    transform: scale(1.04);
+}
+
+.couples-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 40%, rgba(13, 13, 13, 0.8) 100%);
+}
+
+/* ==========================================================================
+   8. BOOKING JOURNEY SECTION
+   ========================================================================== */
+.booking-journey-section {
+    background-color: var(--color-main-black);
+}
+
+.journey-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 54px;
+    position: relative;
+}
+
+.step-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 8px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.step-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), var(--shadow-gold-glow);
+}
+
+.step-number {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: rgba(213, 166, 83, 0.3);
+}
+
+.step-icon-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.1);
+    border: 1px solid var(--color-champagne-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    color: var(--color-champagne-gold);
+    font-size: 1.3rem;
+}
+
+.step-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: var(--color-cream);
+}
+
+.step-card p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+}
+
+.btn-whatsapp-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 16px 36px;
+    border-radius: 4px;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.btn-whatsapp-large:hover {
+    background: linear-gradient(135deg, #2BF076 0%, #128C7E 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   9. TESTIMONIALS SECTION
+   ========================================================================== */
+.testimonials-section {
+    background: var(--color-soft-black);
+    border-top: 1px solid rgba(213, 166, 83, 0.1);
+    border-bottom: 1px solid rgba(213, 166, 83, 0.1);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 54px;
+}
+
+.testimonial-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border-gold);
+    border-radius: 8px;
+    padding: 36px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-smooth);
+}
+
+.testimonial-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-soft);
+}
+
+.stars-row {
+    color: var(--color-champagne-gold);
+    font-size: 0.85rem;
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.testimonial-quote {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--color-cream);
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(213, 166, 83, 0.1);
+    border: 1px solid var(--color-border-gold);
+    color: var(--color-champagne-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+.author-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   10. FINAL CTA SECTION
+   ========================================================================== */
+.final-cta-section {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.final-cta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.cta-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.final-cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(7,7,7,0.85) 0%, rgba(7,7,7,0.95) 100%);
+}
+
+.final-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.final-cta-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--color-cream);
+}
+
+.final-cta-sub {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: 36px;
+}
+
+.final-cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.final-cta-meta {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+}
+

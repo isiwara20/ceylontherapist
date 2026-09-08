@@ -1,16 +1,8 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Admin Create Treatment Service Entry Point
- */
+require_once __DIR__ . '/app/bootstrap.php';
 
-require_once __DIR__ . '/config/init.php';
-
-$controller = new AdminServiceController();
-
-if (isPost()) {
-    $controller->store();
-} else {
-    $controller->create();
-}
+$target = 'admin/services/create.php';
+$qs = !empty($_SERVER['QUERY_STRING']) ? (strpos($target, '?') !== false ? '&' : '?') . $_SERVER['QUERY_STRING'] : '';
+redirect($target . $qs);

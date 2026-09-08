@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <form action="<?= baseUrl('admin_profile.php') ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?= baseUrl('admin/profile/index.php') ?>" method="POST" enctype="multipart/form-data">
             <?= CsrfService::getHiddenInput() ?>
 
             <div class="form-group">
@@ -69,10 +69,10 @@
             </div>
         </div>
 
-        <a href="<?= baseUrl('admin_change_password.php') ?>" class="btn-admin btn-admin-secondary" style="width:100%;">
+        <a href="<?= baseUrl('admin/profile/change-password.php') ?>" class="btn-admin btn-admin-secondary" style="width:100%;">
             <i class="fa-solid fa-key"></i> Change Security Password
         </a>
     </div>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

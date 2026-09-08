@@ -1,0 +1,485 @@
+/* ==========================================================================
+   CEYLON THERAPIST - RESPONSIVE STYLESHEET
+   Breakpoints: 1200px, 1024px, 768px, 480px, 360px
+   ========================================================================== */
+
+/* Large Desktop (1200px and down) */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .experiences-grid,
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .journey-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    .footer-container {
+        grid-template-columns: 1.5fr 1fr 1.2fr 1.5fr;
+        gap: 30px;
+    }
+}
+
+/* Tablet Landscape / Medium Screens (1024px and down) */
+@media (max-width: 1024px) {
+    .public-nav {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: rgba(13, 13, 13, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--color-border-gold);
+        padding: 30px 24px;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 999;
+    }
+
+    .public-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .mobile-toggle.active .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-toggle.active .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .btn-reserve-gold span {
+        display: none;
+    }
+
+    .btn-reserve-gold {
+        padding: 10px 14px;
+    }
+
+    .hero-container {
+        padding-left: clamp(24px, 4.5vw, 56px);
+        padding-right: clamp(24px, 4.5vw, 56px);
+    }
+
+    .trust-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .sanctuary-grid,
+    .for-her-grid,
+    .couples-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .for-her-grid {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+/* Tablet Portrait & Mobile Devices (768px and down) */
+@media (max-width: 768px) {
+    .section-padding {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .hero-section {
+        min-height: 85vh;
+        padding-top: 110px;
+    }
+
+    .hero-container {
+        padding-left: clamp(20px, 4vw, 32px);
+        padding-right: clamp(20px, 4vw, 32px);
+    }
+
+    .hero-content,
+    .fh-hero-content,
+    .cp-hero-content,
+    .ab-hero-content,
+    .ct-hero-content {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .experiences-grid,
+    .features-grid,
+    .journey-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .trust-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .trust-item {
+        gap: 10px;
+    }
+
+    .trust-icon-box {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .trust-text strong {
+        font-size: 0.85rem;
+    }
+
+    .trust-text span {
+        font-size: 0.72rem;
+    }
+
+    .sanctuary-badge {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        margin-top: 16px;
+        justify-content: center;
+    }
+
+    .final-cta-title {
+        font-size: 2.4rem;
+    }
+
+    .final-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Footer - Mobile Responsive & Centralized */
+    .public-footer {
+        padding-top: 55px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
+        padding-bottom: 45px;
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo-link {
+        display: inline-flex;
+        justify-content: center;
+        margin: 0 auto 16px auto;
+    }
+
+    .footer-logo-img {
+        margin: 0 auto 16px auto !important;
+    }
+
+    .footer-brand-desc {
+        text-align: center;
+        margin: 0 auto 20px auto;
+        max-width: 360px;
+    }
+
+    .footer-socials {
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .footer-title {
+        text-align: center;
+        margin-bottom: 16px;
+        position: relative;
+    }
+
+    .footer-title::after {
+        content: '';
+        display: block;
+        width: 32px;
+        height: 2px;
+        background: var(--color-champagne-gold, #d5a653);
+        margin: 8px auto 0 auto;
+        opacity: 0.7;
+    }
+
+    .footer-links {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+    }
+
+    .footer-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-links a {
+        display: inline-block;
+        padding: 4px 0;
+    }
+
+    .footer-links a:hover {
+        padding-left: 0 !important;
+        transform: translateY(-2px);
+        color: var(--color-soft-gold, #f0c978);
+    }
+
+    .contact-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .booking-text {
+        text-align: center;
+        margin: 0 auto 18px auto;
+        max-width: 340px;
+    }
+
+    .btn-footer-whatsapp {
+        margin: 0 auto;
+        justify-content: center;
+        width: fit-content;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        padding: 22px 0;
+    }
+
+    .footer-bottom-flex {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-bottom-flex p {
+        text-align: center;
+        margin: 0;
+    }
+
+    .footer-tagline {
+        text-align: center;
+    }
+}
+
+/* Small Mobile Screens (430px, 390px, 360px) */
+@media (max-width: 480px) {
+    .container,
+    .hero-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .brand-logo-img {
+        height: 42px !important;
+        max-height: 42px !important;
+    }
+
+    .hero-content,
+    .fh-hero-content,
+    .cp-hero-content,
+    .ab-hero-content,
+    .ct-hero-content {
+        text-align: left;
+        max-width: 100%;
+        padding: 16px 0;
+    }
+
+    .hero-actions,
+    .fh-hero-actions,
+    .cp-hero-actions,
+    .ab-hero-actions,
+    .ct-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary,
+    .fh-btn-primary,
+    .fh-btn-secondary,
+    .cp-btn-primary,
+    .cp-btn-secondary,
+    .ab-btn-primary,
+    .ab-btn-secondary,
+    .ct-btn-primary,
+    .ct-btn-secondary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        white-space: normal;
+        padding: 14px 20px;
+        font-size: 0.82rem;
+    }
+
+    .hero-bg-img,
+    .fh-hero-bg-img,
+    .cp-hero-bg-img,
+    .ab-hero-bg-img,
+    .ct-hero-bg-img {
+        object-position: 75% center;
+    }
+
+    .trust-strip-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .card-image-box,
+    .for-her-img,
+    .couples-img {
+        height: 240px;
+    }
+
+    .final-cta-title {
+        font-size: 2rem;
+    }
+
+    .btn-footer-whatsapp {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px 16px !important;
+        font-size: 0.78rem !important;
+    }
+}
+
+/* ==========================================================================
+   TREATMENTS PAGE — RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Tablet Landscape: 2-column grid */
+@media (max-width: 1100px) {
+    .treatments-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .page-banner-treatments {
+        padding-top: 130px;
+        padding-bottom: 70px;
+        min-height: 360px;
+    }
+}
+
+/* Tablet Portrait: 2 columns */
+@media (max-width: 768px) {
+    .page-banner-treatments {
+        padding-top: 110px;
+        padding-bottom: 60px;
+        min-height: 300px;
+    }
+
+    .page-banner-title {
+        font-size: 2.4rem;
+    }
+
+    .page-banner-subtitle {
+        font-size: 1rem;
+    }
+
+    .treatments-cta-title {
+        font-size: 2rem;
+    }
+
+    .treatments-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .treatments-cta-buttons .btn-hero-secondary,
+    .treatments-cta-buttons .btn-hero-primary {
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+/* Mobile: 1-column grid */
+@media (max-width: 650px) {
+    .treatments-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .treatment-card-img-box {
+        height: 200px;
+    }
+
+    .treatments-cta-section {
+        padding: 60px 0;
+    }
+}
+

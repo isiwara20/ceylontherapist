@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Public "For Her" Services Entry Point
  */
 
-require_once __DIR__ . '/config/init.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $controller = new TreatmentController();
 $controller->forHer();

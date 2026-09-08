@@ -1,11 +1,8 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Admin For Her Treatments Entry Point
- */
+require_once __DIR__ . '/app/bootstrap.php';
 
-require_once __DIR__ . '/config/init.php';
-
-$controller = new AdminServiceController();
-$controller->forHer();
+$target = 'admin/services/index.php?view=for-her';
+$qs = !empty($_SERVER['QUERY_STRING']) ? (strpos($target, '?') !== false ? '&' : '?') . $_SERVER['QUERY_STRING'] : '';
+redirect($target . $qs);

@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p>Manage treatment classifications (General, For Her, Couples) and structural sections.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_category_create.php') ?>" class="btn-admin btn-admin-gold">
+        <a href="<?= baseUrl('admin/categories/create.php') ?>" class="btn-admin btn-admin-gold">
             <i class="fa-solid fa-plus"></i> Add Category
         </a>
     </div>
@@ -21,7 +21,7 @@
             <i class="fa-solid fa-layer-group empty-icon"></i>
             <h3 class="empty-title">No Categories Defined</h3>
             <p class="empty-desc">Create your primary service categories to organize therapies across the website.</p>
-            <a href="<?= baseUrl('admin_category_create.php') ?>" class="btn-admin btn-admin-gold">Add Category</a>
+            <a href="<?= baseUrl('admin/categories/create.php') ?>" class="btn-admin btn-admin-gold">Add Category</a>
         </div>
     <?php else: ?>
         <div class="table-responsive">
@@ -46,11 +46,11 @@
                             <td><?= (int)$cat['display_order'] ?></td>
                             <td>
                                 <div class="table-actions">
-                                    <a href="<?= baseUrl('admin_category_edit.php?id=' . (int)$cat['id']) ?>" class="btn-table-action" title="Edit Category">
+                                    <a href="<?= baseUrl('admin/categories/edit.php?id=' . (int)$cat['id']) ?>" class="btn-table-action" title="Edit Category">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
 
-                                    <form action="<?= baseUrl('admin_categories.php?action=delete&id=' . (int)$cat['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure? Services linked to this category may lose their classification.');">
+                                    <form action="<?= baseUrl('admin/categories/index.php?action=delete&id=' . (int)$cat['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure? Services linked to this category may lose their classification.');">
                                         <?= CsrfService::getHiddenInput() ?>
                                         <button type="submit" class="btn-table-action action-delete" title="Delete Category">
                                             <i class="fa-solid fa-trash-can"></i>
@@ -66,4 +66,4 @@
     <?php endif; ?>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

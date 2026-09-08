@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p>Modify package specifications for <strong><?= e($package['title']) ?></strong>.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_packages.php') ?>" class="btn-admin btn-admin-secondary">
+        <a href="<?= baseUrl('admin/packages/index.php') ?>" class="btn-admin btn-admin-secondary">
             <i class="fa-solid fa-arrow-left"></i> Back to Packages
         </a>
     </div>
@@ -16,7 +16,7 @@
 
 <!-- Form Card -->
 <div class="admin-card">
-    <form action="<?= baseUrl('admin_package_edit.php?id=' . (int)$package['id']) ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= baseUrl('admin/packages/edit.php?id=' . (int)$package['id']) ?>" method="POST" enctype="multipart/form-data">
         <?= CsrfService::getHiddenInput() ?>
         <input type="hidden" name="id" value="<?= (int)$package['id'] ?>">
         <input type="hidden" name="existing_image" value="<?= e($package['image'] ?? '') ?>">
@@ -93,9 +93,9 @@
             <button type="submit" class="btn-admin btn-admin-gold">
                 <i class="fa-solid fa-floppy-disk"></i> Update Package
             </button>
-            <a href="<?= baseUrl('admin_packages.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
+            <a href="<?= baseUrl('admin/packages/index.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
         </div>
     </form>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

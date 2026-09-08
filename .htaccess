@@ -1,11 +1,26 @@
-# Ceylon Therapist Apache Rewrite & Directory Protection
+# ==============================================================================
+# Ceylon Therapist — Apache Configuration & Hardening
+# ==============================================================================
 
+# Disable directory browsing
 Options -Indexes
+
+# Prevent accessing hidden files and dotfiles (e.g. .env, .git, etc.)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent direct access to sensitive configuration, database and log files
+<FilesMatch "\.(env|env\.example|sql|log|md|json|lock|bak|config)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /ceylontherapist/
 
-    # Prevent direct HTTP access to configuration, views, and storage logs
-    RewriteRule ^(config|bll|dal|views|storage/logs)/ - [F,L]
+    # Prevent direct HTTP access to core app code, views, and storage logs
+    RewriteRule ^(app/config|views|database|storage/logs)/ - [F,L]
 </IfModule>

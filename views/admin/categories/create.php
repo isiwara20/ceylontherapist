@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p>Define a new service classification or menu group.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_categories.php') ?>" class="btn-admin btn-admin-secondary">
+        <a href="<?= baseUrl('admin/categories/index.php') ?>" class="btn-admin btn-admin-secondary">
             <i class="fa-solid fa-arrow-left"></i> Back to Categories
         </a>
     </div>
@@ -16,7 +16,7 @@
 
 <!-- Form Card -->
 <div class="admin-card">
-    <form action="<?= baseUrl('admin_category_create.php') ?>" method="POST">
+    <form action="<?= baseUrl('admin/categories/create.php') ?>" method="POST">
         <?= CsrfService::getHiddenInput() ?>
 
         <div class="form-grid-2">
@@ -46,9 +46,9 @@
             <button type="submit" class="btn-admin btn-admin-gold">
                 <i class="fa-solid fa-floppy-disk"></i> Create Category
             </button>
-            <a href="<?= baseUrl('admin_categories.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
+            <a href="<?= baseUrl('admin/categories/index.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
         </div>
     </form>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

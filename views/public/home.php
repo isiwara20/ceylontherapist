@@ -1,4 +1,4 @@
-<?php require BASE_PATH . '/views/partials/public-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/header.php'; ?>
 
 <!-- Cinematic Hero Section -->
 <section class="hero-section">
@@ -422,5 +422,5 @@
     </div>
 </section>
 
-<?php require BASE_PATH . '/views/partials/public-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/footer.php'; ?>
 

@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Title & Header Actions -->
 <div class="admin-page-header">
@@ -8,10 +8,10 @@
         <p>Real-time analytics and management control for Ceylon Therapist website.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_service_create.php') ?>" class="btn-admin btn-admin-gold">
+        <a href="<?= baseUrl('admin/services/create.php') ?>" class="btn-admin btn-admin-gold">
             <i class="fa-solid fa-plus"></i> Add Treatment
         </a>
-        <a href="<?= baseUrl('admin_package_create.php') ?>" class="btn-admin btn-admin-secondary">
+        <a href="<?= baseUrl('admin/packages/create.php') ?>" class="btn-admin btn-admin-secondary">
             <i class="fa-solid fa-box-open"></i> Add Package
         </a>
     </div>
@@ -110,7 +110,7 @@
             <h2>Recent Enquiries & Booking Inquiries</h2>
             <p>Latest reservations submitted through WhatsApp direct booking and online forms.</p>
         </div>
-        <a href="<?= baseUrl('admin_enquiries.php') ?>" class="btn-admin btn-admin-secondary btn-admin-sm">
+        <a href="<?= baseUrl('admin/enquiries/index.php') ?>" class="btn-admin btn-admin-secondary btn-admin-sm">
             View All Enquiries <i class="fa-solid fa-arrow-right"></i>
         </a>
     </div>
@@ -162,7 +162,7 @@
                             <td><small><?= date('M d, Y H:i', strtotime($enq['created_at'])) ?></small></td>
                             <td>
                                 <div class="table-actions">
-                                    <a href="<?= baseUrl('admin_enquiry_view.php?id=' . (int)$enq['id']) ?>" class="btn-table-action" title="View Details">
+                                    <a href="<?= baseUrl('admin/enquiries/view.php?id=' . (int)$enq['id']) ?>" class="btn-table-action" title="View Details">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                     <?php if (!empty($enq['phone'])): ?>
@@ -187,7 +187,7 @@
             <h2>Active Treatments</h2>
             <p>Services currently displayed on public therapy menus.</p>
         </div>
-        <a href="<?= baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary btn-admin-sm">
+        <a href="<?= baseUrl('admin/services/index.php') ?>" class="btn-admin btn-admin-secondary btn-admin-sm">
             Manage All Treatments <i class="fa-solid fa-arrow-right"></i>
         </a>
     </div>
@@ -197,7 +197,7 @@
             <i class="fa-solid fa-spa empty-icon"></i>
             <h3 class="empty-title">No Treatments Found</h3>
             <p class="empty-desc">Add treatments to display them in your online sanctuary catalogue.</p>
-            <a href="<?= baseUrl('admin_service_create.php') ?>" class="btn-admin btn-admin-gold">Add Treatment</a>
+            <a href="<?= baseUrl('admin/services/create.php') ?>" class="btn-admin btn-admin-gold">Add Treatment</a>
         </div>
     <?php else: ?>
         <div class="table-responsive">
@@ -227,7 +227,7 @@
                             <td><span class="badge-status badge-active"><?= e($srv['status']) ?></span></td>
                             <td>
                                 <div class="table-actions">
-                                    <a href="<?= baseUrl('admin_service_edit.php?id=' . (int)$srv['id']) ?>" class="btn-table-action" title="Edit">
+                                    <a href="<?= baseUrl('admin/services/edit.php?id=' . (int)$srv['id']) ?>" class="btn-table-action" title="Edit">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
                                 </div>
@@ -240,4 +240,4 @@
     <?php endif; ?>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

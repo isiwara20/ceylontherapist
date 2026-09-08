@@ -1,4 +1,4 @@
-<?php require BASE_PATH . '/views/partials/public-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/header.php'; ?>
 
 <!-- =======================================================
      FOR HER — CEYLON THERAPIST
@@ -321,25 +321,25 @@
 </div>
 
 <!-- Experience Detail Modal -->
-<div class="fh-modal-backdrop" id="fhDetailModal" onclick="closeFhModal(event)" style="display:none;position:fixed;inset:0;background:rgba(5,5,5,0.85);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;padding:20px;">
-    <div class="fh-modal-card" style="background:#0e0b0c;border:1px solid rgba(213,166,83,0.35);border-radius:12px;max-width:580px;width:100%;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.85),0 0 40px rgba(232,155,167,0.12);animation:modalFadeIn 0.25s ease-out;">
-        <div style="position:relative;height:200px;overflow:hidden;">
-            <img id="fhModalImg" src="" alt="Treatment Experience" style="width:100%;height:100%;object-fit:cover;">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,#0e0b0c 100%);"></div>
-            <button type="button" onclick="closeFhModalDirect()" aria-label="Close modal" style="position:absolute;top:14px;right:14px;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;">
+<div class="fh-modal-backdrop" id="fhDetailModal">
+    <div class="fh-modal-card">
+        <div class="fh-modal-header-img">
+            <img id="fhModalImg" src="" alt="Treatment Experience">
+            <div class="fh-modal-header-overlay"></div>
+            <button type="button" class="fh-modal-close-btn" onclick="closeFhModalDirect()" aria-label="Close modal">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <span id="fhModalDuration" style="position:absolute;bottom:14px;left:20px;background:rgba(7,7,7,0.85);border:1px solid rgba(213,166,83,0.5);color:#d5a653;font-size:0.75rem;font-weight:700;padding:5px 12px;border-radius:4px;letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;">
+            <span class="fh-modal-duration-badge" id="fhModalDuration">
                 <i class="fa-regular fa-clock"></i> <span>60 Min</span>
             </span>
         </div>
-        <div style="padding:24px 28px 28px;">
-            <span style="font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;color:#e89ba7;font-weight:600;display:block;margin-bottom:6px;">FOR HER SANCTUARY</span>
-            <h3 id="fhModalTitle" style="font-family:var(--font-heading, 'Playfair Display', serif);font-size:1.6rem;color:#f7f3ee;margin-bottom:12px;line-height:1.25;"></h3>
-            <p id="fhModalShort" style="color:#d5a653;font-size:0.92rem;line-height:1.6;margin-bottom:14px;font-style:italic;"></p>
-            <div id="fhModalDesc" style="color:#b8b0a5;font-size:0.9rem;line-height:1.7;margin-bottom:24px;max-height:180px;overflow-y:auto;padding-right:6px;"></div>
+        <div class="fh-modal-content">
+            <span class="fh-modal-eyebrow">FOR HER SANCTUARY</span>
+            <h3 class="fh-modal-title" id="fhModalTitle"></h3>
+            <p class="fh-modal-short" id="fhModalShort"></p>
+            <div class="fh-modal-desc" id="fhModalDesc"></div>
             
-            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);">
+            <div class="fh-modal-footer">
                 <div style="display:flex;align-items:center;gap:8px;font-size:0.78rem;color:#9b9286;">
                     <i class="fa-solid fa-shield-heart" style="color:#d5a653;"></i>
                     <span>100% Private &amp; Confidential</span>
@@ -352,47 +352,4 @@
     </div>
 </div>
 
-<style>
-@keyframes modalFadeIn {
-    from { opacity: 0; transform: scale(0.95) translateY(10px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-}
-.fh-cards-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
-}
-</style>
-
-<script>
-function openFhModal(data) {
-    document.getElementById('fhModalTitle').textContent = data.name || '';
-    document.getElementById('fhModalShort').textContent = data.short || '';
-    document.getElementById('fhModalDesc').textContent = data.desc || data.short || '';
-    document.getElementById('fhModalDuration').querySelector('span').textContent = (data.duration || 60) + ' Min';
-    document.getElementById('fhModalImg').src = data.image || '';
-    document.getElementById('fhModalBookBtn').href = data.waLink || '#';
-    
-    var modal = document.getElementById('fhDetailModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeFhModal(e) {
-    if (e.target.id === 'fhDetailModal') {
-        closeFhModalDirect();
-    }
-}
-
-function closeFhModalDirect() {
-    var modal = document.getElementById('fhDetailModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeFhModalDirect();
-    }
-});
-</script>
-
-<?php require BASE_PATH . '/views/partials/public-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/footer.php'; ?>

@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p><?= e($pageSubtitle ?? 'Create a new wellness therapy experience for the Ceylon Therapist menu.') ?></p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= $backUrl ?? baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">
+        <a href="<?= $backUrl ?? baseUrl('admin/services/index.php') ?>" class="btn-admin btn-admin-secondary">
             <i class="fa-solid fa-arrow-left"></i> <?= e($backLabel ?? 'Back to Treatments') ?>
         </a>
     </div>
@@ -16,7 +16,7 @@
 
 <!-- Form Card -->
 <div class="admin-card">
-    <form action="<?= baseUrl(!empty($selectedCategoryCode) ? ('admin_service_create.php?category=' . urlencode($selectedCategoryCode)) : 'admin_service_create.php') ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= baseUrl(!empty($selectedCategoryCode) ? ('admin/services/create.php?category=' . urlencode($selectedCategoryCode)) : 'admin/services/create.php') ?>" method="POST" enctype="multipart/form-data">
         <?= CsrfService::getHiddenInput() ?>
 
         <div class="form-grid-2">
@@ -102,9 +102,9 @@
             <button type="submit" class="btn-admin btn-admin-gold">
                 <i class="fa-solid fa-floppy-disk"></i> <?= ($selectedCategoryCode ?? '') === 'FOR_HER' ? 'Save For Her Experience' : (($selectedCategoryCode ?? '') === 'COUPLES' ? 'Save Couples Ritual' : 'Create Treatment') ?>
             </button>
-            <a href="<?= $backUrl ?? baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
+            <a href="<?= $backUrl ?? baseUrl('admin/services/index.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
         </div>
     </form>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

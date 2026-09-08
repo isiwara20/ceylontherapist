@@ -1,11 +1,8 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Admin Couples Treatments Entry Point
- */
+require_once __DIR__ . '/app/bootstrap.php';
 
-require_once __DIR__ . '/config/init.php';
-
-$controller = new AdminServiceController();
-$controller->couples();
+$target = 'admin/services/index.php?view=couples';
+$qs = !empty($_SERVER['QUERY_STRING']) ? (strpos($target, '?') !== false ? '&' : '?') . $_SERVER['QUERY_STRING'] : '';
+redirect($target . $qs);

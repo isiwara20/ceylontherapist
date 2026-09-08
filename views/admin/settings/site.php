@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -11,7 +11,7 @@
 
 <!-- Site Settings Form Card -->
 <div class="admin-card">
-    <form action="<?= baseUrl('admin_site_settings.php') ?>" method="POST">
+    <form action="<?= baseUrl('admin/settings/site.php') ?>" method="POST">
         <?= CsrfService::getHiddenInput() ?>
 
         <div class="form-grid-2">
@@ -62,4 +62,4 @@
     </form>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p>Modify therapy specifications, descriptions, duration, and status for <strong><?= e($service['name']) ?></strong>.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">
+        <a href="<?= baseUrl('admin/services/index.php') ?>" class="btn-admin btn-admin-secondary">
             <i class="fa-solid fa-arrow-left"></i> Back to Treatments
         </a>
     </div>
@@ -16,7 +16,7 @@
 
 <!-- Form Card -->
 <div class="admin-card">
-    <form action="<?= baseUrl('admin_service_edit.php?id=' . (int)$service['id']) ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= baseUrl('admin/services/edit.php?id=' . (int)$service['id']) ?>" method="POST" enctype="multipart/form-data">
         <?= CsrfService::getHiddenInput() ?>
         <input type="hidden" name="id" value="<?= (int)$service['id'] ?>">
         <input type="hidden" name="existing_image" value="<?= e($service['image'] ?? '') ?>">
@@ -101,9 +101,9 @@
             <button type="submit" class="btn-admin btn-admin-gold">
                 <i class="fa-solid fa-floppy-disk"></i> Update Treatment
             </button>
-            <a href="<?= baseUrl('admin_services.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
+            <a href="<?= baseUrl('admin/services/index.php') ?>" class="btn-admin btn-admin-secondary">Cancel</a>
         </div>
     </form>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

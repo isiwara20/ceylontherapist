@@ -1,0 +1,36 @@
+/* ==========================================================================
+   CEYLON THERAPIST - LUXURY WELLNESS & SPA DESIGN SYSTEM
+   Dark Luxury + Deep Burgundy + Warm Gold + Soft Candlelight + Serif Typography
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --color-main-black: #070707;
+    --color-soft-black: #0D0D0D;
+    --color-card-bg: rgba(18, 18, 18, 0.75);
+    --color-glass-bg: rgba(13, 13, 13, 0.85);
+    --color-deep-burgundy: #421018;
+    --color-rich-burgundy: #681A26;
+    --color-champagne-gold: #D5A653;
+    --color-soft-gold: #E4C07A;
+    --color-cream: #F3EBDD;
+    --color-text-muted: #AAA29A;
+    --color-border-gold: rgba(213, 166, 83, 0.25);
+    --color-border-hover: rgba(228, 192, 122, 0.6);
+    --color-whatsapp: #25D366;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+
+    /* Layout & Container Tokens */
+    --container-max-width: 1380px;
+    --hero-max-width: 1440px;
+    --hero-content-max-width: clamp(560px, 45vw, 680px);
+
+    /* Shadows & Transitions */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-gold-glow: 0 0 25px rgba(213, 166, 83, 0.18);
+    --transition-smooth: all 0.35s ease;
+}
+

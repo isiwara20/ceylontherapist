@@ -1,5 +1,5 @@
-<?php require BASE_PATH . '/views/partials/admin-header.php'; ?>
-<?php require BASE_PATH . '/views/partials/admin-sidebar.php'; ?>
+﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
 <div class="admin-page-header">
@@ -8,7 +8,7 @@
         <p>Curated wellness journeys combining multiple therapeutic treatments.</p>
     </div>
     <div class="admin-header-actions">
-        <a href="<?= baseUrl('admin_package_create.php') ?>" class="btn-admin btn-admin-gold">
+        <a href="<?= baseUrl('admin/packages/create.php') ?>" class="btn-admin btn-admin-gold">
             <i class="fa-solid fa-plus"></i> Add New Package
         </a>
     </div>
@@ -23,7 +23,7 @@
         </div>
         <button type="submit" class="btn-admin btn-admin-secondary">Search</button>
         <?php if (!empty($_GET['search'])): ?>
-            <a href="<?= baseUrl('admin_packages.php') ?>" class="btn-admin btn-admin-secondary" style="color:var(--admin-muted);">Reset</a>
+            <a href="<?= baseUrl('admin/packages/index.php') ?>" class="btn-admin btn-admin-secondary" style="color:var(--admin-muted);">Reset</a>
         <?php endif; ?>
     </form>
 </div>
@@ -35,7 +35,7 @@
             <i class="fa-solid fa-box-open empty-icon"></i>
             <h3 class="empty-title">No Wellness Packages Found</h3>
             <p class="empty-desc">Create your first wellness combination package to offer bespoke extended rituals.</p>
-            <a href="<?= baseUrl('admin_package_create.php') ?>" class="btn-admin btn-admin-gold">Add Package</a>
+            <a href="<?= baseUrl('admin/packages/create.php') ?>" class="btn-admin btn-admin-gold">Add Package</a>
         </div>
     <?php else: ?>
         <div class="table-responsive">
@@ -81,18 +81,18 @@
                             </td>
                             <td>
                                 <div class="table-actions">
-                                    <a href="<?= baseUrl('admin_package_edit.php?id=' . (int)$pkg['id']) ?>" class="btn-table-action" title="Edit Package">
+                                    <a href="<?= baseUrl('admin/packages/edit.php?id=' . (int)$pkg['id']) ?>" class="btn-table-action" title="Edit Package">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
 
-                                    <form action="<?= baseUrl('admin_packages.php?action=toggle&id=' . (int)$pkg['id']) ?>" method="POST" style="display:inline;">
+                                    <form action="<?= baseUrl('admin/packages/index.php?action=toggle&id=' . (int)$pkg['id']) ?>" method="POST" style="display:inline;">
                                         <?= CsrfService::getHiddenInput() ?>
                                         <button type="submit" class="btn-table-action" title="Toggle Status">
                                             <i class="fa-solid fa-power-off"></i>
                                         </button>
                                     </form>
 
-                                    <form action="<?= baseUrl('admin_packages.php?action=delete&id=' . (int)$pkg['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this package?');">
+                                    <form action="<?= baseUrl('admin/packages/index.php?action=delete&id=' . (int)$pkg['id']) ?>" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this package?');">
                                         <?= CsrfService::getHiddenInput() ?>
                                         <button type="submit" class="btn-table-action action-delete" title="Delete Package">
                                             <i class="fa-solid fa-trash-can"></i>
@@ -108,4 +108,4 @@
     <?php endif; ?>
 </div>
 
-<?php require BASE_PATH . '/views/partials/admin-footer.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-footer.php'; ?>

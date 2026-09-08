@@ -1,0 +1,73 @@
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-cream);
+}
+
+.gold-gradient-text {
+    background: linear-gradient(135deg, #F3EBDD 0%, #D5A653 50%, #E4C07A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.burgundy-gold-text {
+    background: linear-gradient(135deg, #F3EBDD 0%, #E4C07A 50%, #C47A85 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-champagne-gold);
+    margin-bottom: 12px;
+}
+
+.eyebrow-burgundy {
+    color: #E89BA7;
+}
+
+.section-title {
+    font-size: 2.75rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-subtitle-left {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin-bottom: 28px;
+}
+
+.gold-line-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-champagne-gold), transparent);
+    margin: 20px auto 0 auto;
+}
+
+.gold-icon { color: var(--color-champagne-gold); }
+.gold-icon-sm { font-size: 0.85rem; color: var(--color-champagne-gold); margin-right: 6px; }
+
+/* Section Padding */
+.section-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+

@@ -29,19 +29,19 @@ ON DUPLICATE KEY UPDATE `name` = VALUES(`name`);
 -- ---------------------------------------------------
 -- 3. Initial Sample Services Seed
 -- ---------------------------------------------------
-INSERT INTO `services` (`id`, `category_id`, `name`, `slug`, `short_description`, `description`, `duration_minutes`, `status`, `display_order`) VALUES
-(1, 1, 'Signature Herbal Aromatherapy', 'signature-herbal-aromatherapy', 'Traditional Ceylonese warm herbal oil body massage.', 'A deeply soothing full-body massage using warm organic Ceylonese herbal oils to release tension and restore vitality.', 60, 'ACTIVE', 1),
-(2, 1, 'Deep Tissue Muscle Relief', 'deep-tissue-muscle-relief', 'Therapeutic intense pressure massage focusing on chronic tension.', 'Targeted deep muscle bodywork designed to release tightness and alleviate posture stress.', 90, 'ACTIVE', 2),
-(3, 2, 'Botanical Radiance Facial & Body Ritual', 'botanical-radiance-facial', 'Exclusive luxury pampering treatment for women.', 'Nourishing organic botanical facial treatment combined with warm stone shoulder therapy.', 75, 'ACTIVE', 3),
-(4, 3, 'Royal Ceylon Couples Sanctuary', 'royal-ceylon-couples-sanctuary', 'Side-by-side couples massage ritual in private suite.', 'Candlelit synchronized massage experience followed by warm herbal foot baths.', 120, 'ACTIVE', 4)
-ON DUPLICATE KEY UPDATE `name` = VALUES(`name`);
+INSERT INTO `services` (`id`, `category_id`, `name`, `slug`, `short_description`, `description`, `duration_minutes`, `price`, `status`, `display_order`) VALUES
+(1, 1, 'Signature Herbal Aromatherapy', 'signature-herbal-aromatherapy', 'Traditional Ceylonese warm herbal oil body massage.', 'A deeply soothing full-body massage using warm organic Ceylonese herbal oils to release tension and restore vitality.', 60, 8500.00, 'ACTIVE', 1),
+(2, 1, 'Deep Tissue Muscle Relief', 'deep-tissue-muscle-relief', 'Therapeutic intense pressure massage focusing on chronic tension.', 'Targeted deep muscle bodywork designed to release tightness and alleviate posture stress.', 90, 9500.00, 'ACTIVE', 2),
+(3, 2, 'Botanical Radiance Facial & Body Ritual', 'botanical-radiance-facial', 'Exclusive luxury pampering treatment for women.', 'Nourishing organic botanical facial treatment combined with warm stone shoulder therapy.', 75, 11000.00, 'ACTIVE', 3),
+(4, 3, 'Royal Ceylon Couples Sanctuary', 'royal-ceylon-couples-sanctuary', 'Side-by-side couples massage ritual in private suite.', 'Candlelit synchronized massage experience followed by warm herbal foot baths.', 120, 18000.00, 'ACTIVE', 4)
+ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `price` = VALUES(`price`);
 
 -- ---------------------------------------------------
 -- 4. Initial Sample Packages Seed
 -- ---------------------------------------------------
-INSERT INTO `packages` (`id`, `title`, `slug`, `short_description`, `description`, `duration_minutes`, `status`, `display_order`) VALUES
-(1, 'Serenity Half-Day Wellness Retreat', 'serenity-half-day-retreat', 'Comprehensive 3-hour holistic renewal package.', 'Includes Signature Herbal Massage, Botanical Facial, and Warm Herbal Tea Ceremony.', 180, 'ACTIVE', 1)
-ON DUPLICATE KEY UPDATE `title` = VALUES(`title`);
+INSERT INTO `packages` (`id`, `title`, `slug`, `short_description`, `description`, `duration_minutes`, `price`, `status`, `display_order`) VALUES
+(1, 'Serenity Half-Day Wellness Retreat', 'serenity-half-day-retreat', 'Comprehensive 3-hour holistic renewal package.', 'Includes Signature Herbal Massage, Botanical Facial, and Warm Herbal Tea Ceremony.', 180, 22500.00, 'ACTIVE', 1)
+ON DUPLICATE KEY UPDATE `title` = VALUES(`title`), `price` = VALUES(`price`);
 
 -- ---------------------------------------------------
 -- 5. Contact Settings Seed

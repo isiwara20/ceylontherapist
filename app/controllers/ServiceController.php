@@ -126,6 +126,9 @@ class ServiceController
             $slug .= '-' . time();
         }
 
+        $priceInput = post('price');
+        $price = ($priceInput !== null && $priceInput !== '' && is_numeric($priceInput)) ? (float)$priceInput : null;
+
         $data = [
             'category_id' => $categoryId,
             'name' => $name,
@@ -133,6 +136,7 @@ class ServiceController
             'short_description' => post('short_description'),
             'description' => post('description'),
             'duration_minutes' => (int)post('duration_minutes', '60'),
+            'price' => $price,
             'image' => $imagePath,
             'status' => post('status', 'ACTIVE'),
             'display_order' => (int)post('display_order', '0')
@@ -226,6 +230,9 @@ class ServiceController
             $slug .= '-' . time();
         }
 
+        $priceInput = post('price');
+        $price = ($priceInput !== null && $priceInput !== '' && is_numeric($priceInput)) ? (float)$priceInput : null;
+
         $data = [
             'category_id' => $categoryId,
             'name' => $name,
@@ -233,6 +240,7 @@ class ServiceController
             'short_description' => post('short_description'),
             'description' => post('description'),
             'duration_minutes' => (int)post('duration_minutes', '60'),
+            'price' => $price,
             'image' => $imagePath,
             'status' => post('status', 'ACTIVE'),
             'display_order' => (int)post('display_order', '0')

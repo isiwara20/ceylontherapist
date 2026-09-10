@@ -1373,6 +1373,20 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
+.footer-developer-link {
+    color: var(--color-champagne-gold, #D4AF37) !important;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer-developer-link:hover {
+    color: #FFFFFF !important;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+    text-decoration: underline;
+}
+
 /* ==========================================================================
    12. INNER PAGE SHARED BANNER
    ========================================================================== */

@@ -253,6 +253,27 @@
     gap: 6px;
 }
 
+.cp-card-price-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, rgba(18, 5, 8, 0.88) 0%, rgba(7, 7, 7, 0.92) 100%);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(213, 166, 83, 0.45);
+    color: var(--color-champagne-gold, #d5a653);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
 .cp-card-body {
     padding: 28px 24px;
     display: flex;

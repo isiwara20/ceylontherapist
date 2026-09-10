@@ -86,3 +86,22 @@ function dd(...$vars): void
     echo '</pre>';
     exit;
 }
+
+/**
+ * Format currency price
+ * 
+ * @param float|int|string|null $price
+ * @param string|null $currency
+ * @return string Formatted price e.g. "LKR 8,500" or empty string if null/0
+ */
+function formatPrice(mixed $price, ?string $currency = null): string
+{
+    if ($price === null || $price === '' || (float)$price <= 0) {
+        return '';
+    }
+    $curr = $currency ?? (defined('DEFAULT_CURRENCY') ? DEFAULT_CURRENCY : 'LKR');
+    $num = (float)$price;
+    $decimals = ($num == floor($num)) ? 0 : 2;
+    return $curr . ' ' . number_format($num, $decimals);
+}
+

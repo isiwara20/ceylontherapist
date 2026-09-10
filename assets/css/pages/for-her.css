@@ -279,6 +279,28 @@
     gap: 5px;
 }
 
+/* Price tag floating top-left */
+.fh-card-price-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, rgba(66, 16, 24, 0.88) 0%, rgba(7, 7, 7, 0.92) 100%);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(232, 155, 167, 0.45);
+    color: #E89BA7;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
 /* Card body */
 .fh-card-body {
     padding: 28px 26px;

@@ -48,7 +48,8 @@
                     }
 
                     // WhatsApp link with service pre-fill
-                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) treatment. Please advise on availability.');
+                    $priceText = !empty($service['price']) ? ' - ' . formatPrice($service['price']) : '';
+                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min' . $priceText . ') treatment. Please advise on availability.');
                     $waLink = 'https://wa.me/' . DEFAULT_WHATSAPP_NUMBER . '?text=' . $waMsg;
 
                     // Badge class by category
@@ -60,6 +61,11 @@
                     <div class="treatment-card-img-box">
                         <img src="<?= $imgSrc ?>" alt="<?= e($service['name']) ?>" class="treatment-card-img">
                         <div class="treatment-card-img-overlay"></div>
+                        <?php if (!empty($service['price'])): ?>
+                            <div class="treatment-price-badge">
+                                <?= formatPrice($service['price']) ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="treatment-duration-badge">
                             <i class="fa-regular fa-clock"></i> <?= e($service['duration_minutes']) ?> Min
                         </div>
@@ -67,6 +73,12 @@
                     <div class="treatment-card-body">
                         <span class="<?= $badgeClass ?>"><?= e($service['category_name'] ?? 'General Wellness') ?></span>
                         <h3 class="treatment-card-title"><?= e($service['name']) ?></h3>
+                        <?php if (!empty($service['price'])): ?>
+                            <div class="treatment-price-under-title" style="color:var(--color-champagne-gold, #d5a653);font-size:1.15rem;font-weight:700;margin-top:6px;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+                                <i class="fa-solid fa-tag" style="font-size:0.85rem;opacity:0.85;"></i>
+                                <span><?= formatPrice($service['price']) ?></span>
+                            </div>
+                        <?php endif; ?>
                         <p class="treatment-card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A thoughtfully designed therapeutic experience crafted for your personal comfort and privacy.') ?></p>
                         <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="btn-book-treatment" id="book-<?= (int)$service['id'] ?>">
                             <i class="fa-brands fa-whatsapp"></i> Book This Treatment

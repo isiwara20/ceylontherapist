@@ -1,4 +1,4 @@
-﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
 <?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
@@ -45,6 +45,7 @@
                         <th style="width: 60px;">Image</th>
                         <th>Package Title</th>
                         <th>Duration</th>
+                        <th>Price</th>
                         <th>Included Therapies</th>
                         <th>Order</th>
                         <th>Status</th>
@@ -65,11 +66,21 @@
                             </td>
                             <td>
                                 <strong><?= e($pkg['title']) ?></strong>
+                                <?php if (!empty($pkg['price'])): ?>
+                                    <br><span style="color:var(--admin-gold);font-weight:700;font-size:12px;"><i class="fa-solid fa-tag" style="font-size:10px;opacity:0.8;"></i> <?= formatPrice($pkg['price']) ?></span>
+                                <?php endif; ?>
                                 <?php if (!empty($pkg['short_description'])): ?>
                                     <br><small style="color: var(--admin-muted);"><?= e(substr($pkg['short_description'], 0, 70)) ?>...</small>
                                 <?php endif; ?>
                             </td>
                             <td><strong><?= (int)$pkg['duration_minutes'] ?></strong> mins</td>
+                            <td>
+                                <?php if (!empty($pkg['price'])): ?>
+                                    <strong style="color:var(--admin-gold);"><?= formatPrice($pkg['price']) ?></strong>
+                                <?php else: ?>
+                                    <span style="color:var(--admin-muted);font-style:italic;">Not Set</span>
+                                <?php endif; ?>
+                            </td>
                             <td>
                                 <span class="badge-status badge-new"><?= (int)($pkg['service_count'] ?? 0) ?> services</span>
                             </td>

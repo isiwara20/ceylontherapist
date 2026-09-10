@@ -74,7 +74,8 @@
                     $icon = $icons[$i % count($icons)];
                     $fallback = $fallbackImages[$i % count($fallbackImages)];
                     $img = mediaUrl($service['image'], 'assets/images/' . $fallback);
-                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to reserve the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) For Her session. Please advise on availability.');
+                    $priceText = !empty($service['price']) ? ' - ' . formatPrice($service['price']) : '';
+                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to reserve the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min' . $priceText . ') For Her session. Please advise on availability.');
                     $waLink = 'https://wa.me/' . $waNumber . '?text=' . $waMsg;
                     $i++;
                 ?>
@@ -82,6 +83,11 @@
                         <div class="fh-card-img-box">
                             <img src="<?= $img ?>" alt="<?= e($service['name']) ?>" class="fh-card-img" loading="lazy">
                             <div class="fh-card-img-overlay"></div>
+                            <?php if (!empty($service['price'])): ?>
+                                <div class="fh-card-price-tag">
+                                    <i class="fa-solid fa-tag" style="font-size:0.75rem;"></i> <?= formatPrice($service['price']) ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="fh-card-duration-tag">
                                 <i class="fa-regular fa-clock"></i> <?= (int)$service['duration_minutes'] ?> Min
                             </div>
@@ -91,6 +97,12 @@
                                 <i class="fa-solid <?= $icon ?>"></i>
                             </div>
                             <h3 class="fh-card-title"><?= e($service['name']) ?></h3>
+                            <?php if (!empty($service['price'])): ?>
+                                <div class="fh-card-price-under-title" style="color:var(--color-champagne-gold, #d5a653);font-size:1.1rem;font-weight:700;margin-top:6px;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+                                    <i class="fa-solid fa-tag" style="font-size:0.85rem;opacity:0.85;"></i>
+                                    <span><?= formatPrice($service['price']) ?></span>
+                                </div>
+                            <?php endif; ?>
                             <p class="fh-card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A gentle and restorative experience designed for your total privacy and comfort.') ?></p>
                             
                             <div class="fh-card-footer" style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(213,166,83,0.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
@@ -102,6 +114,7 @@
                                         'id' => $service['id'],
                                         'name' => $service['name'],
                                         'duration' => $service['duration_minutes'],
+                                        'price' => !empty($service['price']) ? formatPrice($service['price']) : '',
                                         'image' => $img,
                                         'short' => $service['short_description'] ?? '',
                                         'desc' => $service['description'],
@@ -331,6 +344,9 @@
             </button>
             <span class="fh-modal-duration-badge" id="fhModalDuration">
                 <i class="fa-regular fa-clock"></i> <span>60 Min</span>
+            </span>
+            <span class="fh-modal-duration-badge" id="fhModalPrice" style="display:none;right:auto;left:20px;border-color:rgba(232,155,167,0.45);color:#E89BA7;">
+                <i class="fa-solid fa-tag"></i> <span></span>
             </span>
         </div>
         <div class="fh-modal-content">

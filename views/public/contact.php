@@ -138,7 +138,7 @@
                             <option value="">Select a treatment</option>
                             <?php if (!empty($services)): ?>
                                 <?php foreach ($services as $srv): ?>
-                                    <option value="<?= e($srv['name']) ?>"><?= e($srv['name']) ?> (<?= e($srv['duration_minutes']) ?> Min)</option>
+                                    <option value="<?= e($srv['name']) ?>"><?= e($srv['name']) ?> (<?= e($srv['duration_minutes']) ?> Min<?= !empty($srv['price']) ? ' - ' . formatPrice($srv['price']) : '' ?>)</option>
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <option value="Relax & Reset Massage">Relax &amp; Reset Massage (60 Min)</option>
@@ -180,17 +180,11 @@
                         </div>
                     </div>
 
-                    <!-- WhatsApp & Email Row -->
-                    <div class="ct-grid-2">
-                        <div class="form-group">
-                            <label for="booking_phone" class="ct-label">WHATSAPP NUMBER <span class="required">*</span></label>
-                            <input type="tel" id="booking_phone" name="phone" class="ct-input" required placeholder="e.g. +94 77 123 4567" autocomplete="tel">
-                            <span class="ct-error-msg" id="err-phone" aria-live="polite"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="booking_email" class="ct-label">EMAIL (OPTIONAL)</label>
-                            <input type="email" id="booking_email" name="email" class="ct-input" placeholder="Enter your email address" autocomplete="email">
-                        </div>
+                    <!-- WhatsApp Number Row -->
+                    <div class="form-group">
+                        <label for="booking_phone" class="ct-label">WHATSAPP NUMBER <span class="required">*</span></label>
+                        <input type="tel" id="booking_phone" name="phone" class="ct-input" required placeholder="e.g. +94 77 123 4567" autocomplete="tel">
+                        <span class="ct-error-msg" id="err-phone" aria-live="polite"></span>
                     </div>
 
                     <!-- Special Requests -->
@@ -210,12 +204,6 @@
                         <button type="submit" class="btn-whatsapp-large ct-btn-submit" id="btn-submit-booking">
                             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> SEND VIA WHATSAPP
                         </button>
-                    </div>
-
-                    <!-- Alternative Toggle -->
-                    <div class="ct-alt-option">
-                        <span>Prefer email?</span>
-                        <a href="#ct-email-section" class="ct-link-gold" id="toggle-email-btn">Contact by Email &darr;</a>
                     </div>
                 </form>
             </div>
@@ -282,19 +270,6 @@
                         </div>
                     </div>
 
-                    <!-- Email -->
-                    <div class="ct-info-item" role="listitem">
-                        <div class="ct-info-icon-wrap" aria-hidden="true">
-                            <i class="fa-regular fa-envelope"></i>
-                        </div>
-                        <div class="ct-info-content">
-                            <h4 class="ct-info-label">EMAIL</h4>
-                            <p class="ct-info-val">
-                                <a href="mailto:<?= e($contactInfo['email'] ?? DEFAULT_BUSINESS_EMAIL) ?>"><?= e($contactInfo['email'] ?? DEFAULT_BUSINESS_EMAIL) ?></a>
-                            </p>
-                        </div>
-                    </div>
-
                 </div><!-- /ct-info-list -->
             </div>
 
@@ -313,55 +288,6 @@
             </div>
 
         </div><!-- /ct-info-col -->
-
-    </div>
-</section>
-
-<!-- ===========================
-     4. EMAIL CONTACT SECTION
-     =========================== -->
-<section class="section-padding ct-email-section" id="ct-email-section" aria-label="Email Enquiry Form">
-    <div class="container ct-email-container">
-
-        <div class="section-header text-center">
-            <span class="section-eyebrow"><i class="fa-regular fa-envelope gold-icon-sm"></i> GENERAL ENQUIRIES</span>
-            <h2 class="section-title">Send Us an <span class="gold-gradient-text">Email Message</span></h2>
-            <p class="section-subtitle">For bespoke requests, group enquiries, or general questions, our concierge desk is available to assist.</p>
-            <div class="gold-line-divider"></div>
-        </div>
-
-        <div class="ct-email-card">
-            <form action="<?= baseUrl('contact.php') ?>" method="POST" class="ct-form" id="ct-email-form">
-                <?= CsrfService::getHiddenInput() ?>
-                <input type="hidden" name="action" value="email">
-
-                <div class="ct-grid-3">
-                    <div class="form-group">
-                        <label for="email_name" class="ct-label">YOUR NAME <span class="required">*</span></label>
-                        <input type="text" id="email_name" name="name" class="ct-input" required placeholder="Your full name" autocomplete="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email_addr" class="ct-label">EMAIL ADDRESS <span class="required">*</span></label>
-                        <input type="email" id="email_addr" name="email" class="ct-input" required placeholder="your.email@example.com" autocomplete="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="email_phone" class="ct-label">PHONE NUMBER</label>
-                        <input type="tel" id="email_phone" name="phone" class="ct-input" placeholder="+94 77 123 4567" autocomplete="tel">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email_msg" class="ct-label">MESSAGE <span class="required">*</span></label>
-                    <textarea id="email_msg" name="message" class="ct-textarea" rows="4" required placeholder="How can we assist you?"></textarea>
-                </div>
-
-                <div class="text-center" style="margin-top:28px;">
-                    <button type="submit" class="btn-hero-primary ct-btn-email-submit" id="btn-submit-email">
-                        <i class="fa-regular fa-paper-plane"></i> SEND EMAIL ENQUIRY
-                    </button>
-                </div>
-            </form>
-        </div>
 
     </div>
 </section>

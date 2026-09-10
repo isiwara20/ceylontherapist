@@ -19,14 +19,28 @@ function openFhModal(data) {
         const span = durationEl.querySelector('span');
         if (span) span.textContent = (data.duration || 60) + ' Min';
     }
+    const priceEl = document.getElementById('fhModalPrice');
+    if (priceEl) {
+        if (data.price) {
+            const pSpan = priceEl.querySelector('span');
+            if (pSpan) pSpan.textContent = data.price;
+            priceEl.style.display = 'inline-flex';
+        } else {
+            priceEl.style.display = 'none';
+        }
+    }
     if (imgEl) {
-        imgEl.src = data.img || '';
+        imgEl.src = data.image || data.img || '';
         imgEl.alt = data.name || 'Treatment Experience';
     }
     if (bookBtn) {
-        const waNum = (window.CT_WHATSAPP || '94762244114');
-        const text = encodeURIComponent('Hello Ceylon Therapist, I would like to reserve the ' + (data.name || 'For Her') + ' private session.');
-        bookBtn.href = 'https://wa.me/' + waNum + '?text=' + text;
+        if (data.waLink) {
+            bookBtn.href = data.waLink;
+        } else {
+            const waNum = (window.CT_WHATSAPP || '94762244114');
+            const text = encodeURIComponent('Hello Ceylon Therapist, I would like to reserve the ' + (data.name || 'For Her') + ' private session.');
+            bookBtn.href = 'https://wa.me/' + waNum + '?text=' + text;
+        }
     }
 
     if (modal) {

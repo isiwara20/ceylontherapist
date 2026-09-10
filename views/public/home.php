@@ -92,10 +92,21 @@
                             <div class="card-tag <?= $catCode === 'FOR_HER' ? 'tag-burgundy' : ($catCode === 'COUPLES' ? 'tag-gold' : '') ?>">
                                 <?= (int)$service['duration_minutes'] ?> Minutes
                             </div>
+                            <?php if (!empty($service['price'])): ?>
+                                <div class="card-tag card-tag-price">
+                                    <i class="fa-solid fa-tag" style="font-size:0.75rem;"></i> <?= formatPrice($service['price']) ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="card-img-overlay"></div>
                         </div>
                         <div class="card-content">
                             <h3 class="card-title"><?= e($service['name']) ?></h3>
+                            <?php if (!empty($service['price'])): ?>
+                                <div class="card-price-under-title" style="color:var(--color-champagne-gold, #d5a653);font-size:1.05rem;font-weight:700;margin-top:4px;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+                                    <i class="fa-solid fa-tag" style="font-size:0.8rem;opacity:0.85;"></i>
+                                    <span><?= formatPrice($service['price']) ?></span>
+                                </div>
+                            <?php endif; ?>
                             <p class="card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A focused therapeutic experience designed for deep restorative comfort.') ?></p>
                             <a href="<?= $targetUrl ?>" class="card-cta-btn">
                                 VIEW EXPERIENCE <i class="fa-solid fa-arrow-right-long"></i>

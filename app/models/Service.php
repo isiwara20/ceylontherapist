@@ -154,8 +154,8 @@ class Service
      */
     public function create(array $data): int
     {
-        $sql = "INSERT INTO services (category_id, name, slug, short_description, description, duration_minutes, image, status, display_order, created_at, updated_at)
-                VALUES (:category_id, :name, :slug, :short_description, :description, :duration_minutes, :image, :status, :display_order, NOW(), NOW())";
+        $sql = "INSERT INTO services (category_id, name, slug, short_description, description, duration_minutes, price, image, status, display_order, created_at, updated_at)
+                VALUES (:category_id, :name, :slug, :short_description, :description, :duration_minutes, :price, :image, :status, :display_order, NOW(), NOW())";
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':category_id', (int)$data['category_id'], PDO::PARAM_INT);
@@ -164,6 +164,7 @@ class Service
         $stmt->bindValue(':short_description', $data['short_description'] ?? null, PDO::PARAM_STR);
         $stmt->bindValue(':description', $data['description'] ?? null, PDO::PARAM_STR);
         $stmt->bindValue(':duration_minutes', (int)($data['duration_minutes'] ?? 60), PDO::PARAM_INT);
+        $stmt->bindValue(':price', isset($data['price']) && $data['price'] !== '' && $data['price'] !== null ? (float)$data['price'] : null, PDO::PARAM_STR);
         $stmt->bindValue(':image', $data['image'] ?? null, PDO::PARAM_STR);
         $stmt->bindValue(':status', $data['status'] ?? 'ACTIVE', PDO::PARAM_STR);
         $stmt->bindValue(':display_order', (int)($data['display_order'] ?? 0), PDO::PARAM_INT);
@@ -188,6 +189,7 @@ class Service
                     short_description = :short_description,
                     description = :description,
                     duration_minutes = :duration_minutes,
+                    price = :price,
                     image = :image,
                     status = :status,
                     display_order = :display_order,
@@ -201,6 +203,7 @@ class Service
         $stmt->bindValue(':short_description', $data['short_description'] ?? null, PDO::PARAM_STR);
         $stmt->bindValue(':description', $data['description'] ?? null, PDO::PARAM_STR);
         $stmt->bindValue(':duration_minutes', (int)($data['duration_minutes'] ?? 60), PDO::PARAM_INT);
+        $stmt->bindValue(':price', isset($data['price']) && $data['price'] !== '' && $data['price'] !== null ? (float)$data['price'] : null, PDO::PARAM_STR);
         $stmt->bindValue(':image', $data['image'] ?? null, PDO::PARAM_STR);
         $stmt->bindValue(':status', $data['status'] ?? 'ACTIVE', PDO::PARAM_STR);
         $stmt->bindValue(':display_order', (int)($data['display_order'] ?? 0), PDO::PARAM_INT);

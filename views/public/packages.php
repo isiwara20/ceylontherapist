@@ -21,6 +21,12 @@
                         
                         <div class="package-card-body">
                             <h3 class="package-title"><?= e($pkg['title']) ?></h3>
+                            <?php if (!empty($pkg['price'])): ?>
+                                <div class="package-price-under-title" style="color:var(--color-champagne-gold, #d5a653);font-size:1.15rem;font-weight:700;margin-top:6px;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+                                    <i class="fa-solid fa-tag" style="font-size:0.85rem;opacity:0.85;"></i>
+                                    <span><?= formatPrice($pkg['price']) ?></span>
+                                </div>
+                            <?php endif; ?>
                             <p class="package-desc"><?= e($pkg['short_description'] ?? '') ?></p>
                             
                             <div class="package-meta">

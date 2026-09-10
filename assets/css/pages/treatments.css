@@ -166,6 +166,45 @@
     gap: 6px;
 }
 
+.treatment-price-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: linear-gradient(135deg, rgba(18, 5, 8, 0.88) 0%, rgba(7, 7, 7, 0.92) 100%);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(213, 166, 83, 0.45);
+    color: var(--color-champagne-gold, #d5a653);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.treatment-header-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.treatment-header-meta .treatment-badge {
+    margin-bottom: 0;
+}
+
+.treatment-card-price {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-champagne-gold, #d5a653);
+    letter-spacing: 0.5px;
+}
+
 /* ----- Treatment Badges ----- */
 .treatment-badge {
     display: inline-block;

@@ -2,7 +2,6 @@
 
 <?php
 $footerWa = defined('DEFAULT_WHATSAPP_NUMBER') ? DEFAULT_WHATSAPP_NUMBER : '94762244114';
-$footerEmail = defined('DEFAULT_BUSINESS_EMAIL') ? DEFAULT_BUSINESS_EMAIL : 'info@ceylontherapist.lk';
 ?>
 
 <footer class="public-footer">
@@ -15,7 +14,6 @@ $footerEmail = defined('DEFAULT_BUSINESS_EMAIL') ? DEFAULT_BUSINESS_EMAIL : 'inf
             <p class="footer-brand-desc">Private wellness experiences designed around relaxation, comfort and personal well-being in Sri Lanka.</p>
             <div class="footer-socials">
                 <a href="https://wa.me/<?= $footerWa ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:<?= $footerEmail ?>" aria-label="Email" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
         
@@ -38,8 +36,7 @@ $footerEmail = defined('DEFAULT_BUSINESS_EMAIL') ? DEFAULT_BUSINESS_EMAIL : 'inf
             <h4 class="footer-title">Contact &amp; Location</h4>
             <div class="contact-list">
                 <p class="contact-item"><i class="fa-solid fa-location-dot gold-icon"></i> <span>Sri Lanka</span></p>
-                <p class="contact-item"><i class="fa-solid fa-phone gold-icon"></i> <a href="tel:+<?= $footerWa ?>">+<?= $footerWa ?></a></p>
-                <p class="contact-item"><i class="fa-solid fa-envelope gold-icon"></i> <a href="mailto:<?= $footerEmail ?>"><?= $footerEmail ?></a></p>
+                <p class="contact-item"><i class="fa-brands fa-whatsapp gold-icon"></i> <a href="https://wa.me/<?= $footerWa ?>" target="_blank" rel="noopener noreferrer">+<?= $footerWa ?></a></p>
             </div>
         </div>
 
@@ -55,7 +52,7 @@ $footerEmail = defined('DEFAULT_BUSINESS_EMAIL') ? DEFAULT_BUSINESS_EMAIL : 'inf
     
     <div class="footer-bottom">
         <div class="container footer-bottom-flex">
-            <p>&copy; <?= date('Y') ?> Ceylon Therapist. All Rights Reserved. &bull; <a href="<?= baseUrl('login.php') ?>" style="color:inherit;opacity:0.35;text-decoration:none;" title="Staff Admin Portal">Admin</a></p>
+            <p>&copy; <?= date('Y') ?> Ceylon Therapist. All Rights Reserved. &bull; Developed By <a href="https://www.facebook.com/share/1FdKVkAS6X/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer-developer-link" style="color:var(--color-champagne-gold, #D4AF37);text-decoration:none;">CHANDILA</a></p>
             <p class="footer-tagline">Private &bull; Discreet &bull; Restorative</p>
         </div>
     </div>

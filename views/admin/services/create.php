@@ -1,4 +1,4 @@
-﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
 <?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="form-grid-3">
+        <div class="form-grid-2">
             <!-- Category -->
             <div class="form-group">
                 <label for="category_id">Category <span class="required">*</span></label>
@@ -54,12 +54,6 @@
                 </select>
             </div>
 
-            <!-- Duration -->
-            <div class="form-group">
-                <label for="duration_minutes">Duration (Minutes) <span class="required">*</span></label>
-                <input type="number" id="duration_minutes" name="duration_minutes" class="admin-input" required min="15" step="15" value="<?= e(post('duration_minutes', '60')) ?>">
-            </div>
-
             <!-- Status -->
             <div class="form-group">
                 <label for="status">Status <span class="required">*</span></label>
@@ -67,6 +61,21 @@
                     <option value="ACTIVE" <?= post('status', 'ACTIVE') === 'ACTIVE' ? 'selected' : '' ?>>ACTIVE (Visible to Public)</option>
                     <option value="INACTIVE" <?= post('status') === 'INACTIVE' ? 'selected' : '' ?>>INACTIVE (Hidden)</option>
                 </select>
+            </div>
+        </div>
+
+        <div class="form-grid-2">
+            <!-- Duration -->
+            <div class="form-group">
+                <label for="duration_minutes">Duration (Minutes) <span class="required">*</span></label>
+                <input type="number" id="duration_minutes" name="duration_minutes" class="admin-input" required min="15" step="15" value="<?= e(post('duration_minutes', '60')) ?>">
+            </div>
+
+            <!-- Price -->
+            <div class="form-group">
+                <label for="price">Price (<?= defined('DEFAULT_CURRENCY') ? DEFAULT_CURRENCY : 'LKR' ?>)</label>
+                <input type="number" id="price" name="price" class="admin-input" min="0" step="0.01" placeholder="e.g. 8500.00" value="<?= e(post('price', '')) ?>">
+                <small style="color:var(--admin-muted);font-size:11px;">Leave blank or 0 for price upon inquiry</small>
             </div>
         </div>
 

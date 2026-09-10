@@ -127,12 +127,16 @@ class PackageController
 
         $serviceIds = isset($_POST['service_ids']) && is_array($_POST['service_ids']) ? array_map('intval', $_POST['service_ids']) : [];
 
+        $priceInput = post('price');
+        $price = ($priceInput !== null && $priceInput !== '' && is_numeric($priceInput)) ? (float)$priceInput : null;
+
         $data = [
             'title' => $title,
             'slug' => $slug,
             'short_description' => post('short_description'),
             'description' => post('description'),
             'duration_minutes' => (int)post('duration_minutes', '90'),
+            'price' => $price,
             'image' => $imagePath,
             'status' => post('status', 'ACTIVE'),
             'display_order' => (int)post('display_order', '0')
@@ -215,12 +219,16 @@ class PackageController
 
         $serviceIds = isset($_POST['service_ids']) && is_array($_POST['service_ids']) ? array_map('intval', $_POST['service_ids']) : [];
 
+        $priceInput = post('price');
+        $price = ($priceInput !== null && $priceInput !== '' && is_numeric($priceInput)) ? (float)$priceInput : null;
+
         $data = [
             'title' => $title,
             'slug' => $slug,
             'short_description' => post('short_description'),
             'description' => post('description'),
             'duration_minutes' => (int)post('duration_minutes', '90'),
+            'price' => $price,
             'image' => $imagePath,
             'status' => post('status', 'ACTIVE'),
             'display_order' => (int)post('display_order', '0')

@@ -1,4 +1,4 @@
-﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
 <?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Title & Header Actions -->
@@ -207,6 +207,7 @@
                         <th>Treatment</th>
                         <th>Category</th>
                         <th>Duration</th>
+                        <th>Price</th>
                         <th>Display Order</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -217,12 +218,22 @@
                         <tr>
                             <td>
                                 <strong><?= e($srv['name']) ?></strong>
+                                <?php if (!empty($srv['price'])): ?>
+                                    <br><span style="color:var(--admin-gold);font-weight:700;font-size:12px;"><i class="fa-solid fa-tag" style="font-size:10px;opacity:0.8;"></i> <?= formatPrice($srv['price']) ?></span>
+                                <?php endif; ?>
                                 <?php if (!empty($srv['short_description'])): ?>
                                     <br><small style="color: var(--admin-muted);"><?= e(substr($srv['short_description'], 0, 60)) ?>...</small>
                                 <?php endif; ?>
                             </td>
                             <td><span class="badge-status badge-new"><?= e($srv['category_name'] ?? 'General') ?></span></td>
                             <td><?= (int)$srv['duration_minutes'] ?> mins</td>
+                            <td>
+                                <?php if (!empty($srv['price'])): ?>
+                                    <strong style="color:var(--admin-gold);"><?= formatPrice($srv['price']) ?></strong>
+                                <?php else: ?>
+                                    <span style="color:var(--admin-muted);font-style:italic;">Not Set</span>
+                                <?php endif; ?>
+                            </td>
                             <td><?= (int)$srv['display_order'] ?></td>
                             <td><span class="badge-status badge-active"><?= e($srv['status']) ?></span></td>
                             <td>

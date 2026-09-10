@@ -1,4 +1,4 @@
-﻿<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
+<?php require BASE_PATH . '/views/layouts/admin-header.php'; ?>
 <?php require BASE_PATH . '/views/layouts/admin-sidebar.php'; ?>
 
 <!-- Page Header -->
@@ -33,10 +33,16 @@
             </div>
         </div>
 
-        <div class="form-grid-2">
+        <div class="form-grid-3">
             <div class="form-group">
                 <label for="duration_minutes">Total Duration (Minutes) <span class="required">*</span></label>
                 <input type="number" id="duration_minutes" name="duration_minutes" class="admin-input" required min="30" step="15" value="<?= (int)$package['duration_minutes'] ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="price">Package Price (<?= defined('DEFAULT_CURRENCY') ? DEFAULT_CURRENCY : 'LKR' ?>)</label>
+                <input type="number" id="price" name="price" class="admin-input" min="0" step="0.01" placeholder="e.g. 22500.00" value="<?= !empty($package['price']) ? e((string)$package['price']) : '' ?>">
+                <small style="color:var(--admin-muted);font-size:11px;">Leave blank or 0 for inquiry</small>
             </div>
 
             <div class="form-group">

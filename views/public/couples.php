@@ -68,7 +68,8 @@
                 foreach ($services as $service): 
                     $icon = $icons[$i % count($icons)];
                     $img = mediaUrl($service['image'], 'assets/images/couples_banner.jpg');
-                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to view details and book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min) Couples experience.');
+                    $priceText = !empty($service['price']) ? ' - ' . formatPrice($service['price']) : '';
+                    $waMsg = urlencode('Hello Ceylon Therapist, I would like to view details and book the ' . $service['name'] . ' (' . $service['duration_minutes'] . ' min' . $priceText . ') Couples experience.');
                     $waLink = 'https://wa.me/' . DEFAULT_WHATSAPP_NUMBER . '?text=' . $waMsg;
                     $i++;
                 ?>
@@ -76,6 +77,11 @@
                         <div class="cp-card-img-box">
                             <img src="<?= $img ?>" alt="<?= e($service['name']) ?>" class="cp-card-img">
                             <div class="cp-card-img-overlay"></div>
+                            <?php if (!empty($service['price'])): ?>
+                                <div class="cp-card-price-tag">
+                                    <i class="fa-solid fa-tag" style="font-size:0.75rem;"></i> <?= formatPrice($service['price']) ?>
+                                </div>
+                            <?php endif; ?>
                             <div class="cp-card-duration-tag">
                                 <i class="fa-regular fa-clock"></i> <?= (int)$service['duration_minutes'] ?> MINUTES
                             </div>
@@ -85,6 +91,12 @@
                                 <i class="fa-solid <?= $icon ?>"></i>
                             </div>
                             <h3 class="cp-card-title"><?= e($service['name']) ?></h3>
+                            <?php if (!empty($service['price'])): ?>
+                                <div class="cp-card-price-under-title" style="color:var(--color-champagne-gold, #d5a653);font-size:1.1rem;font-weight:700;margin-top:6px;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+                                    <i class="fa-solid fa-tag" style="font-size:0.85rem;opacity:0.85;"></i>
+                                    <span><?= formatPrice($service['price']) ?></span>
+                                </div>
+                            <?php endif; ?>
                             <p class="cp-card-desc"><?= e($service['short_description'] ?? $service['description'] ?? 'A calm private experience designed for couples to relax, reconnect and unwind together.') ?></p>
                             <a href="<?= $waLink ?>" target="_blank" rel="noopener noreferrer" class="cp-card-btn">
                                 RESERVE PRIVATELY <i class="fa-solid fa-arrow-right-long"></i>
